@@ -17,7 +17,7 @@ call plug#end()
 "------------------------------------------------------------------------------
 " Basic settings (set up CoC or move to Neovim and use their LSP)
 "------------------------------------------------------------------------------
-"set number relativenumber      " Show relative line numbers
+" set number relativenumber      " Show relative line numbers
 set ruler                      " Show line number, column number, and % in statusline
 set path+=**                   " Searches current directory recursively
 set wildmenu                   " Display all matches when tab complete
@@ -85,6 +85,8 @@ let g:fzf_colors =
 "------------------------------------------------------------------------------
 " Map leader
 let mapleader = " "
+
+" Remap Q instead of Ex mode
 nnoremap Q :q<CR>
 
 " Keep selection when shifting
@@ -110,7 +112,6 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 nnoremap <C-D> <C-D>zz
 nnoremap <C-U> <C-U>zz
-"nnoremap G Gzz
 
 " Toggle fuzzy searching and buffers
 nnoremap <silent> <C-p> :Files<CR>
@@ -149,6 +150,7 @@ noremap <silent> <leader>e  :call ToggleNetrw()<CR>
 "------------------------------------------------------------------------------
 " Zen mod
 "------------------------------------------------------------------------------
+" Only works if number and relativenumber is enabled by default.
 let s:hidden_all = 0
 function! ToggleHiddenAll()
     if s:hidden_all  == 0
@@ -164,5 +166,5 @@ function! ToggleHiddenAll()
     endif
 endfunction
 
-" Toggle zen mode via shift+h
+" Toggle zen mode via shift+z
 nnoremap <silent> <leader>z  :call ToggleHiddenAll()<CR>
