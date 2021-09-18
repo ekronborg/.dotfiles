@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# export TERM=xterm-256color
+export TERM=xterm-256color
 
 # add cargo/bin to path for exa alias
 PATH="$HOME/.cargo/bin${PATH:+:${PATH}}"
