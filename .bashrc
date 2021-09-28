@@ -2,9 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Comment (https://github.com/morhetz/gruvbox/wiki/Terminal-specific)
+source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+
 export TERM=xterm-256color
 
-# add cargo/bin to path for exa alias
+# Add cargo/bin to path for exa alias
 PATH="$HOME/.cargo/bin${PATH:+:${PATH}}"
 
 # set default text editor
@@ -68,12 +71,21 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+
+CYAN='\e[1;96m'
+# CYAN='\[\033[1;96m\]'
+NORMAL='\033[0m'
 if [ "$color_prompt" = yes ]; then
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\][\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]]\[\033[00m\]\$ '
     PS1='[\u@\h \[\033[1;96m\]\w\[\033[00m\]]\[\033[00m\]$ ' 
+    # PS1='[\u@\h \[\033[1;36m\]\w\[\033[00m\]]\[\033[00m\]$ ' 
+    # PS1='\[\033[31m\][\[\033[33m\]\u\[\033[32m\]@\[\033[34m\]\h \[\033[35m\]\w\[\033[31m\]]\[\033[00m\]$ '
+    # PS1='\[\033[1;31m\][\[\033[1;33m\]\u\[\033[1;32m\]@\[\033[1;34m\]\h \[\033[1;35m\]\w\[\033[1;31m\]]\[\033[00m\]$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
-unset color_prompt force_color_prompt
+# unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -97,7 +109,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
