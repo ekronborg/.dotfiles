@@ -9,15 +9,15 @@ function fish_prompt
         printf "%s" "$USER"
         printf "@"
         printf "%s" "$hostname"
-        # set_color purple --bold
         set_color "#8ec07c" --bold
         printf " %s" (prompt_long_pwd)
         set_color normal
         printf "] "
-        # printf "%s " (__fish_git_prompt)
         set_color normal
 end
 
 # Using exa for more colors
-# set -Ua fish_user_paths $HOME/.cargo/bin
 alias ls='exa -al --color=always --group-directories-first'
+
+# Set vim as default editor
+set -gx EDITOR vim

@@ -6,26 +6,26 @@ syntax on                 " Enable syntax highlightning
 "------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
-"Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
-" Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-surround'
 call plug#end()
 
 "------------------------------------------------------------------------------
-" Basic settings (set up CoC or move to Neovim and use their LSP)
+" Basic settings (set up CoC or move to Neovim and use built-in LSP)
 "------------------------------------------------------------------------------
-" set number relativenumber      " Show relative line numbers
-set ruler                      " Show line number, column number, and % in statusline
-set path+=**                   " Searches current directory recursively
+"set number relativenumber      " Show relative line numbers
+set ruler                      " Show line number, column number, and %
+set path+=**                   " Searches current directory recursively (incl. subfolders)
 set wildmenu                   " Display all matches when tab complete
 set wildmode=longest,list,full " Better tab completion
 set mouse=a                    " Enable mouse
 set backspace=indent,eol,start " Make delete act normal
 set clipboard=unnamedplus      " Copy/paste between vim and other programs (use mouse middle-click)
-set laststatus=2               " Always show statusline
+set laststatus=0               " 2 = always show, 0 = never show
 set expandtab                  " Use spaces instead of tabs
 set smarttab                   " Auto tabbing
 set autoindent                 " Automatical indentation of new lines
@@ -42,10 +42,9 @@ set scrolloff=5                " Always show 8 lines when scrolling
 set ttimeoutlen=10             " Lower timeout for commands (faster escape to normal mode)
 set splitbelow                 " Split below
 set splitright                 " Split right
-let loaded_matchparen = 1      " Disable matching parentheses (built-in plugin)
 set t_md=                      " Disable all bold font
-" set colorcolumn=110            " Show column at 110th column
-" set fillchars+=vert:\          " Disable pipe as seperator for splits
+" let loaded_matchparen = 1      " Disable matching parentheses (built-in plugin)
+" set colorcolumn=100            " Show column at 100th column
 
 "------------------------------------------------------------------------------
 " Colorscheme settings
@@ -55,14 +54,13 @@ set background=dark " Dark background
 colorscheme gruvbox
 
 " Set absolute path and colorscheme of lightline. We also disable current mode
-" via no showmode
-"set noshowmode
-"let g:lightline = {
-"    \ 'active': {
-"    \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
-"    \ },
-"    \ 'colorscheme': 'gruvbox',
-"    \ }
+" set noshowmode
+" let g:lightline = {
+"     \ 'active': {
+"     \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
+"     \ },
+"     \ 'colorscheme': 'gruvbox',
+"     \ }
 
 " Customize fzf colors to match colors set above
 let g:fzf_colors =                                                                         
@@ -85,8 +83,6 @@ let g:fzf_colors =
 "------------------------------------------------------------------------------
 " Map leader
 let mapleader = " "
-
-" Remap Q instead of Ex mode
 nnoremap Q :q<CR>
 
 " Keep selection when shifting
@@ -96,26 +92,29 @@ vnoremap < <gv
 " Make Y work like the rest of the capital letters
 nnoremap Y y$ 
 
-" Navigate between splits with CTRL + hjkl
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Move in long lines
 nnoremap j gj
 nnoremap k gk
 
 " Keeping the cursor centered
+" https://www.youtube.com/watch?v=hSHATqh8svM
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 nnoremap <C-D> <C-D>zz
 nnoremap <C-U> <C-U>zz
 
+" Black hole register
+" https://stackoverflow.com/questions/11993851/how-to-delete-not-cut-in-vim
+
 " Toggle fuzzy searching and buffers
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+
+"------------------------------------------------------------------------------
+" Use ripgrep instead of default grep
+"------------------------------------------------------------------------------
+set grepprg=rg\ --vimgrep
 
 "------------------------------------------------------------------------------
 " Set up netrw instead of Nerdtree (save a plugin)
@@ -146,25 +145,3 @@ endfunction
 
 " Toggle explorer with leader+e (use 'v' and 'o' to open in splits)
 noremap <silent> <leader>e  :call ToggleNetrw()<CR>
-
-"------------------------------------------------------------------------------
-" Zen mod
-"------------------------------------------------------------------------------
-" Only works if number and relativenumber is enabled by default.
-let s:hidden_all = 0
-function! ToggleHiddenAll()
-    if s:hidden_all  == 0
-        let s:hidden_all = 1
-        set nonumber! norelativenumber! " '!' toggles the option
-        set laststatus=0
-        set noshowcmd
-        set noruler
-    else
-        let s:hidden_all = 0
-        set number! relativenumber!
-        set laststatus=2
-    endif
-endfunction
-
-" Toggle zen mode via shift+z
-nnoremap <silent> <leader>z  :call ToggleHiddenAll()<CR>
