@@ -3,4 +3,4 @@
 - `~/.tmux.conf`
 - `~/.config/fish`
 - `~/.config/alacritty/alacritty.yml`
-- `~/.mozilla/firefox/<profile name>`
+- `~/.mozilla/firefox/<profile name>/user-overrides.js`

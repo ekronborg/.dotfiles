@@ -6,18 +6,16 @@ syntax on                 " Enable syntax highlightning
 "------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
-" Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-surround'
 call plug#end()
 
 "------------------------------------------------------------------------------
-" Basic settings (set up CoC or move to Neovim and use built-in LSP)
+" Basic settings
+" TODO: set up CoC or move to Neovim and use built-in LSP 
 "------------------------------------------------------------------------------
-"set number relativenumber      " Show relative line numbers
 set ruler                      " Show line number, column number, and %
 set path+=**                   " Searches current directory recursively (incl. subfolders)
 set wildmenu                   " Display all matches when tab complete
@@ -38,13 +36,11 @@ set noshowmatch                " Disable highlighting of matching brackets
 set hidden                     " Required to keep multiple buffers open
 set nobackup                   " Disable automatic backup files
 set noswapfile                 " Disable swapfile
-set scrolloff=5                " Always show 8 lines when scrolling
+set scrolloff=5                " Always show 5 lines when scrolling
 set ttimeoutlen=10             " Lower timeout for commands (faster escape to normal mode)
 set splitbelow                 " Split below
 set splitright                 " Split right
 set t_md=                      " Disable all bold font
-" let loaded_matchparen = 1      " Disable matching parentheses (built-in plugin)
-" set colorcolumn=100            " Show column at 100th column
 
 "------------------------------------------------------------------------------
 " Colorscheme settings
@@ -52,15 +48,6 @@ set t_md=                      " Disable all bold font
 set termguicolors   " Set 24-bit RGB color 
 set background=dark " Dark background
 colorscheme gruvbox
-
-" Set absolute path and colorscheme of lightline. We also disable current mode
-" set noshowmode
-" let g:lightline = {
-"     \ 'active': {
-"     \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
-"     \ },
-"     \ 'colorscheme': 'gruvbox',
-"     \ }
 
 " Customize fzf colors to match colors set above
 let g:fzf_colors =                                                                         
@@ -112,7 +99,7 @@ nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
 "------------------------------------------------------------------------------
-" Use ripgrep instead of default grep
+" Use ripgrep instead of default vimgrep
 "------------------------------------------------------------------------------
 set grepprg=rg\ --vimgrep
 
