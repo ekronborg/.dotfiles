@@ -5,6 +5,8 @@ syntax on                 " Enable syntax highlightning
 " Plugins 
 "------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
+" Plug 'joshdick/onedark.vim'
+Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -42,14 +44,21 @@ set splitright                       " Split right
 set t_md=                            " Disable all bold font
 set omnifunc=syntaxcomplete#Complete " Enable omnifunc (C-x C-o)
 set fillchars+=vert:│                " Solid line instead of dashed line
-set clipboard=unnamedplus
+set clipboard=unnamedplus            " Use system clipboard
+" set number                           " Enable line numbers
+" set cursorline                       " Enable highlightning of current line
 
 "------------------------------------------------------------------------------
 " Colorscheme settings
 "------------------------------------------------------------------------------
-set termguicolors   " Set 24-bit RGB color 
-set background=dark " Dark background
-colorscheme gruvbox
+" set termguicolors   " Set 24-bit RGB color 
+if has('nvim') || has('termguicolors')
+    set termguicolors
+endif
+set background=dark
+" colorscheme gruvbox
+" colorscheme onedark
+colorscheme gruvbox-material
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options

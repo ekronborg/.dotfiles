@@ -1,33 +1,27 @@
-# Window configuration
+# Window configuration (full or none)
 window:
-  decorations: none # full or none
+  decorations: none
 
 # Font configuration (monospace is standard)
 font:
   normal:
-    family: Ubuntu Mono
     style: Regular
 
   bold:
-    family: Ubuntu Mono
     style: Bold
 
   italic:
-    family: Ubuntu Mono
     style: Italic
 
   bold_italic:
-    family: Ubuntu Mono
     style: Bold Italic
   
-  size: 14.0
+  size: 12.0
 
 # Colors (Gruvbox dark)
 colors:
   primary:
-    # hard contrast background - '#1d2021'
     background:        &gruvbox_dark_bg '#282828'
-    # soft contrast background - '#32302f'
     foreground:        '#ebdbb2'
     bright_foreground: '#fbf1c7'
     dim_foreground:    '#a89984'
@@ -37,19 +31,6 @@ colors:
   vi_mode_cursor:
     text:   CellBackground
     cursor: CellForeground
-  # search:
-  #   matches:
-  #     foreground: '#000000'
-  #     background: '#ffffff'
-  #   focused_match:
-  #    foreground: CellBackground
-  #    background: CellForeground
-  #   bar:
-  #     background: ''
-  #     foreground: ''
-  # line_indicator:
-  #   foreground: None
-  #   background: None
   selection:
     text:       CellBackground
     background: CellForeground
@@ -80,4 +61,3 @@ colors:
     magenta: '#8f3f71'
     cyan:    '#427b58'
     white:   '#928374'
-  # indexed_colors: []
