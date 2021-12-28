@@ -71,9 +71,11 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
+source ~/.git-prompt.sh # https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 if [ "$color_prompt" = yes ]; then
-    PS1='[\u@\h \[\033[1;96m\]\w\[\033[00m\]]\[\033[00m\]$ ' 
+    # PS1='[\u@\h \[\033[1;96m\]\w\[\033[00m\]]\[\033[00m\]$ ' 
+    # PS1='[\u@\h \[\033[1;96m\]\w\[\033[00m\]]\$ ' 
+    PS1='[\u@\h \[\033[1;96m\]\w\[\033[00m\]$(__git_ps1 " (%s)")]\$ ' 
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -111,6 +113,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
+alias update='sudo apt update && sudo apt upgrade'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
