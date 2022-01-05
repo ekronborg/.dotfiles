@@ -3,7 +3,7 @@
 # for examples
 
 # Comment (https://github.com/morhetz/gruvbox/wiki/Terminal-specific)
-source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+# source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 export TERM=xterm-256color
 
@@ -100,6 +100,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+
+    # add verbosity
+    alias cp='cp -iv'
+    alias mv='mv -iv'
+    alias rm='rm -Iv'
+    alias mkdir='mkdir -pv'
 fi
 
 # colored GCC warnings and errors
