@@ -3,7 +3,7 @@
 - `~/.bashrc` 
 - `~/.tmux.conf`
 - `~/.config/fish`
-- `~/.config/alacritty/alacritty.yml`
+- `~/.alacritty.yml`
 - `~/.mozilla/firefox/<profile name>/user-overrides.js`
 
 ### Misc
