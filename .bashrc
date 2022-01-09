@@ -2,9 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# Comment (https://github.com/morhetz/gruvbox/wiki/Terminal-specific)
-# source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
-
 export TERM=xterm-256color
 
 # Add cargo/bin to path for exa alias

@@ -1,12 +1,43 @@
-### Location of files
-- `~/.vimrc`
-- `~/.bashrc` 
-- `~/.tmux.conf`
-- `~/.config/fish`
-- `~/.alacritty.yml`
+## Configuration files
 
-### Misc
-- To copy/paste between Vim and other programs, Vim with `xterm_clipboard` must be installed. To check if this is installed, see the output of `vim --version | grep xterm`. If not installed, it can be installed by installing Gvim: `sudo apt install vim-gtk3`.
-- Ripgrep must be installed to use `:Rg` with the pluging for fzf: `sudo apt install ripgrep`.
-- See https://stackoverflow.com/questions/11993851/how-to-delete-not-cut-in-vim for black hole register, i.e., delete something without saving it in a register that is being used.
+This repository is a collection of my personal configuration files used for:
+
+1. Deploying my configurations on fresh installations
+2. Version control.
+
+Currently, configurations files are included for:
+
+* Alacritty
+* Bash
+* Tmux
+* Vim
+* Fish
+
+### Usage
+
+##### Deploying
+
+1. Backup your current configurations files
+2. Clone this repository
+3. Run `install.sh` 
+
+Please note that this will remove any existing configuration files and afterwards create symbolic links.
+
+##### Updating
+
+1. `git pull`
+
+### Dependencies
+
+* [exa](https://the.exa.website/introduction)
+* [ripgrep](https://github.com/BurntSushi/ripgrep)
+* [vim-plug](https://github.com/junegunn/vim-plug)
+
+### Tips
+
+* To use systemwide copy/paste with Vim, it must be compiled with `xterm_clipboard`. You can check this with `vim --version | grep xterm_clipboard`. If it is not installed, the gui-version of Vim typically includes `xterm_clipboard` and can be installed alongside regular Vim.
+
+### TODO
+
+* Include automatic backup of old configurations files (append with `.bak`)
 

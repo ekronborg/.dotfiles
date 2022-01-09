@@ -1,6 +1,3 @@
-# https://github.com/gruvbox-community/gruvbox/wiki/Terminal-Specific#a-256-color-gruvbox-palette-shellscript
-bash "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
-
 # [username@hostname PWD (git)]
 function fish_prompt
         set_color normal
