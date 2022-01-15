@@ -5,7 +5,7 @@ syntax on                 " Enable syntax highlightning
 " Plugins 
 "------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
-Plug 'sainnhe/gruvbox-material'
+" Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -49,14 +49,12 @@ set clipboard=unnamedplus            " Use system clipboard
 "------------------------------------------------------------------------------
 " Colorscheme settings
 "------------------------------------------------------------------------------
-if has('nvim') || has('termguicolors')
-    set termguicolors
-endif
+" if has('nvim') || has('termguicolors')
+"     set termguicolors
+" endif
 set background=dark
-" colorscheme gruvbox
-" let g:gruvbox_material_background='hard'
-" let g:gruvbox_material_palette='mix'
-colorscheme gruvbox-material
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
