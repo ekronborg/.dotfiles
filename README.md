@@ -14,9 +14,9 @@ To deploy on a fresh install, do the following:
 
 1. Backup your current configurations files
 2. Clone this repository
-3. Run `install.sh` 
+3. Run `install.sh`
 
-Please note that `install.sh` will ***remove*** any existing configuration files and afterwards create symbolic links to the files included in this repository. Herefter, the the latest changes can be pulled from git by `git pull`.
+Please note that `install.sh` will ***remove*** any existing configuration files and afterwards create symbolic links to the files included in this repository. Hereafter, the latest changes can be pulled from git by `git pull`.
 
 ## Dependencies
 
@@ -26,9 +26,12 @@ Please note that `install.sh` will ***remove*** any existing configuration files
 
 ## Tips
 
-* To use systemwide copy/paste with Vim, it must be compiled with `xterm_clipboard`. You can check this with `vim --version | grep xterm_clipboard`. If it is not installed, the gui-version of Vim is typically compiled with `xterm_clipboard` and can be installed alongside the regular version Vim.
+* To use systemwide copy/paste with Vim, it must be compiled with `xterm_clipboard`. You can check this with `vim --version | grep xterm_clipboard`. If it is not installed, the gui-version of Vim is typically compiled with `xterm_clipboard` and can be installed alongside the regular version of Vim.
 
 ## TODO
 
-* Include automatic backup of old configurations files (append with `.bak`)
+[ ] Include automatic backup of old configurations files (append with `.bak`)
 
+[ ] Create a script to installed needed packages
+
+[ ] Migrate to Neovim
