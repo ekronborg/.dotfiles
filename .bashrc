@@ -7,6 +7,19 @@ esac
 # Source global definitions (if any)
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
+elif [ -f /etc/bash.bashrc ]; then
+    . /etc/bash.bashrc
+fi
+
+# Enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
 fi
 
 # Add cargo/bin to path for exa alias
@@ -44,32 +57,23 @@ export LESS_TERMCAP_us=$'\e[4m'
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Set PS1 variable
-source $HOME/git-prompt.sh
-PS1='[\u@\h \[\033[1;96m\]\w\[\033[00m\]$(__git_ps1 " (%s)")]\$ ' 
+# source $HOME/git-prompt.sh
+source $HOME/.config/git-prompt.sh
+PS1='[\u@\h \[\033[1;96m\]\w\[\033[00m\]$(__git_ps1 " (%s)")]\$ '
 
 # Aliases
-alias ls='exa -al --color=always --group-directories-first'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias ll='exa -al --color=always --group-directories-first'
+alias lt='exa -al --tree --level=2 --color=always --group-directories-first'
+alias dir='dir --color=always'
+alias vdir='vdir --color=always'
+alias grep='grep --color=always'
+alias fgrep='fgrep --color=always'
+alias egrep='egrep --color=always'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -Iv'
 alias mkdir='mkdir -pv'
 alias up='sudo apt-get update && sudo apt-get upgrade -y'
-
-# Enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
 
 # Handy extract program
 extract() {

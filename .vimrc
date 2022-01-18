@@ -2,10 +2,10 @@ set nocompatible          " Required for Vi(improved) to work
 filetype plugin indent on " Required
 syntax on                 " Enable syntax highlightning
 "------------------------------------------------------------------------------
-" Plugins 
+" Plugins
 "------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
-" Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -16,7 +16,7 @@ call plug#end()
 
 "------------------------------------------------------------------------------
 " Basic settings
-" TODO: set up CoC or move to Neovim and use built-in LSP 
+" TODO: set up CoC or move to Neovim and use built-in LSP
 "------------------------------------------------------------------------------
 set ruler                            " Show line number, column number, and %
 set path+=**                         " Searches current directory recursively (incl. subfolders)
@@ -46,15 +46,28 @@ set omnifunc=syntaxcomplete#Complete " Enable omnifunc (C-x C-o)
 set fillchars+=vert:│                " Solid line instead of dashed line
 set clipboard=unnamedplus            " Use system clipboard
 
+" Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
 "------------------------------------------------------------------------------
-" Colorscheme settings
+" Color settings
 "------------------------------------------------------------------------------
-" if has('nvim') || has('termguicolors')
+" https://github.com/tmux/tmux/issues/1246
+" if has('nvim') || exists('+termguicolors')
+"     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "     set termguicolors
 " endif
 set background=dark
-let g:gruvbox_contrast_dark='hard'
+" let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
+" colorscheme gruvbox-material
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -74,7 +87,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 "------------------------------------------------------------------------------
-" Remappings 
+" Remappings
 "------------------------------------------------------------------------------
 " Map leader
 let mapleader = " "
@@ -85,7 +98,7 @@ vnoremap > >gv
 vnoremap < <gv
 
 " Make Y work like the rest of the capital letters
-nnoremap Y y$ 
+nnoremap Y y$
 
 " Move in long lines
 nnoremap j gj
@@ -98,7 +111,7 @@ nnoremap J mzJ`z
 nnoremap <C-D> <C-D>zz
 nnoremap <C-U> <C-U>zz
 
-" Toggle fuzzy searching and buffers
+" Fuzzy searching
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <C-f> :Rg 
@@ -107,6 +120,15 @@ nnoremap <C-f> :Rg
 " Use ripgrep instead of default vimgrep
 "------------------------------------------------------------------------------
 set grepprg=rg\ --vimgrep
+
+"------------------------------------------------------------------------------
+" Useful command to trim trailing whitespace
+"------------------------------------------------------------------------------
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+command Trim :call TrimWhiteSpace()
 
 "------------------------------------------------------------------------------
 " Set up netrw instead of Nerdtree (save a plugin)

@@ -4,19 +4,26 @@
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 cd $DIR
 
-# Array of dotfiles located in $HOME
+# Dotfiles located in $HOME
 DOTFILES=(
-    ".alacritty.yml"
     ".bashrc"
-    ".tmux.conf"
     ".vimrc"
+)
+
+# Directories located in $HOME/.config/ (and git-prompt.sh)
+DOTDIRS=(
+    "alacritty"
+    "fish"
+    "tmux"
     "git-prompt.sh"
 )
 
-# Create symbolic links to dotfiles
+# Create symbolic links to dotfiles in $HOME
 for dotfile in "${DOTFILES[@]}"; do
     ln -sfv `pwd`/$dotfile $HOME/$dotfile
 done
 
-# Create symbolic link to the fish directory
-ln -sfv `pwd`/fish $HOME/.config/
+# Create symbolic links to directories in $HOME/.config/
+for dotdir in "${DOTDIRS[@]}"; do
+    ln -sfv `pwd`/$dotdir $HOME/.config/
+done

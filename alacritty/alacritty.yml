@@ -2,26 +2,40 @@
 window:
   decorations: none
 
+  padding:
+    x: 2
+    y: 2
+
+
 # Font configuration (monospace is standard)
 font:
   normal:
+    family: monospace
+    # family: Ubuntu Mono
     style: Regular
 
   bold:
+    family: monospace
+    # family: Ubuntu Mono
     style: Bold
 
   italic:
+    family: monospace
+    # family: Ubuntu Mono
     style: Italic
 
   bold_italic:
+    family: monospace
+    # family: Ubuntu Mono
     style: Bold Italic
-  
+
   size: 12.0
 
-# Colors (Gruvbox dark)
+# Colors (Gruvbox dark) (#282828 = medium, #1d2021 = hard)
 colors:
   primary:
     background:        &gruvbox_dark_bg '#282828'
+    # background:        &gruvbox_dark_bg '#1d2021'
     foreground:        '#ebdbb2'
     bright_foreground: '#fbf1c7'
     dim_foreground:    '#a89984'
