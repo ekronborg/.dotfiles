@@ -23,7 +23,7 @@ if ! shopt -oq posix; then
 fi
 
 # Add cargo/bin to path for exa alias
-PATH="$HOME/.cargo/bin${PATH:+:${PATH}}"
+export PATH=$HOME/.cargo/bin:$PATH
 
 # Environment variables
 export TERM=xterm-256color
