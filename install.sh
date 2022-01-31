@@ -16,7 +16,7 @@ DOTFILES=(
 DOTDIRS=(
     "alacritty"
     "fish"
-	"nvim"
+    "nvim"
     "tmux"
     "git-prompt.sh"
 )

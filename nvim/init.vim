@@ -23,6 +23,7 @@ call plug#end()
 set path+=**
 set wildmode=longest,list,full
 set laststatus=0
+set expandtab
 set shiftwidth=4
 set tabstop=4
 set ignorecase
