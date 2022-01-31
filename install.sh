@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Get path of script and change working directory
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 cd $DIR
@@ -14,6 +16,7 @@ DOTFILES=(
 DOTDIRS=(
     "alacritty"
     "fish"
+	"nvim"
     "tmux"
     "git-prompt.sh"
 )

@@ -10,26 +10,34 @@ window:
 # Font configuration (monospace is standard)
 font:
   normal:
-    family: monospace
+    family: Hack
+    # family: Jetbrains Mono
+    # family: monospace
     # family: Ubuntu Mono
     style: Regular
 
   bold:
-    family: monospace
+    family: Hack
+    # family: Jetbrains Mono
+    # family: monospace
     # family: Ubuntu Mono
     style: Bold
 
   italic:
-    family: monospace
+    family: Hack
+    # family: Jetbrains Mono
+    # family: monospace
     # family: Ubuntu Mono
     style: Italic
 
   bold_italic:
-    family: monospace
+    family: Hack
+    # family: Jetbrains Mono
+    # family: monospace
     # family: Ubuntu Mono
     style: Bold Italic
 
-  size: 12.0
+  size: 13.0
 
 # Colors (Gruvbox dark) (#282828 = medium, #1d2021 = hard)
 colors:

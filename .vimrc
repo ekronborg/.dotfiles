@@ -5,18 +5,15 @@ syntax on                 " Enable syntax highlightning
 " Plugins
 "------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
-Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-Plug 'dense-analysis/ale'
 call plug#end()
 
 "------------------------------------------------------------------------------
 " Basic settings
-" TODO: set up CoC or move to Neovim and use built-in LSP
 "------------------------------------------------------------------------------
 set ruler                            " Show line number, column number, and %
 set path+=**                         " Searches current directory recursively (incl. subfolders)
@@ -41,7 +38,6 @@ set ttimeoutlen=10                   " Lower timeout for commands (faster escape
 set updatetime=300                   " Default is 4000 ms
 set splitbelow                       " Split below
 set splitright                       " Split right
-set t_md=                            " Disable all bold font
 set omnifunc=syntaxcomplete#Complete " Enable omnifunc (C-x C-o)
 set fillchars+=vert:│                " Solid line instead of dashed line
 set clipboard=unnamedplus            " Use system clipboard
@@ -65,9 +61,7 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 "     set termguicolors
 " endif
 set background=dark
-" let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
-" colorscheme gruvbox-material
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options

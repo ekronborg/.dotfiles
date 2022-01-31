@@ -2,8 +2,9 @@
 
 set -e
 
-# # Update and upgrade
-sudo apt-get update && sudo apt-get upgrade -y
+# Update and upgrade
+echo "Updating the system"
+sudo apt-get -qq update && sudo apt-get -qqy upgrade
 
 # Packages to install
 PACKAGES=(
@@ -11,11 +12,11 @@ PACKAGES=(
     "tmux"
     "vim"
     "vim-gtk3"
+    "fonts-hack"
     "fish"
     "ripgrep"
     "cargo"
     "ranger"
-    "git"
     "curl"
     "wget"
     "build-essential"
@@ -29,7 +30,8 @@ PACKAGES=(
 
 # Install the above packages
 for package in "${PACKAGES[@]}"; do
-    sudo apt-get install -y $package
+    echo "Installing ${package}"
+    sudo apt-get -qqy install $package
 done
 
 # Install exa and add to path
@@ -38,8 +40,14 @@ if [[ ! "$PATH" =~ (^|:)"$HOME/.cargo/bin"(|/)(:|$) ]]; then
     export PATH=$HOME/.cargo/bin:$PATH
 fi
 
-# Install vim-plug if not installed
+# Install vim-plug for Vim if not installed
 if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# Install vim-plug for Neovim if not installed
+if [[ ! -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ]]; then
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
