@@ -2,6 +2,10 @@
 
 set -e
 
+# Get path of script and change working directory
+DIR="$(dirname "${BASH_SOURCE[0]}")"
+cd $DIR
+
 # Update the system
 echo "------------------------------------------------------------------------------------"
 echo "Updating the system..."
@@ -93,7 +97,7 @@ echo "--------------------------------------------------------------------------
 read -r -p "Source dotfiles and set up symlinks? [Y/n] " input
 case $input in
       [yY][eE][sS]|[yY])
-            source $HOME/Downloads/.dotfiles/install.sh
+            source $PWD/install.sh
             ;;
       [nN][oO]|[nN])
             exit 0
