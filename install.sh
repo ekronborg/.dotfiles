@@ -26,6 +26,11 @@ for dotfile in "${DOTFILES[@]}"; do
     ln -sfv `pwd`/$dotfile $HOME/$dotfile
 done
 
+# Delete $HOME/.config/nvim if it exists
+if [[ -d $HOME/.config/nvim ]]; then
+    rm -rf $HOME/.config/nvim
+fi
+
 # Create symbolic links to directories in $HOME/.config/
 for dotdir in "${DOTDIRS[@]}"; do
     ln -sfv `pwd`/$dotdir $HOME/.config/
