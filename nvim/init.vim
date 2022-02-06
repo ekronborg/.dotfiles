@@ -59,6 +59,9 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 " autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
+" Visual feedback when yanking (https://neovim.io/doc/user/lua.html#lua-highlight)
+au TextYankPost * silent! lua vim.highlight.on_yank()
+
 "------------------------------------------------------------------------------
 " Remappings
 "------------------------------------------------------------------------------
@@ -99,7 +102,7 @@ tnoremap <Esc> <C-\><C-N>
 set grepprg=rg\ --vimgrep
 
 "------------------------------------------------------------------------------
-" Command to trim trailing whitespace
+" Useful command to trim trailing whitespace
 "------------------------------------------------------------------------------
 function! TrimWhiteSpace()
     %s/\s\+$//e
