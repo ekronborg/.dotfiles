@@ -30,7 +30,7 @@ Please note that `install.sh` will ***remove*** any existing configuration files
 ## Tips
 
 * To use systemwide copy/paste with Vim, it must be compiled with `xterm_clipboard`. You can check this with `vim --version | grep xterm_clipboard`. If it is not installed, the gui-version of Vim is typically compiled with `xterm_clipboard` and can be installed alongside the regular version of Vim.
-* If you use Gnome DE (or PopOS!), you can install `gnome-tweaks` and switch <esc> and <Caps Lock>
+* If you use Gnome DE (or PopOS!), you can install `gnome-tweaks` and switch Esc and Caps Lock
 
 ## TODO
 
