@@ -6,6 +6,19 @@ set -e
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 cd $DIR
 
+# Enable the RPM Fusion repositories
+echo "------------------------------------------------------------------------------------"
+echo "Enabling the RPM Fusion repositories..."
+echo "------------------------------------------------------------------------------------"
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# Enable the flathub repository
+echo "------------------------------------------------------------------------------------"
+echo "Enabling the Flathub repository..."
+echo "------------------------------------------------------------------------------------"
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 # Update the system
 echo "------------------------------------------------------------------------------------"
 echo "Updating the system..."
@@ -15,19 +28,22 @@ sudo dnf -y upgrade
 # Packages to install
 PACKAGES=(
     "alacritty"
-    "tmux"
-    "neovim"
-    "fish"
-    "ripgrep"
-    "cargo"
-    "ranger"
     "curl"
-    "wget"
-    "podman"
     "dnf-plugins-core"
+    "fish"
+    "flatpak"
     "fzf"
-    "neofetch"
+    "gnome-tweaks"
     "htop"
+    "jetbrains-mono-fonts-all"
+    "neofetch"
+    "neovim"
+    "podman"
+    "ranger"
+    "ripgrep"
+    "tmux"
+    "vim-enhanced"
+    "wget"
 )
 
 # Install the above packages
@@ -39,42 +55,26 @@ for package in "${PACKAGES[@]}"; do
     sudo dnf -qy install $package
 done
 
-# Yocto dependencies (https://www.yoctoproject.org/docs/1.8/yocto-project-qs/yocto-project-qs.html)
+# Yocto dependencies (https://docs.yoctoproject.org/ref-manual/system-requirements.html#fedora-packages)
 echo "------------------------------------------------------------------------------------"
 echo "Installing Yocto dependencies..."
 echo "------------------------------------------------------------------------------------"
-sudo dnf -qy install gawk make wget tar bzip2 gzip python unzip perl patch \
+sudo dnf -qy install gawk make wget tar bzip2 gzip python3 unzip perl patch \
 diffutils diffstat git cpp gcc gcc-c++ glibc-devel texinfo chrpath \
-ccache perl-Data-Dumper perl-Text-ParseWords perl-Thread-Queue socat \
-findutils which SDL-devel xterm
-
-# Install Docker (https://developer.fedoraproject.org/tools/docker/docker-installation.html)
-echo "------------------------------------------------------------------------------------"
-echo "Installing Docker..."
-echo "------------------------------------------------------------------------------------"
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf -qy install docker-ce docker-ce-cli containerd.io
-sudo systemctl start docker
-sudo docker run hello-world
+ccache perl-Data-Dumper perl-Text-ParseWords perl-Thread-Queue perl-bignum socat \
+python3-pexpect findutils which file cpio python python3-pip xz python3-GitPython \
+python3-jinja2 SDL-devel xterm rpcgen mesa-libGL-devel perl-FindBin \
+perl-File-Compare perl-File-Copy perl-locale zstd lz4
 
 echo "------------------------------------------------------------------------------------"
 echo "Installing development tools..."
 echo "------------------------------------------------------------------------------------"
 sudo dnf -qy groupinstall "Development Tools"
 
-# Install exa and add to path
-echo "------------------------------------------------------------------------------------"
-echo "Installing exa..."
-echo "------------------------------------------------------------------------------------"
-cargo install exa
-if [[ ! "$PATH" =~ (^|:)"$HOME/.cargo/bin"(|/)(:|$) ]]; then
-    export PATH=$HOME/.cargo/bin:$PATH
-fi
-
 # Install vim-plug for Vim if not installed
 if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
     echo "------------------------------------------------------------------------------------"
-    echo "Installing Vim-plug for Vim"
+    echo "Installing Vim-plug for Vim..."
     echo "------------------------------------------------------------------------------------"
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -83,7 +83,7 @@ fi
 # Install vim-plug for Neovim if not installed
 if [[ ! -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ]]; then
     echo "------------------------------------------------------------------------------------"
-    echo "Installing Vim-plug for Neovim"
+    echo "Installing Vim-plug for Neovim..."
     echo "------------------------------------------------------------------------------------"
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'

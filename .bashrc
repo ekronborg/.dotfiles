@@ -22,8 +22,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Add cargo/bin to path for exa alias
-export PATH=$HOME/.cargo/bin:$PATH
+# Add stuff to path
+export PATH="$HOME/.config/git-prompt.sh:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Environment variables
 export TERM=xterm-256color
@@ -57,8 +58,6 @@ export LESS_TERMCAP_us=$'\e[4m'
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Set PS1 variable
-# source $HOME/git-prompt.sh
-source $HOME/.config/git-prompt.sh
 PS1='[\u@\h \[\033[1;96m\]\w\[\033[00m\]$(__git_ps1 " (%s)")]\$ '
 
 # Aliases
@@ -73,7 +72,8 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -Iv'
 alias mkdir='mkdir -pv'
-alias up='sudo apt-get update && sudo apt-get upgrade -y'
+alias ip='ip --color=always'
+bind -m vi-insert "\C-l":clear-screen
 
 # Handy extract program
 extract() {

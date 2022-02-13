@@ -9,45 +9,64 @@ sudo apt-get -qq update && sudo apt-get -qqy upgrade
 # Packages to install
 PACKAGES=(
     "alacritty"
+    "build-essential"
+    "cmake"
+    "curl"
+    "exa"
+    "fish"
+    "fonts-hack"
+    "fonts-jetbrains-mono"
+    "fzf"
+    "htop"
+    "neofetch"
+    "ninja-build"
+    "podman"
+    "ranger"
+    "ripgrep"
     "tmux"
     "vim"
     "vim-gtk3"
-    "fonts-hack"
-    "fish"
-    "ripgrep"
-    "cargo"
-    "ranger"
-    "curl"
     "wget"
-    "build-essential"
-    "cmake"
-    "ninja-build"
-    "docker.io"
-    "fzf"
-    "neofetch"
-    "htop"
 )
 
 # Install the above packages
+echo "------------------------------------------------------------------------------------"
+echo "Installing packages..."
+echo "------------------------------------------------------------------------------------"
 for package in "${PACKAGES[@]}"; do
     echo "Installing ${package}"
     sudo apt-get -qqy install $package
 done
 
-# Install exa and add to path
-cargo install exa
-if [[ ! "$PATH" =~ (^|:)"$HOME/.cargo/bin"(|/)(:|$) ]]; then
-    export PATH=$HOME/.cargo/bin:$PATH
-fi
-
 # Install vim-plug for Vim if not installed
 if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
+    echo "------------------------------------------------------------------------------------"
+    echo "Installing Vim-plug for Vim..."
+    echo "------------------------------------------------------------------------------------"
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # Install vim-plug for Neovim if not installed
 if [[ ! -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ]]; then
+    echo "------------------------------------------------------------------------------------"
+    echo "Installing Vim-plug for Neovim..."
+    echo "------------------------------------------------------------------------------------"
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
+
+read -r -p "Source dotfiles and set up symlinks? [Y/n] " input
+case $input in
+      [yY][eE][sS]|[yY])
+            source $PWD/install.sh
+            ;;
+      [nN][oO]|[nN])
+            exit 0
+            ;;
+      *)
+            echo "Invalid input..."
+            exit 1
+            ;;
+esac
+

@@ -49,7 +49,7 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 "------------------------------------------------------------------------------
 " Color settings
@@ -123,6 +123,7 @@ function! TrimWhiteSpace()
 endfunction
 
 command Trim :call TrimWhiteSpace()
+" command Trim call TrimWhiteSpace()
 
 "------------------------------------------------------------------------------
 " Set up netrw instead of Nerdtree (save a plugin)
@@ -153,4 +154,4 @@ endfunction
 
 " Toggle explorer with leader+e
 " 'v': vertical split, 'o': horizontal split, 't': new tab
-noremap <silent> <leader>e  :call ToggleNetrw()<CR>
+noremap <silent> <leader>e  <cmd>call ToggleNetrw()<CR>

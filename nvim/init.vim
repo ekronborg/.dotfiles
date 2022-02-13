@@ -138,7 +138,7 @@ endfunction
 
 " Toggle explorer with leader+e
 " 'v': vertical split, 'o': horizontal split, 't': new tab
-noremap <silent> <leader>e  :call ToggleNetrw()<CR>
+noremap <silent> <leader>e  <cmd>call ToggleNetrw()<CR>
 
 "------------------------------------------------------------------------------
 " Lua stuff
