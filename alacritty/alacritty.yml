@@ -2,10 +2,13 @@
 window:
   decorations: none
 
-  padding:
-    x: 2
-    y: 2
+  # padding:
+  #   x: 2
+  #   y: 2
 
+  dimensions:
+    columns: 120
+    lines: 40
 
 # Font configuration (monospace is default)
 font:
@@ -37,7 +40,7 @@ font:
     # family: Ubuntu Mono
     style: Bold Italic
 
-  size: 14.0
+  size: 13.0
 
 # Colors (Gruvbox dark) (#282828 = medium, #1d2021 = hard)
 colors:
