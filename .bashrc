@@ -53,9 +53,22 @@ export LESS_TERMCAP_us=$'\e[4m'
 # Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Set PS1 variable
-source $HOME/.dotfiles/git-prompt.sh
-PS1='[\u@\h \[\033[1;96m\]\w\[\033[00m\]$(__git_ps1 " (%s)")]\$ '
+# Colors (00 means normal, 01 means bold)
+RESET="\[\e[00m\]"
+RED="\[\e[00;31m\]"
+GREEN="\[\e[00;32m\]"
+YELLOW="\[\e[00;33m\]"
+BLUE="\[\e[00;34m\]"
+PURPLE="\[\e[00;35m\]"
+CYAN="\[\e[00;36m\]"
+
+# Get current Git branch (https://stackoverflow.com/questions/4133904/ps1-line-with-git-current-branch-and-colors)
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# Set PS1 prompt (https://unix.stackexchange.com/questions/140610/using-variables-to-store-terminal-color-codes-for-ps1)
+PS1="${RESET}[\u@\h ${CYAN}\w${BLUE}\$(parse_git_branch)${RESET}]\$ "
 
 # Aliases
 alias ll='exa -al --color=always --group-directories-first'
