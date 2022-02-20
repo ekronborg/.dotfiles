@@ -5,10 +5,12 @@ function fish_prompt
         printf "%s" "$USER"
         printf "@"
         printf "%s" "$hostname"
-        set_color "#8ec07c" --bold
+        # set_color "#8ec07c" --bold
+        set_color "#689d6a"
         printf " %s" (prompt_long_pwd)
-        set_color normal
+        set_color "#458588"
         printf "%s" (fish_git_prompt)
+        set_color normal
         printf "]\$ "
         set_color normal
 end
