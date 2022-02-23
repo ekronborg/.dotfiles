@@ -5,19 +5,28 @@ This repository is a collection of my personal configuration files used for vers
 * Alacritty
 * Bash
 * Fish
+* Git
 * Neovim
 * Tmux
 * Vim
+* Wget
+* Zsh
 
 ## Usage
 
-To deploy on a fresh install, do the following:
+To deploy on a fresh install:
 
 1. Backup your current configurations files
 2. Clone this repository
-3. Run `install.sh`
+3. `$ ./install.sh`
 
-Please note that `install.sh` will ***remove*** any existing configuration files and afterwards create symbolic links to the files included in this repository. Hereafter, the latest changes can be pulled from git by `git pull`.
+Please note that this will ***remove*** any existing configuration files and afterwards create symbolic links to the files included in this repository.
+
+To update:
+
+1. `$ cd ~/.dotfiles`
+2. `$ git pull`
+3. `./install.sh`
 
 ## Dependencies
 
@@ -30,11 +39,13 @@ Please note that `install.sh` will ***remove*** any existing configuration files
 ## Tips
 
 * To use systemwide copy/paste with Vim, it must be compiled with `xterm_clipboard`. You can check this with `vim --version | grep xterm_clipboard`. If it is not installed, the gui-version of Vim is typically compiled with `xterm_clipboard` and can be installed alongside the regular version of Vim.
-* If you use Gnome DE (or PopOS!), you can install `gnome-tweaks` and switch Esc and Caps Lock
+* If you use Gnome DE (or PopOS!), you can install `gnome-tweaks` and switch Esc and Caps Lock. In other distros with `X11`, this can be done with `setxkbmap -option caps:escape`.
 
 ## TODO
 
 [ ] Include automatic backup of old configurations files (append with `.bak`)
+
+[ ] `lesspipe.sh` in `zsh`
 
 [ x ] Create a script to installed needed packages
 
