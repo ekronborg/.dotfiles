@@ -10,6 +10,9 @@ window:
     columns: 120
     lines: 40
 
+scrolling:
+  history: 10000
+
 # Font configuration (monospace is default)
 font:
   normal:
