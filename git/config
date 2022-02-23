@@ -1,0 +1,21 @@
+[user]
+	name = <name>
+	email = <email>
+[credential]
+	helper = store
+[color]
+	ui = auto
+[alias]
+    ; git lg -p to show changes
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    br = branch
+    ci = commit
+    cp = cherry-pick
+    d = diff
+    ls = ls-files
+    co = checkout
+    rb = rebase
+    st = status
+    last = log -1 HEAD --stat
+[diff]
+	tool = nvimdiff
