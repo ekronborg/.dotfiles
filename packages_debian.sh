@@ -9,6 +9,7 @@ sudo apt-get -qq update && sudo apt-get -qqy upgrade
 # Packages to install
 PACKAGES=(
     "alacritty"
+    "bat"
     "build-essential"
     "cmake"
     "curl"
@@ -27,6 +28,7 @@ PACKAGES=(
     "vim"
     "vim-gtk3"
     "wget"
+    "zsh"
 )
 
 # Install the above packages
@@ -55,6 +57,13 @@ if [[ ! -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ]]; then
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
+
+# Bat(cat) settings. Debian use a weird name
+echo "------------------------------------------------------------------------------------"
+echo "Bat(cat) settings..."
+echo "------------------------------------------------------------------------------------"
+mkdir -pv $HOME/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
 
 read -r -p "Source dotfiles and set up symlinks? [Y/n] " input
 case $input in
