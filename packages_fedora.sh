@@ -44,6 +44,7 @@ PACKAGES=(
     "tmux"
     "vim-enhanced"
     "wget"
+    "zsh"
 )
 
 # Install the above packages
