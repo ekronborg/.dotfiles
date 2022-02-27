@@ -40,9 +40,9 @@ _comp_options+=(globdots)
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-# PROMPT='[%n@%m %F{#689d6a}%~%f%F{#458588}$(parse_git_branch)%f]%# '
-PROMPT='%F{#689d6a}%~%f%F{#458588}$(parse_git_branch)%f %F{#b16286}❯%f '
-# PROMPT='%F{#689d6a}%~%f%F{#458588}$(parse_git_branch)%f %F{#d79921}%f '
+# PROMPT='%F{14}%~%f%F{12}$(parse_git_branch)%f %F{13}❯%f '
+PROMPT='%F{108}%~%f%F{109}$(parse_git_branch)%f %F{175}❯%f '
+# PROMPT='%B%F{108}%~%f%F{109}$(parse_git_branch)%f %F{175}❯%f%b '
 
 # Aliases
 source $HOME/.config/zsh/aliases
