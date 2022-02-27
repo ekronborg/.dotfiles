@@ -16,7 +16,6 @@ DOTFILES=(
 DOTDIRS=(
     "alacritty"
     "fish"
-    "git"
     "nvim"
     "tmux"
     "wget"
