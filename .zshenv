@@ -3,9 +3,9 @@ export PATH=$HOME/.local/bin:$PATH
 
 # System settings
 export BAT_THEME="ansi-dark" # Debian
-# export BAT_THEME="gruvbox" # other distros
-# export TERM=xterm-256color
-# export COLORTERM="truecolor"
+# export BAT_THEME="gruvbox-dark" # other distros
+export TERM=xterm-256color
+export COLORTERM="truecolor"
 
 # Default programs
 export EDITOR="nvim"
