@@ -26,7 +26,7 @@ To update:
 
 1. `$ cd ~/.dotfiles`
 2. `$ git pull`
-3. `./install.sh`
+3. `$ git submodule update --remote`
 
 ## Dependencies
 
