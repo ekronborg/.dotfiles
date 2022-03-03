@@ -91,7 +91,10 @@ nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 " Tip: C-q will populate the quickfix list
-nnoremap <leader>d <cmd>Telescope diagnostics<cr>
+" nnoremap <leader>d <cmd>Telescope diagnostics<cr>
+
+" Delete to blackhole register
+nnoremap <leader>d "_d
 
 " Leave insert mode with <Esc> in terminal mode
 tnoremap <Esc> <C-\><C-N>
