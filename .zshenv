@@ -2,8 +2,6 @@
 export PATH=$HOME/.local/bin:$PATH
 
 # System settings
-export BAT_THEME="ansi-dark" # Debian
-# export BAT_THEME="gruvbox-dark" # other distros
 export TERM=xterm-256color
 export COLORTERM="truecolor"
 
@@ -17,6 +15,10 @@ export BROWSER="firefox"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+
+# Use lesspipe
+[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
+[[ -x /usr/bin/lesspipe.sh ]] && export LESSOPEN="|/usr/bin/lesspipe.sh %s"
 
 # Clean up $HOME
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
