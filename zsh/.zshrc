@@ -1,6 +1,8 @@
-# # Source global definitions (if any)
+# Source global definitions (if any)
 # if [[ -f /etc/zshrc ]]; then
 #     . /etc/zshrc
+# elif [[ -f /etc/zsh/zshrc ]]; then
+#     . /etc/zsh/zshrc
 # fi
 
 # Set options (https://zsh.sourceforge.io/Doc/Release/Options.html)
@@ -21,6 +23,9 @@ SAVEHIST=10000
 bindkey -v
 export KEYTIMEOUT=1
 bindkey '^R' history-incremental-pattern-search-backward
+bindkey -a "^[[3~" delete-char
+bindkey -v "^[[3~" delete-char
+bindkey -v '^?' backward-delete-char
 
 # Colors
 if [[ -x /usr/bin/dircolors ]]; then
@@ -40,8 +45,8 @@ _comp_options+=(globdots)
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-# PROMPT='%F{14}%~%f%F{12}$(parse_git_branch)%f %F{13}❯%f '
-PROMPT='%F{108}%~%f%F{109}$(parse_git_branch)%f %F{175}❯%f '
+PROMPT='%F{108}%~%f%F{109}$(parse_git_branch)%f  '
+# PROMPT='%F{108}%~%f%F{109}$(parse_git_branch)%f %F{175}❯%f '
 # PROMPT='%B%F{108}%~%f%F{109}$(parse_git_branch)%f %F{175}❯%f%b '
 
 # Aliases
