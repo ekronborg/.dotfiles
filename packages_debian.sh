@@ -15,6 +15,7 @@ PACKAGES=(
     "curl"
     "exa"
     "fish"
+    "fonts-font-awesome"
     "fonts-hack"
     "fonts-jetbrains-mono"
     "fzf"
