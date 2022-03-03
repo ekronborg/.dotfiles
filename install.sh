@@ -15,6 +15,7 @@ DOTFILES=(
 # Directories located in $HOME/.config/
 DOTDIRS=(
     "alacritty"
+    "bat"
     "fish"
     "nvim"
     "tmux"
