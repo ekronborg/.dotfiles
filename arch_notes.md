@@ -4,7 +4,7 @@
 
 ```sh
 $ sudo pacman -S xorg xorg-xinit i3-gaps i3status dmenu firefox alacritty feh \
-ttf-jetbrains-mono exa ttf-font-awesome
+ttf-jetbrains-mono exa ttf-font-awesome bat ripgrep fd
 ```
 
 ## Configuring `systemd-boot`
@@ -65,22 +65,6 @@ $ sudo systemctl enable --now systemd-networkd
 $ sudo systemctl enable --now systemd-resolved
 ```
 
-## i3-gaps
-
-```sh
-# Borders around windows
-for_window [class+".*"] border pixel 5
-
-# Enable gaps
-gaps inner 5
-
-# Disable gaps when there's only one window in a workspace
-smart_gaps_on
-
-# Disable borders when there's only one window in a workspace
-smart_borders_on
-```
-
 ## Tips
 
 * `i3lock` doesn't have a password prompt, so just start typing your password. It can also be launched with a background (`i3lock -i /path/to/image.jpg`) or a solid color (`i3lock -c 282828`)
@@ -93,33 +77,4 @@ smart_borders_on
 *   Monitor configuration with `xrandr` goes in here as well. For example, `xrandr --output DP-1 --mode 2560x1440 --rate 144`
 *   Use `feh` to set a background: `feh --bg-scale /path/to/image.jpg`. Put this option *after* the monitor configuration to ensure correct scaling
 *   Remap caps lock to escape: `setxkbmap -option caps:escape` (`setxkbmap` should be installed with the `xorg` package)
-
-### `i3lock` with blurred effect
-
-```sh
-$ sudo pacman -S imagemagick scrot
-$ touch ~/.config/i3/lock.sh
-$ chmod +x ~/.config/i3/lock.sh
-$ vim ~/.config/i3/lock.sh
-```
-
-```sh
-$ cat ~/.config/i3/lock.sh
-#!/bin/sh
-
-# Take screenshot
-scrot -m '/tmp/lock.png'
-
-# Use ImageMagick to add blur
-convert /tmp/lock.png -blur 0x9 /tmp/lock.png
-
-# Start i3lock with background image
-i3lock -i /tmp/lock.png
-
-# Delete screenshot
-rm /tmp/lock.png
-```
-
-Then add `bindsym $mod+x exec ~/.config/i3/lock.sh` to
-`~/.config/i3/config`
 
