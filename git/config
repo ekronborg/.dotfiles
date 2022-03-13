@@ -3,6 +3,8 @@
 	email = <email>
 [credential]
 	helper = store
+[core]
+    pager = less -FRX
 [color]
 	ui = auto
 [alias]
