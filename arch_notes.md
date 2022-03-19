@@ -11,10 +11,10 @@ ttf-jetbrains-mono exa ttf-font-awesome bat ripgrep fd
 
 *   Enable automatic updates with `systemd`: `$ sudo systemctl enable --now systemd-boot-update.service`
 *   Make sure to install `intel-ucode` (or AMD equivalent)
-*   The options part in the entries can be filled in with the below command. Make sure to substitute `dev/sdX` with the `esp` (UEFI System Partition aka `/boot`)
+*   The options part in the entries can be filled in with the below command. Make sure to substitute `dev/sdX` with the root partition (`/`)
 
 ```sh
-$ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sdaX rw >> /boot/loader/entries/arch.conf
+$ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sdaX) rw" >> /boot/loader/entries/arch.conf
 ```
 
 ## Hostname
@@ -29,6 +29,16 @@ $ sudo vim /etc/hosts
 127.0.0.1       localhost
 ::1             localhost
 127.0.1.1       arch.localdomain    arch
+```
+
+## Add new user
+```sh
+$ sudo EDITOR=vim visudo
+# Uncomment %wheel ALL=(ALL) ALL
+
+# Add new user with <name>. '/bin/bash' can be substituted for '/bin/zsh' if installed
+$ useradd -m -G wheel -s /bin/bash <name>
+$ passwd <name>
 ```
 
 ## Network with wired connection
@@ -70,11 +80,12 @@ $ sudo systemctl enable --now systemd-resolved
 * `i3lock` doesn't have a password prompt, so just start typing your password. It can also be launched with a background (`i3lock -i /path/to/image.jpg`) or a solid color (`i3lock -c 282828`)
 * Enable colored output of pacman commands by uncommenting `Color` in `/etc/pacman.conf`
 * Enable trim for SSD/NVMe dsisk: `sudo systemctl enable --now fstrim.timer`. Enabling this timer, will activate the service weekly
+* [Pacman commands compared to other package managers](https://wiki.archlinux.org/title/Pacman/Rosetta)
 
 ### `.xinitrc`
 
-*   Start i3 automatically when `startx` is launched: `exec i3`. ***Important:*** this must be the last part of the `.xinitrc` file!
-*   Monitor configuration with `xrandr` goes in here as well. For example, `xrandr --output DP-1 --mode 2560x1440 --rate 144`
-*   Use `feh` to set a background: `feh --bg-scale /path/to/image.jpg`. Put this option *after* the monitor configuration to ensure correct scaling
-*   Remap caps lock to escape: `setxkbmap -option caps:escape` (`setxkbmap` should be installed with the `xorg` package)
+* Start i3 automatically when `startx` is launched: `exec i3`. ***Important:*** this must be the last part of the `.xinitrc` file!
+* Monitor configuration with `xrandr` goes in here as well. For example, `xrandr --output DP-1 --mode 2560x1440 --rate 144`
+* Use `feh` to set a background: `feh --bg-scale /path/to/image.jpg`. Put this option *after* the monitor configuration to ensure correct scaling
+* Remap caps lock to escape: `setxkbmap -option caps:escape` (`setxkbmap` should be installed with the `xorg` package)
 
