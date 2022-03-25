@@ -37,9 +37,16 @@ autoload -U colors && colors
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 _comp_options+=(globdots)
+
+# FZF
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 # Generate prompt (https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Visual-effects)
 parse_git_branch() {
@@ -55,4 +62,4 @@ source $HOME/.config/zsh/aliases
 # Source plugins (remember to update the repositories once in a while)
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
-# source $HOME/.config/zsh/plugins/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
+source $HOME/.config/zsh/plugins/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
