@@ -30,6 +30,7 @@ PACKAGES=(
     "alacritty"
     "curl"
     "dnf-plugins-core"
+    "fd-find"
     "fish"
     "flatpak"
     "fzf"
