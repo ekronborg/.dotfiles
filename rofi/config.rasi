@@ -1,0 +1,88 @@
+configuration {
+    font:               "Jetbrains mono 12";
+    show-icons:          true;
+    icon-theme:          "Papirus";
+    display-drun:        "";
+    drun-display-format: "{name}";
+    scroll-method:       0;
+    disable-history:     false;
+    sidebar-mode:        false;
+}
+
+@import "~/.config/rofi/gruvbox-colors.rasi"
+
+window {
+    background-color: @bg;
+    border-color: @gray;
+    width:   500px;
+    border:  4;
+    padding: 5;
+}
+listview {
+    lines:   15;
+    columns: 1;
+}
+mainbox {
+    border:  0;
+    padding: 0;
+}
+listview {
+    fixed-height: 0;
+    border:       8px 0px 0px;
+    border-color: @bg;
+    spacing:      8px;
+    scrollbar:    false;
+    padding:      2px 0px 0px;
+}
+element {
+    border:  0;
+    padding: 1px ;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+element.normal.normal {
+    background-color: @bg;
+    text-color:       @fg;
+}
+element.normal.active {
+    background-color: @bg;
+    text-color:       @fg;
+}
+element.selected.normal {
+    background-color: @fg;
+    text-color:       @bg;
+}
+element.selected.active {
+    background-color: @bg;
+    text-color:       @fg;
+}
+element.alternate.normal {
+    background-color: @bg;
+    text-color:       @fg;
+}
+element.alternate.active {
+    background-color: @bg;
+    text-color:       @fg;
+}
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-color: @fg;
+    handle-width: 8px;
+    padding:      0;
+}
+entry {
+    spacing:    0;
+    text-color: @fg;
+}
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        "";
+    margin:     0px 0em 0em 0em;
+    text-color: @fg;
+}

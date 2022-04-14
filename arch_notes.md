@@ -3,8 +3,8 @@
 ## Packages
 
 ```sh
-$ sudo pacman -S xorg xorg-xinit i3-gaps i3status dmenu firefox alacritty feh \
-ttf-jetbrains-mono exa ttf-font-awesome bat ripgrep fd
+$ sudo pacman -S xorg xorg-xinit i3-gaps i3status dmenu firefox alacritty feh rofi fzf \
+ttf-jetbrains-mono exa ttf-font-awesome bat ripgrep fd arc-icon-theme papirus-icon-theme \
 ```
 
 ## Configuring `systemd-boot`
@@ -81,6 +81,19 @@ $ sudo systemctl enable --now systemd-resolved
 * Enable colored output of pacman commands by uncommenting `Color` in `/etc/pacman.conf`
 * Enable trim for SSD/NVMe dsisk: `sudo systemctl enable --now fstrim.timer`. Enabling this timer, will activate the service weekly
 * [Pacman commands compared to other package managers](https://wiki.archlinux.org/title/Pacman/Rosetta)
+* Increase verbosity of `pacman`
+```sh
+$ nvim /etc/pacman.conf
+
+# Misc options
+#UseSysLog
+Color
+#NoProgressBar
+CheckSpace
+VerbosePkgLists
+ParallelDownloads = 5
+ILoveCandy
+```
 
 ### `.xinitrc`
 
