@@ -25,14 +25,16 @@ listview {
 mainbox {
     border:  0;
     padding: 0;
+    background-color: @bg;
 }
 listview {
-    fixed-height: 0;
-    border:       8px 0px 0px;
+    fixed-height:     0;
+    border:           8px 0px 0px;
     border-color: @bg;
-    spacing:      8px;
-    scrollbar:    false;
-    padding:      2px 0px 0px;
+    background-color: @bg;
+    spacing:          8px;
+    scrollbar:        false;
+    padding:          2px 0px 0px;
 }
 element {
     border:  0;
@@ -46,6 +48,10 @@ element.normal.normal {
     background-color: @bg;
     text-color:       @fg;
 }
+element.normal.urgent {
+    background-color: @bg;
+    text-color:       @fg;
+}
 element.normal.active {
     background-color: @bg;
     text-color:       @fg;
@@ -54,11 +60,19 @@ element.selected.normal {
     background-color: @fg;
     text-color:       @bg;
 }
+element.selected.urgent {
+    background-color: @fg;
+    text-color:       @bg;
+}
 element.selected.active {
     background-color: @bg;
     text-color:       @fg;
 }
 element.alternate.normal {
+    background-color: @bg;
+    text-color:       @fg;
+}
+element.alternate.urgent {
     background-color: @bg;
     text-color:       @fg;
 }
@@ -73,9 +87,16 @@ scrollbar {
     handle-width: 8px;
     padding:      0;
 }
+inputbar {
+    spacing:    0;
+    text-color: @fg;
+    background-color: @bg;
+    padding:    1px;
+}
 entry {
     spacing:    0;
     text-color: @fg;
+    background-color: @bg;
 }
 inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
@@ -85,4 +106,5 @@ textbox-prompt-colon {
     str:        "";
     margin:     0px 0em 0em 0em;
     text-color: @fg;
+    background-color: @bg;
 }
