@@ -3,7 +3,7 @@ filetype plugin indent on
 " Plugins
 "------------------------------------------------------------------------------
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
@@ -36,20 +36,17 @@ set splitright
 set clipboard=unnamedplus
 set guicursor=
 set updatetime=300
-" let loaded_matchparen = 1
-" set number
-" set signcolumn=number
 
 "------------------------------------------------------------------------------
 " Color settings
 "------------------------------------------------------------------------------
 " https://github.com/tmux/tmux/issues/1246
-" if has('nvim') || exists('+termguicolors')
-"     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"     set termguicolors
-" endif
-colorscheme gruvbox
+if has('nvim') || exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
+colorscheme onedark
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -58,7 +55,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 " Visual feedback when yanking (https://neovim.io/doc/user/lua.html#lua-highlight)
 au TextYankPost * silent! lua vim.highlight.on_yank()

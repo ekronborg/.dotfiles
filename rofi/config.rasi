@@ -9,7 +9,7 @@ configuration {
     sidebar-mode:        false;
 }
 
-@import "~/.config/rofi/gruvbox-colors.rasi"
+@import "~/.config/rofi/onedark-colors.rasi"
 
 window {
     background-color: @bg;

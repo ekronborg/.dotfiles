@@ -52,9 +52,7 @@ source /usr/share/doc/fzf/examples/completion.zsh
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-PROMPT='%F{108}%~%f%F{109}$(parse_git_branch)%f  '
-# PROMPT='%F{108}%~%f%F{109}$(parse_git_branch)%f %F{175}❯%f '
-# PROMPT='%B%F{108}%~%f%F{109}$(parse_git_branch)%f %F{175}❯%f%b '
+PROMPT='%F{#98c379}%~%f%F{#e06c75}$(parse_git_branch)%f  '
 
 # Aliases
 source $HOME/.config/zsh/aliases
@@ -62,4 +60,4 @@ source $HOME/.config/zsh/aliases
 # Source plugins (remember to update the repositories once in a while)
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
-source $HOME/.config/zsh/plugins/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
+# source $HOME/.config/zsh/plugins/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
