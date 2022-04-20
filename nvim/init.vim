@@ -3,7 +3,8 @@ filetype plugin indent on
 " Plugins
 "------------------------------------------------------------------------------
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'joshdick/onedark.vim'
+Plug 'kergoth/vim-bitbake'
+Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
@@ -46,7 +47,8 @@ if has('nvim') || exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
 endif
-colorscheme onedark
+let g:gruvbox_bold = '0'
+colorscheme gruvbox
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
 highlight ExtraWhitespace ctermbg=red guibg=red

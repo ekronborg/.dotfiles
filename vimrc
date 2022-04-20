@@ -57,12 +57,13 @@ autocmd BufWinLeave * call clearmatches()
 " Color settings
 "------------------------------------------------------------------------------
 " https://github.com/tmux/tmux/issues/1246
-" if has('nvim') || exists('+termguicolors')
-"     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"     set termguicolors
-" endif
+if has('nvim') || exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 set background=dark
+let g:gruvbox_bold = '0'
 colorscheme gruvbox
 
 " Customize fzf colors to match your color scheme
