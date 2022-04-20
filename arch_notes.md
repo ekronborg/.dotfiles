@@ -7,11 +7,16 @@ $ sudo pacman -S xorg xorg-xinit i3-gaps i3status dmenu firefox alacritty feh ro
 ttf-jetbrains-mono exa ttf-font-awesome bat ripgrep fd arc-icon-theme papirus-icon-theme \
 ```
 
+### Pacstrap
+```sh
+# pacstrap base linux linux-lts linux-firmware base-devel intel-ucode vim
+```
+
 ## Configuring `systemd-boot`
 
-*   Enable automatic updates with `systemd`: `$ sudo systemctl enable --now systemd-boot-update.service`
-*   Make sure to install `intel-ucode` (or AMD equivalent)
-*   The options part in the entries can be filled in with the below command. Make sure to substitute `dev/sdX` with the root partition (`/`)
+* Enable automatic updates with `systemd`: `$ sudo systemctl enable --now systemd-boot-update.service`
+* Make sure to install `intel-ucode` (or AMD equivalent)
+* The options part in the entries can be filled in with the below command. Make sure to substitute `dev/sdX` with the root partition (`/`)
 
 ```sh
 $ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sdaX) rw" >> /boot/loader/entries/arch.conf
