@@ -3,8 +3,12 @@
 ## Packages
 
 ```sh
-$ sudo pacman -S xorg xorg-xinit i3-gaps i3status dmenu firefox alacritty feh rofi fzf \
+$ sudo pacman -S xorg xorg-xinit bspwm sxhkdm polybar dunst firefox alacritty feh rofi fzf \
 ttf-jetbrains-mono exa ttf-font-awesome bat ripgrep fd arc-icon-theme papirus-icon-theme \
+```
+
+```sh
+$ yay -S ttf-font-awesome-5
 ```
 
 ### Pacstrap
@@ -106,4 +110,5 @@ ILoveCandy
 * Monitor configuration with `xrandr` goes in here as well. For example, `xrandr --output DP-1 --mode 2560x1440 --rate 144`
 * Use `feh` to set a background: `feh --bg-scale /path/to/image.jpg`. Put this option *after* the monitor configuration to ensure correct scaling
 * Remap caps lock to escape: `setxkbmap -option caps:escape` (`setxkbmap` should be installed with the `xorg` package)
+* Keybinding to switch keyboard layout: `setxkbmap -option grp:win_space_toggle us,dk`. For available key combinations, check the output of: `grep "grp:.*toggle" /usr/share/X11/xkb/rules/base.lst`.
 
