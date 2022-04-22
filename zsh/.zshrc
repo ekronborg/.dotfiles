@@ -52,7 +52,7 @@ source /usr/share/doc/fzf/examples/completion.zsh
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-PROMPT='%F{#8ec07c}%~%f%F{#83a598}$(parse_git_branch)%f  '
+PROMPT='%B%F{#8ec07c}%~%f%F{#83a598}$(parse_git_branch)%f ➜%b '
 
 # Aliases
 source $HOME/.config/zsh/aliases
