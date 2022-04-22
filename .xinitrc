@@ -48,14 +48,19 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# Remap caps lock to escape
-setxkbmap -option caps:escape
-
-# Display settings
-xrandr --output Virtual-1 --mode 1920x1440 --rate 144
+# Set monitor output
+xrandr --output Virtual-1 --mode 2560x1600 --rate 144
 
 # Set background
-feh --bg-scale /usr/share/backgrounds/archlinux/landscape.jpg
+feh --bg-scale $HOME/wallpaper.jpg
 
-# Start i3 (MUST BE LAST)
-exec i3
+# Remap escape to caps lock
+setxkbmap -option caps:escape
+
+# Switch keyboard layout with super+space
+setxkbmap -option grp:win_space_toggle us,dk
+
+# Start programs
+dunst &
+sxhkd &
+exec bspwm
