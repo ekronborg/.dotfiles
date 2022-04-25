@@ -4,7 +4,9 @@
 
 ```sh
 $ sudo pacman -S xorg xorg-xinit bspwm sxhkdm polybar dunst firefox alacritty feh rofi fzf \
-ttf-jetbrains-mono exa ttf-font-awesome bat ripgrep fd arc-icon-theme papirus-icon-theme \
+ttf-jetbrains-mono exa bat ripgrep fd arc-icon-theme papirus-icon-theme zsh zsh-completions \
+ntmux git eovim polkit sof-firmware curl openssh neofetch nvidia nvidia-settings reflector \
+xclip
 ```
 
 ```sh
@@ -37,7 +39,7 @@ arch # this will be the hostname, i.e., [user@arch ~]
 $ sudo vim /etc/hosts
 127.0.0.1       localhost
 ::1             localhost
-127.0.1.1       arch.localdomain    arch
+127.0.1.1       arch
 ```
 
 ## Add new user
@@ -52,14 +54,16 @@ $ passwd <name>
 
 ## Network with wired connection
 
-Using `NetworkManager`:
+### Using `NetworkManager`:
 
 ```sh
 $ sudo pacman -S networkmanager network-manager-applet
 $ sudo systemctl enable --now NetworkManager.service
 ```
 
-Using `systemd-networkd`:
+### Using `systemd-networkd`:
+
+For the hostname to be resolved, `polkit` must be installed!
 
 1.  Edit `etc/systemd/network/20-wired.network`
 
@@ -106,9 +110,8 @@ ILoveCandy
 
 ### `.xinitrc`
 
-* Start i3 automatically when `startx` is launched: `exec i3`. ***Important:*** this must be the last part of the `.xinitrc` file!
-* Monitor configuration with `xrandr` goes in here as well. For example, `xrandr --output DP-1 --mode 2560x1440 --rate 144`
-* Use `feh` to set a background: `feh --bg-scale /path/to/image.jpg`. Put this option *after* the monitor configuration to ensure correct scaling
+* Starting your WM, e.g., `exec bspwm` or `exec i3`, must be the last part of the `.xinitrc`. This is important!
+* When using `feh` to set the background (`feh --bg-scale --no-fehbg /path/to/image.jpg`), do it after the monitor configuration to ensure correct scaling
 * Remap caps lock to escape: `setxkbmap -option caps:escape` (`setxkbmap` should be installed with the `xorg` package)
-* Keybinding to switch keyboard layout: `setxkbmap -option grp:win_space_toggle us,dk`. For available key combinations, check the output of: `grep "grp:.*toggle" /usr/share/X11/xkb/rules/base.lst`.
+* Keybinding to switch keyboard layout: `setxkbmap -option grp:win_space_toggle us,dk`. For available key combinations, check the output of: `grep "grp:.*toggle" /usr/share/X11/xkb/rules/base.lst`
 
