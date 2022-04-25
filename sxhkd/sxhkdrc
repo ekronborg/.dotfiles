@@ -3,8 +3,8 @@
 #
 
 # terminal emulator
-super + Return
-	alacritty
+super + {_,shift +}Return
+    {alacritty, bspc rule -a \* -o state=floating && alacritty}
 
 # program launcher
 super + d
@@ -21,6 +21,10 @@ super + Escape
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
+
+# lock
+super + shift + x
+    $HOME/.dotfiles/i3/lock.sh
 
 # close and kill
 # super + {_,shift + }w
