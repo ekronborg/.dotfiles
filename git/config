@@ -21,3 +21,5 @@
     last = log -1 HEAD --stat
 [diff]
 	tool = nvimdiff
+[difftool]
+	prompt = false
