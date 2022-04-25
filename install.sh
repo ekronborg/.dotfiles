@@ -9,6 +9,7 @@ cd $DIR
 # Dotfiles located in $HOME
 DOTFILES=(
     ".bashrc"
+    ".xinitrc"
     ".zshenv"
 )
 
@@ -16,8 +17,12 @@ DOTFILES=(
 DOTDIRS=(
     "alacritty"
     "bat"
-    "fish"
+    "bspwm"
+    "dunst"
     "nvim"
+    "polybar"
+    "rofi"
+    "sxhkd"
     "tmux"
     "wget"
     "zsh"
@@ -28,6 +33,7 @@ DOTDIRS=(
 [[ ! -d $HOME/.local/share ]] && mkdir -p $HOME/.local/share
 [[ ! -d $HOME/.cache/zsh ]] && mkdir -p $HOME/.cache/zsh
 [[ ! -d $HOME/.local/bin ]] && mkdir -p $HOME/.local/bin
+[[ ! -d $HOME/.vim ]] && mkdir -p $HOME/.vim
 
 # Create symbolic links to dotfiles in $HOME
 for dotfile in "${DOTFILES[@]}"; do
