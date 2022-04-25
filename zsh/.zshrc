@@ -43,10 +43,9 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 _comp_options+=(globdots)
 
 # FZF
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # Generate prompt (https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Visual-effects)
 parse_git_branch() {
