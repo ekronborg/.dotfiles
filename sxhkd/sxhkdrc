@@ -27,9 +27,10 @@ super + shift + x
     $HOME/.dotfiles/i3/lock.sh
 
 # close and kill
-# super + {_,shift + }w
-super + {_,shift + }c
-	bspc node -{c,k}
+# super + {_,shift + }c
+# 	bspc node -{c,k}
+super + shift + c
+	bspc node -k
 
 # alternate between the tiled and monocle layout
 super + m
