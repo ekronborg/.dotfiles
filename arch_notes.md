@@ -5,8 +5,8 @@
 ```sh
 $ sudo pacman -S xorg xorg-xinit bspwm sxhkdm polybar dunst firefox alacritty feh rofi fzf \
 ttf-jetbrains-mono exa bat ripgrep fd arc-icon-theme papirus-icon-theme zsh zsh-completions \
-ntmux git eovim polkit sof-firmware curl openssh neofetch nvidia nvidia-settings reflector \
-xclip
+tmux git neovim polkit sof-firmware curl openssh neofetch nvidia nvidia-settings reflector \
+xclip ffmpeg
 ```
 
 ```sh
