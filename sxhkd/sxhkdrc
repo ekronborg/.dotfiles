@@ -30,7 +30,7 @@ super + shift + x
 # super + {_,shift + }c
 # 	bspc node -{c,k}
 super + shift + c
-	bspc node -k
+	bspc node -c
 
 # alternate between the tiled and monocle layout
 super + m
