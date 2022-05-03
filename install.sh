@@ -16,7 +16,6 @@ DOTFILES=(
 # Directories located in $HOME/.config/
 DOTDIRS=(
     "alacritty"
-    "bat"
     "bspwm"
     "dunst"
     "nvim"
