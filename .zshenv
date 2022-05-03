@@ -1,5 +1,6 @@
 # Add to path
 export PATH=$HOME/.local/bin:$PATH
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # System settings
 export TERM=xterm-256color
@@ -11,6 +12,7 @@ export VISUAL="nvim"
 export MANPAGER="nvim +Man!"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
+export BAT_THEME="gruvbox-dark"
 
 # Set XDG paths
 export XDG_CONFIG_HOME="$HOME/.config"
