@@ -1,8 +1,9 @@
 configuration {
-    font:               "Jetbrains mono 12";
+    font:               "Jetbrains Mono 12";
     show-icons:          true;
     icon-theme:          "Papirus";
-    display-drun:        "";
+    display-window:      "🔍 ";
+    display-drun:        "🔍 ";
     drun-display-format: "{name}";
     scroll-method:       0;
     disable-history:     false;
@@ -14,13 +15,9 @@ configuration {
 window {
     background-color: @bg;
     border-color: @gray;
-    width:   500px;
-    border:  4;
+    width:   450px;
+    border:  3;
     padding: 5;
-}
-listview {
-    lines:   15;
-    columns: 1;
 }
 mainbox {
     border:  0;
@@ -28,9 +25,11 @@ mainbox {
     background-color: @bg;
 }
 listview {
+    lines:   12;
+    columns: 1;
     fixed-height:     0;
     border:           8px 0px 0px;
-    border-color: @bg;
+    border-color:     @bg;
     background-color: @bg;
     spacing:          8px;
     scrollbar:        false;
@@ -88,6 +87,8 @@ scrollbar {
     padding:      0;
 }
 inputbar {
+    border: 0px 0px 3px;
+    border-color: @gray;
     spacing:    0;
     text-color: @fg;
     background-color: @bg;
@@ -97,6 +98,10 @@ entry {
     spacing:    0;
     text-color: @fg;
     background-color: @bg;
+    placeholder:"";
+}
+prompt {
+    text-color: @fg;
 }
 inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
@@ -107,4 +112,12 @@ textbox-prompt-colon {
     margin:     0px 0em 0em 0em;
     text-color: @fg;
     background-color: @bg;
+}
+message {
+    border:       2px 0px 0px ;
+    border-color: @red;
+    padding:      1px ;
+}
+textbox {
+    text-color: @red;
 }
