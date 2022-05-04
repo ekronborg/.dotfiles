@@ -10,6 +10,10 @@ super + {_,shift +}Return
 super + d
 	rofi -modi drun -show drun -config ~/.config/rofi/config.rasi
 
+# show open windows
+super + Tab
+    rofi -show window -config ~/.config/rofi/config.rasi
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
