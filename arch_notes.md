@@ -5,8 +5,8 @@
 ```sh
 $ sudo pacman -S xorg xorg-xinit bspwm sxhkdm polybar dunst firefox alacritty feh rofi fzf \
 ttf-jetbrains-mono exa bat ripgrep fd arc-icon-theme papirus-icon-theme zsh zsh-completions \
-tmux git neovim polkit sof-firmware curl openssh neofetch nvidia nvidia-settings reflector \
-xclip ffmpeg
+tmux git neovim polkit sof-firmware curl openssh neofetch nvidia nvidia-lts nvidia-settings reflector \
+xclip ffmpeg noto-fonts-cjk noto-fonts-extra noto-fonts-emoji
 ```
 
 ```sh
@@ -108,10 +108,11 @@ ParallelDownloads = 5
 ILoveCandy
 ```
 
-### `.xinitrc`
-
 * Starting your WM, e.g., `exec bspwm` or `exec i3`, must be the last part of the `.xinitrc`. This is important!
 * When using `feh` to set the background (`feh --bg-scale --no-fehbg /path/to/image.jpg`), do it after the monitor configuration to ensure correct scaling
 * Remap caps lock to escape: `setxkbmap -option caps:escape` (`setxkbmap` should be installed with the `xorg` package)
 * Keybinding to switch keyboard layout: `setxkbmap -option grp:win_space_toggle us,dk`. For available key combinations, check the output of: `grep "grp:.*toggle" /usr/share/X11/xkb/rules/base.lst`
+* To check for firmware updates: `$ sudo pacman -S fwupd` and check on ArchWiki how to use it
+* If you need more disk space, you can clear the Pacman cache with `$ sudo paccache -r`. Note that this program comes with the package `pacman-contrib`
+* Check for packages that are no longer needed as dependencies: `pacman -Qdt`
 
