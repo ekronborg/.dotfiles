@@ -49,6 +49,7 @@ if has('nvim') || exists('+termguicolors')
     set termguicolors
 endif
 let g:gruvbox_bold = '0'
+let g:gruvbox_invert_selection = '0'
 colorscheme gruvbox
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
