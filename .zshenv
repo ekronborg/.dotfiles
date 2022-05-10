@@ -3,7 +3,7 @@ export PATH=$HOME/.local/bin:$PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # System settings
-export TERM=xterm-256color
+export TERM="xterm-256color"
 export COLORTERM="truecolor"
 
 # Default programs

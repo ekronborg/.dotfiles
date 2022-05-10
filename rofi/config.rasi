@@ -1,5 +1,6 @@
 configuration {
-    font:               "Jetbrains Mono 12";
+    /* font:               "Jetbrains Mono 12"; */
+    font:               "Terminus 14";
     show-icons:          true;
     icon-theme:          "Papirus";
     display-window:      "🔍 ";
@@ -15,7 +16,7 @@ configuration {
 window {
     background-color: @bg;
     border-color: @gray;
-    width:   450px;
+    width:   400px;
     border:  3;
     padding: 5;
 }

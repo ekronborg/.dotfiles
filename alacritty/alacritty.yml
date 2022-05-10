@@ -20,23 +20,27 @@ scrolling:
 # Font configuration (monospace is default)
 font:
   normal:
-    family: Jetbrains Mono
-    style: Medium
+    # family: Jetbrains Mono
+    # style: Medium
+    family: Terminus
+    style: Regular
 
   bold:
-    family: Jetbrains Mono
-    style: ExtraBold
+    # family: Jetbrains Mono
+    # style: ExtraBold
+    family: Terminus
+    style: Bold
 
-  italic:
-    family: Jetbrains Mono
-    style: MediumItalic
+  # italic:
+  #   family: Jetbrains Mono
+  #   style: MediumItalic
 
-  bold_italic:
-    family: Jetbrains Mono
-    style: ExtraBoldItalic
+  # bold_italic:
+  #   family: Jetbrains Mono
+  #   style: ExtraBoldItalic
 
   draw_bold_text_with_bright_colors: true
-  size: 11.0
+  size: 12.0
 
 # Colors (Gruvbox dark)
 colors:
@@ -97,6 +101,3 @@ colors:
     cyan:    '#427b58'
     white:   '#928374'
   # indexed_colors: []
-
-key_bindings:
-  - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
