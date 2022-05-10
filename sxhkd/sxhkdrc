@@ -30,9 +30,7 @@ super + alt + {q,r}
 super + shift + x
     $HOME/.dotfiles/i3/lock.sh
 
-# close and kill
-# super + {_,shift + }c
-# 	bspc node -{c,k}
+# close
 super + shift + c
 	bspc node -c
 
@@ -72,9 +70,10 @@ super + {_,shift + }{h,j,k,l}
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# # focus the next/previous window in the current desktop
+# focus the next/previous window in the current desktop
 # super + {_,shift + }c
-# 	bspc node -f {next,prev}.local.!hidden.window
+super + {_,shift + }n
+	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
@@ -117,6 +116,10 @@ super + ctrl + shift + space
 #
 # move/resize
 #
+
+# reset all windows in current workspace to default size
+super + r
+    bspc node @/ -E
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
