@@ -6,11 +6,11 @@
 $ sudo pacman -S xorg xorg-xinit bspwm sxhkdm polybar dunst firefox alacritty feh rofi fzf \
 ttf-jetbrains-mono exa bat ripgrep fd arc-icon-theme papirus-icon-theme zsh zsh-completions \
 tmux git neovim polkit sof-firmware curl openssh neofetch nvidia nvidia-lts nvidia-settings reflector \
-xclip ffmpeg noto-fonts-cjk noto-fonts-extra noto-fonts-emoji
+xclip ffmpeg noto-fonts-cjk noto-fonts-extra noto-fonts-emoji pacman-contrib
 ```
 
 ```sh
-$ yay -S ttf-font-awesome-5
+$ yay -S ttf-font-awesome-5 terminus-font-ll2-td1
 ```
 
 ### Pacstrap
