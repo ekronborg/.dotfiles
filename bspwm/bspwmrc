@@ -8,6 +8,7 @@ bspc monitor DP-2 -d 1 2 3 4 5
 bspc monitor DP-0 -d 6 7 8 9 10
 bspc wm --reorder-monitors DP-2 DP-0
 
+bspc config top_padding          0
 bspc config border_width         3
 bspc config window_gap           5
 
