@@ -121,12 +121,13 @@ set grepprg=rg\ --vimgrep
 "------------------------------------------------------------------------------
 " Useful command to trim trailing whitespace
 "------------------------------------------------------------------------------
-function! TrimWhiteSpace()
-    %s/\s\+$//e
-endfunction
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
 
-command Trim :call TrimWhiteSpace()
-" command Trim call TrimWhiteSpace()
+command! Trim :call TrimWhitespace()
 
 "------------------------------------------------------------------------------
 " Set up netrw instead of Nerdtree (save a plugin)
