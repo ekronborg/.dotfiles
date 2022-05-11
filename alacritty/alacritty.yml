@@ -20,27 +20,27 @@ scrolling:
 # Font configuration (monospace is default)
 font:
   normal:
-    # family: Jetbrains Mono
-    # style: Medium
-    family: Terminus
-    style: Regular
+    family: Jetbrains Mono
+    style: Medium
+    # family: Terminus
+    # style: Regular
 
   bold:
-    # family: Jetbrains Mono
-    # style: ExtraBold
-    family: Terminus
-    style: Bold
+    family: Jetbrains Mono
+    style: ExtraBold
+    # family: Terminus
+    # style: Bold
 
-  # italic:
-  #   family: Jetbrains Mono
-  #   style: MediumItalic
+  italic:
+    family: Jetbrains Mono
+    style: MediumItalic
 
-  # bold_italic:
-  #   family: Jetbrains Mono
-  #   style: ExtraBoldItalic
+  bold_italic:
+    family: Jetbrains Mono
+    style: ExtraBoldItalic
 
   draw_bold_text_with_bright_colors: true
-  size: 12.0
+  size: 10.0
 
 # Colors (Gruvbox dark)
 colors:

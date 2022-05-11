@@ -1,6 +1,6 @@
 configuration {
-    /* font:               "Jetbrains Mono 12"; */
-    font:               "Terminus 14";
+    font:               "Jetbrains Mono 11";
+    /* font:               "Terminus 14"; */
     show-icons:          true;
     icon-theme:          "Papirus";
     display-window:      "🔍 ";
@@ -93,7 +93,7 @@ inputbar {
     spacing:    0;
     text-color: @fg;
     background-color: @bg;
-    padding:    1px;
+    padding:    5px;
 }
 entry {
     spacing:    0;
