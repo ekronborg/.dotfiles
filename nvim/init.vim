@@ -52,6 +52,12 @@ let g:gruvbox_bold = '0'
 let g:gruvbox_invert_selection = '0'
 colorscheme gruvbox
 
+" " Highlight only current line
+" set number
+" set cursorline
+" hi CursorLine guibg=none
+" hi CursorLineNr guibg=none guifg=#ebdbb2
+
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
