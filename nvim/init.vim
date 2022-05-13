@@ -3,6 +3,7 @@ filetype plugin indent on
 " Plugins
 "------------------------------------------------------------------------------
 call plug#begin(stdpath('data') . '/plugged')
+Plug 'sevko/vim-nand2tetris-syntax'
 Plug 'kergoth/vim-bitbake'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
@@ -94,7 +95,8 @@ nnoremap <C-D> <C-D>zz
 nnoremap <C-U> <C-U>zz
 
 " Telescope (<cmd> means :)
-nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-p> <CMD>lua require'telescope-config'.project_files()<CR>
+" nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 " Tip: C-q will populate the quickfix list
