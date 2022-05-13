@@ -1,10 +1,10 @@
 # Add to path
 export PATH=$HOME/.local/bin:$PATH
-export _JAVA_AWT_WM_NONREPARENTING=1
 
 # System settings
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 # Default programs
 export EDITOR="nvim"
@@ -19,16 +19,20 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# Use lesspipe
-[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
-[[ -x /usr/bin/lesspipe.sh ]] && export LESSOPEN="|/usr/bin/lesspipe.sh %s"
-
 # Clean up $HOME
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+# export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc"
+# export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}/java"
 export LESSHISTFILE="-"
-# export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
+
+# Fix for using Java applications with WMs
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Use lesspipe
+[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
+[[ -x /usr/bin/lesspipe.sh ]] && export LESSOPEN="|/usr/bin/lesspipe.sh %s"
 
 # # Colored man pages
 # export LESS=-R

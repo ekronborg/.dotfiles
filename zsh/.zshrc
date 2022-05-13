@@ -43,7 +43,6 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 _comp_options+=(globdots)
 
 # FZF
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
