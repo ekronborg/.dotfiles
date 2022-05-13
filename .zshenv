@@ -4,7 +4,7 @@ export PATH=$HOME/.local/bin:$PATH
 # System settings
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
 
 # Default programs
 export EDITOR="nvim"
