@@ -39,6 +39,7 @@ set splitright
 set clipboard=unnamedplus
 set guicursor=
 set updatetime=300
+set noshowmode
 
 "------------------------------------------------------------------------------
 " Color settings
@@ -49,7 +50,7 @@ if has('nvim') || exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
 endif
-let g:gruvbox_bold = '0'
+" let g:gruvbox_bold = '0'
 let g:gruvbox_invert_selection = '0'
 colorscheme gruvbox
 
@@ -104,6 +105,7 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 
 " Delete to blackhole register
 nnoremap <leader>d "_d
+vnoremap <leader>d "_d
 
 " Leave insert mode with <Esc> in terminal mode
 tnoremap <Esc> <C-\><C-N>
