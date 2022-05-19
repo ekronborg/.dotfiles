@@ -32,10 +32,6 @@ export LESSHISTFILE="-"
 # Fix for using Java applications with WMs
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Use lesspipe
-[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
-[[ -x /usr/bin/lesspipe.sh ]] && export LESSOPEN="|/usr/bin/lesspipe.sh %s"
-
 # # Colored man pages
 # export LESS=-R
 # export LESS_TERMCAP_mb=$'\e[1;31m'
