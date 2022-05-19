@@ -10,6 +10,8 @@ window:
     x: 2
     y: 2
 
+  dynamic_padding: true
+
   dimensions:
     columns: 120
     lines: 40
@@ -20,27 +22,31 @@ scrolling:
 # Font configuration (monospace is default)
 font:
   normal:
-    family: Jetbrains Mono
-    style: Medium
-    # family: Terminus
-    # style: Regular
+    # family: Jetbrains Mono
+    # style: Medium
+    family: Ubuntu Mono
+    style: Regular
 
   bold:
-    family: Jetbrains Mono
-    style: ExtraBold
-    # family: Terminus
-    # style: Bold
+    # family: Jetbrains Mono
+    # style: ExtraBold
+    family: Ubuntu Mono
+    style: Bold
 
   italic:
-    family: Jetbrains Mono
-    style: MediumItalic
+    # family: Jetbrains Mono
+    # style: MediumItalic
+    family: Ubuntu Mono
+    style: Italic
 
   bold_italic:
-    family: Jetbrains Mono
-    style: ExtraBoldItalic
+    # family: Jetbrains Mono
+    # style: ExtraBoldItalic
+    family: Ubuntu Mono
+    style: Bold Italic
 
-  draw_bold_text_with_bright_colors: true
-  size: 10.0
+  # draw_bold_text_with_bright_colors: true
+  size: 12.0
 
 # Colors (Gruvbox dark)
 colors:
@@ -73,16 +79,19 @@ colors:
   selection:
     text:       CellBackground
     background: CellForeground
-  bright:
+  # bright:
+  normal:
     black:   '#928374'
-    red:     '#fb4934'
+    # red:     '#fb4934'
+    red:     '#cc241d'
     green:   '#b8bb26'
     yellow:  '#fabd2f'
     blue:    '#83a598'
-    magenta: '#d3869b'
+    magenta: '#b16286'
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
-  normal:
+  # normal:
+  bright:
     black:   *gruvbox_dark_bg
     red:     '#cc241d'
     green:   '#98971a'
