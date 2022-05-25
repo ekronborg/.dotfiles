@@ -5,6 +5,9 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local nvim_lsp = require('lspconfig')
 
+-- Show line diagnostics automatically in hover window
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -41,6 +44,7 @@ for _, lsp in ipairs(servers) do
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
+      capabilities = capabilities,
     }
   }
 end
@@ -48,13 +52,20 @@ end
 -- Turn off some stuff
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
-        signs = false,
+        virtual_text = false,
+        signs = true,
         update_in_insert = false,
         underline = false,
         severity_sort = false,
     }
 )
+
+-- Show icons in the gutter instead of letters
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 ----------------------------------------------------------
 -- Completion
@@ -81,7 +92,7 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -90,4 +101,3 @@ cmp.setup({
     { name = 'buffer' },
   })
 })
-
