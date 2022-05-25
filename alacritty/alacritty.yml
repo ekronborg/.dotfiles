@@ -24,29 +24,29 @@ font:
   normal:
     # family: Jetbrains Mono
     # style: Medium
-    family: Ubuntu Mono
+    family: JetBrainsMono Nerd Font
     style: Regular
 
   bold:
     # family: Jetbrains Mono
     # style: ExtraBold
-    family: Ubuntu Mono
+    family: JetBrainsMono Nerd Font
     style: Bold
 
   italic:
     # family: Jetbrains Mono
     # style: MediumItalic
-    family: Ubuntu Mono
+    family: JetBrainsMono Nerd Font
     style: Italic
 
   bold_italic:
     # family: Jetbrains Mono
     # style: ExtraBoldItalic
-    family: Ubuntu Mono
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
 
   # draw_bold_text_with_bright_colors: true
-  size: 12.0
+  size: 10.0
 
 # Colors (Gruvbox dark)
 colors:
@@ -82,8 +82,7 @@ colors:
   # bright:
   normal:
     black:   '#928374'
-    # red:     '#fb4934'
-    red:     '#cc241d'
+    red:     '#fb4934'
     green:   '#b8bb26'
     yellow:  '#fabd2f'
     blue:    '#83a598'

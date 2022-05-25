@@ -1,6 +1,6 @@
 configuration {
     /* font:               "Jetbrains Mono 11"; */
-    font:               "Ubuntu Mono 13";
+    font:               "JetbrainsMono Nerd Font 11";
     show-icons:          true;
     icon-theme:          "Papirus";
     display-window:      "🔍 ";
