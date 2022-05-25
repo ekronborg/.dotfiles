@@ -6,11 +6,11 @@
 $ sudo pacman -S xorg xorg-xinit bspwm sxhkdm polybar dunst firefox alacritty feh rofi fzf \
 ttf-jetbrains-mono exa bat ripgrep fd arc-icon-theme papirus-icon-theme zsh zsh-completions \
 tmux git neovim polkit sof-firmware curl openssh neofetch nvidia nvidia-lts nvidia-settings reflector \
-xclip ffmpeg noto-fonts-cjk noto-fonts-extra noto-fonts-emoji pacman-contrib
+xclip ffmpeg noto-fonts-cjk noto-fonts-extra noto-fonts-emoji pacman-contrib libva-vdpau-driver
 ```
 
 ```sh
-$ yay -S ttf-font-awesome-5 terminus-font-ll2-td1
+$ yay -S ttf-font-awesome-5 terminus-font-ll2-td1 nerd-fonts-jetbrains-mono
 ```
 
 ### Pacstrap
@@ -90,9 +90,9 @@ $ sudo systemctl enable --now systemd-resolved
 
 ## Tips
 
-* `i3lock` doesn't have a password prompt, so just start typing your password. It can also be launched with a background (`i3lock -i /path/to/image.jpg`) or a solid color (`i3lock -c 282828`)
+* `i3lock` doesn't have a password prompt, so just start typing your password. It can also be launched with a background (`$ i3lock -i /path/to/image.jpg`) or a solid color (`$ i3lock -c 282828`)
 * Enable colored output of pacman commands by uncommenting `Color` in `/etc/pacman.conf`
-* Enable trim for SSD/NVMe dsisk: `sudo systemctl enable --now fstrim.timer`. Enabling this timer, will activate the service weekly
+* Enable trim for SSD/NVMe dsisk: `$ sudo systemctl enable --now fstrim.timer`. Enabling this timer, will activate the service weekly
 * [Pacman commands compared to other package managers](https://wiki.archlinux.org/title/Pacman/Rosetta)
 * Increase verbosity of `pacman`
 ```sh
@@ -109,10 +109,11 @@ ILoveCandy
 ```
 
 * Starting your WM, e.g., `exec bspwm` or `exec i3`, must be the last part of the `.xinitrc`. This is important!
-* When using `feh` to set the background (`feh --bg-scale --no-fehbg /path/to/image.jpg`), do it after the monitor configuration to ensure correct scaling
-* Remap caps lock to escape: `setxkbmap -option caps:escape` (`setxkbmap` should be installed with the `xorg` package)
+* When using `feh` to set the background (`$ feh --bg-scale --no-fehbg /path/to/image.jpg`), do it after the monitor configuration to ensure correct scaling
+* Remap caps lock to escape: `$ setxkbmap -option caps:escape` (`setxkbmap` should be installed with the `xorg` package)
 * Keybinding to switch keyboard layout: `setxkbmap -option grp:win_space_toggle us,dk`. For available key combinations, check the output of: `grep "grp:.*toggle" /usr/share/X11/xkb/rules/base.lst`
 * To check for firmware updates: `$ sudo pacman -S fwupd` and check on ArchWiki how to use it
 * If you need more disk space, you can clear the Pacman cache with `$ sudo paccache -r`. Note that this program comes with the package `pacman-contrib`
-* Check for packages that are no longer needed as dependencies: `pacman -Qdt`
+* Check for packages that are no longer needed as dependencies: `$ pacman -Qdt`
+* To get precise colors of applications (both GUI and TUI), install and run `xcolor`
 
