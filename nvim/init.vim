@@ -3,6 +3,8 @@ filetype plugin indent on
 " Plugins
 "------------------------------------------------------------------------------
 call plug#begin(stdpath('data') . '/plugged')
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'sevko/vim-nand2tetris-syntax'
 Plug 'kergoth/vim-bitbake'
 Plug 'morhetz/gruvbox'
@@ -25,7 +27,7 @@ call plug#end()
 "------------------------------------------------------------------------------
 set path+=**
 set wildmode=longest,list,full
-set laststatus=0
+set laststatus=2
 set noshowcmd
 set expandtab
 set shiftwidth=4
@@ -54,14 +56,15 @@ endif
 let g:gruvbox_invert_selection = '0'
 colorscheme gruvbox
 
-" " Highlight only current line
-" set number
-" set cursorline
-" hi CursorLine guibg=none
-" hi CursorLineNr guibg=none guifg=#ebdbb2
+" Highlight only current line
+set number
+set signcolumn=number
+set cursorline
+hi CursorLine guibg=none
+hi CursorLineNr guibg=none guifg=#ebdbb2
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
-highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -96,8 +99,8 @@ nnoremap <C-D> <C-D>zz
 nnoremap <C-U> <C-U>zz
 
 " Telescope (<cmd> means :)
-nnoremap <C-p> <CMD>lua require'telescope-config'.project_files()<CR>
-" nnoremap <C-p> <cmd>Telescope find_files<cr>
+" nnoremap <C-p> <CMD>lua require'telescope-config'.project_files()<CR>
+nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 " Tip: C-q will populate the quickfix list
@@ -132,7 +135,7 @@ command! Trim :call TrimWhitespace()
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
-let g:netrw_winsize=25
+let g:netrw_winsize=15
 
 " Function to toggle explorer on and off
 let g:NetrwIsOpen=0
@@ -162,4 +165,5 @@ noremap <silent> <leader>e  <cmd>call ToggleNetrw()<CR>
 lua << EOF
   require('lsp-config')
   require('telescope-config')
+  require('lualine-config')
 EOF
