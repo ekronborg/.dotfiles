@@ -6,7 +6,6 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'sevko/vim-nand2tetris-syntax'
-Plug 'kergoth/vim-bitbake'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
@@ -42,6 +41,7 @@ set clipboard=unnamedplus
 set guicursor=
 set updatetime=300
 set noshowmode
+set noruler
 
 "------------------------------------------------------------------------------
 " Color settings
@@ -99,8 +99,8 @@ nnoremap <C-D> <C-D>zz
 nnoremap <C-U> <C-U>zz
 
 " Telescope (<cmd> means :)
-" nnoremap <C-p> <CMD>lua require'telescope-config'.project_files()<CR>
-nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-p> <CMD>lua require'telescope-config'.project_files()<CR>
+" nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 " Tip: C-q will populate the quickfix list
