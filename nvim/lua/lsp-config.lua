@@ -2,22 +2,19 @@
  -- LSP
  -- https://www.youtube.com/watch?v=puWgHa7k3SY
 ----------------------------------------------------------
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local nvim_lsp = require('lspconfig')
 
--- Show line diagnostics automatically in hover window
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+-- Mappings. See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
 -- vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
+-- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   print('Attaching to ' .. client.name)
   -- Mappings.
@@ -36,8 +33,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
+-- Use a loop to conveniently call 'setup' on multiple servers and map buffer local keybindings when the language server attaches
 local servers = { 'pyright' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -52,7 +48,7 @@ end
 -- Turn off some stuff
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
+        virtual_text = true,
         signs = true,
         update_in_insert = false,
         underline = false,
@@ -94,6 +90,19 @@ cmp.setup({
     }),
     ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        path = "[Path]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[LaTeX]",
+      })[entry.source.name]
+      return vim_item
+    end
+  },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
@@ -101,3 +110,4 @@ cmp.setup({
     { name = 'buffer' },
   })
 })
+
