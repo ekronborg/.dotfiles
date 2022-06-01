@@ -63,19 +63,6 @@ colors:
   vi_mode_cursor:
     text:   CellBackground
     cursor: CellForeground
-  # search:
-  #   matches:
-  #     foreground: '#000000'
-  #     background: '#ffffff'
-  #   focused_match:
-  #    foreground: CellBackground
-  #    background: CellForeground
-  #   bar:
-  #     background: ''
-  #     foreground: ''
-  # line_indicator:
-  #   foreground: None
-  #   background: None
   selection:
     text:       CellBackground
     background: CellForeground
@@ -91,7 +78,8 @@ colors:
     white:   '#ebdbb2'
   # normal:
   bright:
-    black:   *gruvbox_dark_bg
+    # black:   *gruvbox_dark_bg
+    black:   '#928374'
     red:     '#cc241d'
     green:   '#98971a'
     yellow:  '#d79921'
