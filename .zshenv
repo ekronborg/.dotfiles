@@ -9,7 +9,8 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --e
 # Default programs
 export EDITOR="nvim"
 export VISUAL="nvim"
-export MANPAGER="nvim +Man!"
+# export MANPAGER="nvim +Man!"
+export MANPAGER="nvim +Man! -c 'set laststatus=0'"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
 export BAT_THEME="gruvbox-dark"
