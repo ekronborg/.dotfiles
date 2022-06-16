@@ -68,7 +68,7 @@ colors:
     background: CellForeground
   # bright:
   normal:
-    black:   '#928374'
+    black:   *gruvbox_dark_bg
     red:     '#fb4934'
     green:   '#b8bb26'
     yellow:  '#fabd2f'
@@ -78,7 +78,6 @@ colors:
     white:   '#ebdbb2'
   # normal:
   bright:
-    # black:   *gruvbox_dark_bg
     black:   '#928374'
     red:     '#cc241d'
     green:   '#98971a'
