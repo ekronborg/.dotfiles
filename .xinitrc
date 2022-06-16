@@ -48,6 +48,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# Gnome-keyring
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
 # Set monitor output
 xrandr --output DP-2 --primary --mode 2560x1440 --rate 144 --rotate normal --output DP-0 --mode 1920x1080 --rate 60 --rotate normal --left-of DP-2 &
 
@@ -55,10 +59,10 @@ xrandr --output DP-2 --primary --mode 2560x1440 --rate 144 --rotate normal --out
 feh --bg-scale --no-fehbg $HOME/Pictures/wallpapers/1.png &
 
 # Remap escape to caps lock
-# setxkbmap -option caps:escape &
+# setxkbmap -option caps:escape
 
 # Switch keyboard layout with super+space
-setxkbmap -option grp:win_space_toggle us,dk &
+setxkbmap -option grp:win_space_toggle us,dk
 
 # Start programs
 dunst &
