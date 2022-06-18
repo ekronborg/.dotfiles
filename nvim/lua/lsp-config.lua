@@ -5,7 +5,7 @@
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
 
 -- Mappings. See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -33,28 +33,24 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
+
 -- Use a loop to conveniently call 'setup' on multiple servers and map buffer local keybindings when the language server attaches
 local servers = { 'pyright' }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+  lspconfig[lsp].setup {
     on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-      capabilities = capabilities,
-    }
+    capabilities = capabilities,
   }
 end
 
 -- Turn off some stuff
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
-        signs = true,
-        update_in_insert = false,
-        underline = false,
-        severity_sort = false,
-    }
-)
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = false,
+  underline = false,
+  update_in_insert = false,
+  severity_sort = false,
+})
 
 -- Show icons in the gutter instead of letters
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -68,10 +64,12 @@ end
 ----------------------------------------------------------
 vim.opt.completeopt = {"menu", "menuone", "noselect"}
 
--- Setup nvim-cmp.
-local cmp = require'cmp'
+-- luasnip setup
+local luasnip = require 'luasnip'
 
-cmp.setup({
+-- nvim-cmp setup
+local cmp = require 'cmp'
+cmp.setup {
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -88,7 +86,7 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
   formatting = {
     format = function(entry, vim_item)
@@ -103,11 +101,11 @@ cmp.setup({
       return vim_item
     end
   },
-  sources = cmp.config.sources({
+  sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-  }, {
     { name = 'buffer' },
-  })
-})
+    { name = 'path' },
+  },
+}
 
