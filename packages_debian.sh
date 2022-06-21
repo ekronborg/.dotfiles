@@ -38,7 +38,7 @@ echo "Installing packages..."
 echo "------------------------------------------------------------------------------------"
 for package in "${PACKAGES[@]}"; do
     echo "Installing ${package}"
-    sudo apt-get -qqy install $package
+    sudo apt-get -qqy install "$package"
 done
 
 # Install vim-plug for Vim if not installed
@@ -63,13 +63,13 @@ fi
 echo "------------------------------------------------------------------------------------"
 echo "Bat(cat) settings..."
 echo "------------------------------------------------------------------------------------"
-mkdir -pv $HOME/.local/bin
+mkdir -pv "$HOME"/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
 read -r -p "Source dotfiles and set up symlinks? [Y/n] " input
 case $input in
       [yY][eE][sS]|[yY])
-            source $PWD/install.sh
+            "$PWD"/install.sh
             ;;
       [nN][oO]|[nN])
             exit 0

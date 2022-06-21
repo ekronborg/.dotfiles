@@ -4,14 +4,14 @@ set -e
 
 # Get path of script and change working directory
 DIR="$(dirname "${BASH_SOURCE[0]}")"
-cd $DIR
+cd "$DIR"
 
 # Enable the RPM Fusion repositories
 echo "------------------------------------------------------------------------------------"
 echo "Enabling the RPM Fusion repositories..."
 echo "------------------------------------------------------------------------------------"
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
 
 # Enable the flathub repository
 echo "------------------------------------------------------------------------------------"
@@ -54,7 +54,7 @@ echo "Installing packages..."
 echo "------------------------------------------------------------------------------------"
 for package in "${PACKAGES[@]}"; do
     echo "Installing ${package}"
-    sudo dnf -qy install $package
+    sudo dnf -qy install "$package"
 done
 
 # Yocto dependencies (https://docs.yoctoproject.org/ref-manual/system-requirements.html#fedora-packages)
@@ -99,7 +99,7 @@ echo "--------------------------------------------------------------------------
 read -r -p "Source dotfiles and set up symlinks? [Y/n] " input
 case $input in
       [yY][eE][sS]|[yY])
-            source $PWD/install.sh
+            "$PWD"/install.sh
             ;;
       [nN][oO]|[nN])
             exit 0
