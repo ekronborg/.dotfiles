@@ -7,7 +7,7 @@ set viminfo+=n~/.vim/viminfo
 " Plugins
 "------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
@@ -46,12 +46,12 @@ set clipboard=unnamedplus            " Use system clipboard
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
 highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 "------------------------------------------------------------------------------
 " Color settings
@@ -63,8 +63,16 @@ if has('nvim') || exists('+termguicolors')
     set termguicolors
 endif
 set background=dark
-let g:gruvbox_bold = '0'
+let g:gruvbox_invert_selection = '0'
 colorscheme gruvbox
+
+" " Highlight only current line
+" set number
+" " set relativenumber
+" set signcolumn=number
+" set cursorline
+" hi CursorLine guibg=NONE ctermbg=NONE
+" hi CursorLineNr guibg=NONE ctermbg=NONE guifg=#ebdbb2
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -90,6 +98,9 @@ let g:fzf_colors =
 let mapleader = " "
 nnoremap Q :q<CR>
 
+" Remap ctrl-l like in Neovim
+nnoremap <C-L> <Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>
+
 " Keep selection when shifting
 vnoremap > >gv
 vnoremap < <gv
@@ -108,10 +119,14 @@ nnoremap J mzJ`z
 nnoremap <C-D> <C-D>zz
 nnoremap <C-U> <C-U>zz
 
+" Delete to blackhole register
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
 " Fuzzy searching
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <C-f> :Rg 
+nnoremap <C-f> :Rg
 
 "------------------------------------------------------------------------------
 " Use ripgrep instead of default vimgrep
@@ -136,6 +151,7 @@ command! Trim :call TrimWhitespace()
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
+" let g:netrw_winsize=25
 let g:netrw_winsize=25
 
 " Function to toggle explorer on and off
