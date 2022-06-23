@@ -126,7 +126,13 @@ vnoremap <leader>d "_d
 " Fuzzy searching
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <C-f> :Rg
+nnoremap <C-f> :Rg 
+
+"------------------------------------------------------------------------------
+" Autocommands
+"------------------------------------------------------------------------------
+" autocmd! BufRead,BufNewFile *.h,*.c set ft=c.doxygen
+autocmd! BufRead,BufNewFile *.h,*.c set ft=c
 
 "------------------------------------------------------------------------------
 " Use ripgrep instead of default vimgrep

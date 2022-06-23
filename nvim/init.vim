@@ -117,6 +117,12 @@ vnoremap <leader>d "_d
 tnoremap <Esc> <C-\><C-N>
 
 "------------------------------------------------------------------------------
+" Autocommands
+"------------------------------------------------------------------------------
+" autocmd! BufRead,BufNewFile *.h,*.c set ft=c.doxygen
+autocmd! BufRead,BufNewFile *.h,*.c set ft=c
+
+"------------------------------------------------------------------------------
 " Use ripgrep instead of default vimgrep
 "------------------------------------------------------------------------------
 set grepprg=rg\ --vimgrep
