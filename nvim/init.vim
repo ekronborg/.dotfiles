@@ -5,7 +5,6 @@ filetype plugin indent on
 call plug#begin(stdpath('data') . '/plugged')
 " Plug 'nvim-lualine/lualine.nvim'
 " Plug 'kyazdani42/nvim-web-devicons'
-Plug 'sevko/vim-nand2tetris-syntax'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
@@ -40,7 +39,6 @@ set splitright
 set clipboard=unnamedplus
 set guicursor=
 set updatetime=300
-set nohlsearch
 " set noshowmode
 " set noruler
 
@@ -53,20 +51,18 @@ if has('nvim') || exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
 endif
-" let g:gruvbox_bold = '0'
 let g:gruvbox_invert_selection = '0'
 colorscheme gruvbox
 
 " " Highlight only current line
 " set number
-" " set relativenumber
+" set number relativenumber
 " set signcolumn=number
 " set cursorline
 " hi CursorLine guibg=none
 " hi CursorLineNr guibg=none guifg=#ebdbb2
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
-" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -86,35 +82,20 @@ let mapleader = " "
 " Map Q to something useful
 nnoremap Q <cmd>q<cr>
 
-" Keep selection when shifting
-vnoremap > >gv
-vnoremap < <gv
-
 " Move in long lines
 nnoremap j gj
 nnoremap k gk
 
-" Keeping the cursor centered (https://www.youtube.com/watch?v=hSHATqh8svM)
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap J mzJ`z
-nnoremap <C-D> <C-D>zz
-nnoremap <C-U> <C-U>zz
-
-" Telescope (<cmd> means :)
+" Fuzzy find (Telescope). TIP: C-q will populate the quickfix list with the current contents
 " nnoremap <C-p> <CMD>lua require'telescope-config'.project_files()<CR>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
-" Tip: C-q will populate the quickfix list
 " nnoremap <leader>d <cmd>Telescope diagnostics<cr>
 
 " Delete to blackhole register
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
-
-" Leave insert mode with <Esc> in terminal mode
-tnoremap <Esc> <C-\><C-N>
 
 "------------------------------------------------------------------------------
 " Autocommands

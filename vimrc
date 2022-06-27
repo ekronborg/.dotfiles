@@ -68,7 +68,7 @@ colorscheme gruvbox
 
 " " Highlight only current line
 " set number
-" " set relativenumber
+" " set number relativenumber
 " set signcolumn=number
 " set cursorline
 " hi CursorLine guibg=NONE ctermbg=NONE
@@ -101,23 +101,12 @@ nnoremap Q :q<CR>
 " Remap ctrl-l like in Neovim
 nnoremap <C-L> <Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>
 
-" Keep selection when shifting
-vnoremap > >gv
-vnoremap < <gv
-
 " Make Y work like the rest of the capital letters
 nnoremap Y y$
 
 " Move in long lines
 nnoremap j gj
 nnoremap k gk
-
-" Keeping the cursor centered (https://www.youtube.com/watch?v=hSHATqh8svM)
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap J mzJ`z
-nnoremap <C-D> <C-D>zz
-nnoremap <C-U> <C-U>zz
 
 " Delete to blackhole register
 nnoremap <leader>d "_d
