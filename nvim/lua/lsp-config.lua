@@ -46,7 +46,7 @@ end
 -- Turn off some stuff
 vim.diagnostic.config({
   virtual_text = true,
-  signs = false,
+  signs = true,
   underline = false,
   update_in_insert = false,
   severity_sort = false,
@@ -74,6 +74,10 @@ cmp.setup {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = {
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
