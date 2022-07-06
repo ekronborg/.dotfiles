@@ -2,11 +2,14 @@
 
 ## Packages
 
+Packages can also be installed from a list: `$ sudo pacman -S --needed - < pkglist.txt`. This list can be generated a maintained with `$ pacman -Qqe > pkglist.txt`. For more information, see [the guide on the Arch wiki](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#List_of_installed_packages).
+
 ```sh
-$ sudo pacman -S xorg xorg-xinit bspwm sxhkdm polybar dunst firefox alacritty feh rofi fzf \
+$ sudo pacman -S xorg xorg-xinit bspwm sxhkd polybar dunst firefox alacritty feh rofi fzf \
 ttf-jetbrains-mono exa bat ripgrep fd arc-icon-theme papirus-icon-theme zsh zsh-completions \
 tmux git neovim polkit sof-firmware curl openssh neofetch nvidia nvidia-lts nvidia-settings reflector \
-xclip ffmpeg noto-fonts-cjk noto-fonts-extra noto-fonts-emoji pacman-contrib libva-vdpau-driver
+xclip ffmpeg noto-fonts-cjk noto-fonts-extra noto-fonts-emoji pacman-contrib libva-vdpau-driver \
+pipewire pipewire-alsa pipewire-jack pipewire-pulse man-pages
 ```
 
 ```sh
@@ -14,8 +17,9 @@ $ yay -S ttf-font-awesome-5 terminus-font-ll2-td1 nerd-fonts-jetbrains-mono
 ```
 
 ### Pacstrap
+
 ```sh
-# pacstrap base linux linux-lts linux-firmware base-devel intel-ucode vim
+# pacstrap base linux linux-lts linux-firmware base-devel intel-ucode gvim
 ```
 
 ## Configuring `systemd-boot`
@@ -43,6 +47,7 @@ $ sudo vim /etc/hosts
 ```
 
 ## Add new user
+
 ```sh
 $ sudo EDITOR=vim visudo
 # Uncomment %wheel ALL=(ALL) ALL
