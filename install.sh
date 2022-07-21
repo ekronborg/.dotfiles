@@ -45,6 +45,10 @@ for dotdir in "${DOTDIRS[@]}"; do
     ln -sfv "$(pwd)"/"$dotdir" "$HOME"/.config/
 done
 
+for bin_file in "$(pwd)"/bin/*; do
+    ln -sfv "$bin_file" "$HOME"/.local/bin/
+done
+
 # Create symbolic link from vimrc to $HOME/.vim
 ln -sfv "$(pwd)"/vimrc "$HOME"/.vim/
 
