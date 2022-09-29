@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+TGT_DIR="$HOME/.local/bin/"
+cd "$TGT_DIR"
+if test -f "$TGT_DIR/nvim.appimage"; then
+    mv nvim.appimage nvim.appimage.old
+fi
+
+command -v wget --version &> /dev/null || echo "Error: wget is not installed" && exit 1
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage.sha256sum -q -O  nvim.appimage.sha256sum
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -q -O nvim.appimage
+
+PROCEED="$(sha256sum -c nvim.appimage.sha256sum)"
+
+if [[ $PROCEED =~ "OK" ]]; then
+    echo "Update Successful: Checksum OK"
+    chmod u+x nvim.appimage
+    ln -sf "$TGT_DIR/nvim.appimage" "$TGT_DIR/nvim"
+else
+    echo "Checksum Failed: Rolling back"
+    rm nvim.appimage
+    mv nvim.appimage.old nvim.appimage
+fi
+
+if test -f "$TGT_DIR/nvim.appimage.old"; then
+    rm nvim.appimage.old
+fi

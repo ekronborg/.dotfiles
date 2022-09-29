@@ -33,6 +33,7 @@ if [[ "$1" == "build" ]] && [[ "$#" -ge 2 ]]; then
     build $2
 elif [[ "$1" == "build" ]] && [[ "$#" -lt 2 ]]; then
     echo "Usage: build_latex build <file_name.tex>"
+    exit 1
 elif [[ "$1" == "clean" ]]; then
     clean
 else
