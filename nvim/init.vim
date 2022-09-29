@@ -18,10 +18,11 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'kergoth/vim-bitbake'
 call plug#end()
 
 "------------------------------------------------------------------------------
-" Basic settings
+" General settings
 "------------------------------------------------------------------------------
 set path+=**
 set wildmode=longest,list,full
@@ -60,8 +61,9 @@ let g:gruvbox_sign_column = 'none'
 colorscheme gruvbox
 
 " Highlight only current line
-" hi CursorLine guibg=none
-" hi CursorLineNr guibg=none guifg=#ebdbb2
+hi CursorLine guibg=none
+" hi CursorLineNr guibg=none
+hi CursorLineNr guibg=none guifg=#ebdbb2
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
 highlight ExtraWhitespace ctermbg=red guibg=red
