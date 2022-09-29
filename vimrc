@@ -1,8 +1,7 @@
-set nocompatible          " Required for Vi(improved) to work
-filetype plugin indent on " Required
-syntax on                 " Enable syntax highlightning
-" Move viminfo from $HOME to $HOME/.vim
-set viminfo+=n~/.vim/viminfo
+set nocompatible             " Required for Vi(improved) to work
+filetype plugin indent on    " Required
+syntax on                    " Enable syntax highlightning
+set viminfo+=n~/.vim/viminfo " Move viminfo from $HOME to $HOME/.vim
 "------------------------------------------------------------------------------
 " Plugins
 "------------------------------------------------------------------------------
@@ -12,6 +11,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+Plug 'kergoth/vim-bitbake'
 call plug#end()
 
 "------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ set smarttab                         " Auto tabbing
 set autoindent                       " Automatical indentation of new lines
 set shiftwidth=4                     " One tab equals four spaces
 set tabstop=4                        " One tab equals four spaces
-set nohlsearch                       " Disable highlight search matches
+set hlsearch
 set incsearch                        " Incremental searching
 set ignorecase                       " Searches are case sensitive only when term has at least one capital
 set noshowmatch                      " Disable highlighting of matching brackets
@@ -43,11 +43,13 @@ set splitright                       " Split right
 set omnifunc=syntaxcomplete#Complete " Enable omnifunc (C-x C-o)
 set fillchars+=vert:│                " Solid line instead of dashed line
 set clipboard=unnamedplus            " Use system clipboard
+set shortmess-=S                     " Show [x/y] for searches
+set cursorline
+set number
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
@@ -66,13 +68,8 @@ set background=dark
 let g:gruvbox_invert_selection = '0'
 colorscheme gruvbox
 
-" " Highlight only current line
-" set number
-" " set number relativenumber
-" set signcolumn=number
-" set cursorline
-" hi CursorLine guibg=NONE ctermbg=NONE
-" hi CursorLineNr guibg=NONE ctermbg=NONE guifg=#ebdbb2
+hi CursorLine guibg=NONE ctermbg=NONE
+hi CursorLineNr guibg=NONE ctermbg=NONE guifg=#ebdbb2
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -146,7 +143,6 @@ command! Trim :call TrimWhitespace()
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
-" let g:netrw_winsize=25
 let g:netrw_winsize=25
 
 " Function to toggle explorer on and off
