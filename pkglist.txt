@@ -8,11 +8,17 @@ bc
 bind
 binutils
 bison
+bluez
+bluez-utils
 bspwm
+chromium
+cmake
 discord
 dos2unix
 dosfstools
+dtc
 dunst
+element-desktop
 exa
 fakeroot
 fd
@@ -24,8 +30,10 @@ flex
 fzf
 gawk
 gcc
+gdb
 gettext
 git
+gnome-boxes
 gnome-keyring
 grep
 groff
@@ -46,6 +54,7 @@ man-pages
 neofetch
 neovim
 nerd-fonts-jetbrains-mono
+ninja
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
@@ -71,6 +80,7 @@ podman
 polkit
 polybar
 protonmail-bridge
+python-virtualenv
 reflector
 ripgrep
 rofi
@@ -80,6 +90,7 @@ sudo
 sxhkd
 terminus-font-ll2-td1
 texinfo
+texlab
 thunar
 tmux
 traceroute
@@ -89,6 +100,7 @@ ttf-ubuntu-font-family
 unzip
 usbutils
 vdpauinfo
+wget
 which
 xclip
 xdg-utils
