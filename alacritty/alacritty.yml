@@ -1,6 +1,6 @@
 # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
 env:
-  TERM: xterm-256color
+  TERM: alacritty
 
 # Window configuration (full or none)
 window:
@@ -22,39 +22,31 @@ scrolling:
 # Font configuration (monospace is default)
 font:
   normal:
-    # family: Jetbrains Mono
-    # style: Medium
+    family: UbuntuMono Nerd Font
     # family: JetBrainsMono Nerd Font
-    family: Hack Nerd Font
-    # family: UbuntuMono Nerd Font
+    # family: Hack Nerd Font
     style: Regular
 
   bold:
-    # family: Jetbrains Mono
-    # style: ExtraBold
+    family: UbuntuMono Nerd Font
     # family: JetBrainsMono Nerd Font
-    family: Hack Nerd Font
-    # family: UbuntuMono Nerd Font
+    # family: Hack Nerd Font
     style: Bold
 
   italic:
-    # family: Jetbrains Mono
-    # style: MediumItalic
+    family: UbuntuMono Nerd Font
     # family: JetBrainsMono Nerd Font
-    family: Hack Nerd Font
-    # family: UbuntuMono Nerd Font
+    # family: Hack Nerd Font
     style: Italic
 
   bold_italic:
-    # family: Jetbrains Mono
-    # style: ExtraBoldItalic
+    family: UbuntuMono Nerd Font
     # family: JetBrainsMono Nerd Font
-    family: Hack Nerd Font
-    # family: UbuntuMono Nerd Font
+    # family: Hack Nerd Font
     style: Bold Italic
 
   # draw_bold_text_with_bright_colors: true
-  size: 10.0
+  size: 11.0
 
 # Colors (Gruvbox dark)
 colors:
