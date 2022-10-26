@@ -2,15 +2,13 @@
 export PATH=$HOME/.local/bin:$PATH
 
 # System settings
-export TERM="xterm-256color"
 export COLORTERM="truecolor"
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+# Prior to fd v0.8.3 `--strip-cwd-prefix` does not exist and should therefore not be included!
+export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --follow --exclude .git"
 
 # Default programs
 export EDITOR="nvim"
 export VISUAL="nvim"
-# export MANPAGER="nvim +Man!"
-# export MANPAGER="nvim +Man! -c 'set laststatus=0'"
 export MANPAGER="nvim +Man! -c 'set laststatus=0 noruler nocursorline'"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
@@ -29,9 +27,12 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonrc"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}/java"
+export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
 export LESSHISTFILE="-"
 
 # Fix for using Java applications with WMs
