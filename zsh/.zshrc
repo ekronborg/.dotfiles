@@ -53,7 +53,7 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 # PROMPT='%B%F{#8ec07c}%~%f%F{#83a598}$(parse_git_branch)%f ➜%b '
-PROMPT='%B%F{#ebddb2}%~%f%F{#928374}$(parse_git_branch)%f %F{#8ec07c}::%f%b '
+PROMPT='%B%F{#ebddb2}%~%f%F{#928374}$(parse_git_branch)%f %F{#8ec07c}➜%f%b '
 
 # Aliases
 source $HOME/.config/zsh/aliases
