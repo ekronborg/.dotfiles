@@ -1,6 +1,7 @@
 require("telescope").setup {
   defaults = {
-    -- ....
+    prompt_prefix = "🔍",
+    selection_caret = "➜ "
   },
   pickers = {
     find_files = {
