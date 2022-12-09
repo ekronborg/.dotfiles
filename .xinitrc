@@ -53,10 +53,10 @@ eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
 # Set monitor output
-xrandr --output DP-2 --primary --mode 2560x1440 --rate 144 --rotate normal --output DP-0 --mode 1920x1080 --rate 60 --rotate normal --left-of DP-2 &
+xrandr --output DP-2 --primary --mode 2560x1440 --rate 144 --rotate normal
 
 # Set background
-feh --bg-scale --no-fehbg $HOME/Pictures/wallpapers/1.png &
+feh --bg-scale --no-fehbg $HOME/Pictures/wallpapers/gruv-material-texture.png
 
 # Remap escape to caps lock
 # setxkbmap -option caps:escape
