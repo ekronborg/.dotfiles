@@ -96,6 +96,19 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
+" Terminal stuff
+tnoremap <Esc> <C-\><C-n>
+augroup neovim_terminal
+    autocmd!
+    " Enter Terminal-mode (insert) automatically
+    autocmd TermOpen * startinsert
+    " Disables number lines on terminal buffers
+    autocmd TermOpen * set nonumber norelativenumber
+    " allows you to use Ctrl-c on terminal window
+    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
+    " No highlight
+    autocmd TermOpen * highlight ExtraWhitespace ctermbg=none guibg=none
+augroup END
 "------------------------------------------------------------------------------
 " Autocommands
 "------------------------------------------------------------------------------
