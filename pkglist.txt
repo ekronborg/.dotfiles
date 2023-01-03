@@ -13,13 +13,10 @@ chromium
 cmake
 debugedit
 discord
-dmidecode
-dnsmasq
 dos2unix
 dosfstools
 dtc
 dunst
-edk2-ovmf
 element-desktop
 evince
 exa
@@ -50,7 +47,6 @@ lesspipe
 libtool
 libva-utils
 libva-vdpau-driver
-libvirt
 linux
 linux-firmware
 linux-lts
@@ -85,6 +81,7 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+pipewire-x11-bell
 pkgconf
 podman
 polkit
@@ -94,7 +91,6 @@ protonmail-bridge
 python-pip
 python-rich
 python-virtualenv
-qemu-desktop
 reflector
 ripgrep
 rofi
@@ -106,12 +102,12 @@ terminus-font-ll2-td1
 texinfo
 texlab
 thunar
+tldr
 tmux
 traceroute
 unzip
 usbutils
 vdpauinfo
-virt-manager
 wget
 which
 xclip
