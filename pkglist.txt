@@ -3,6 +3,7 @@ arc-icon-theme
 autoconf
 automake
 base
+base-devel
 bat
 bc
 bind
@@ -13,6 +14,7 @@ chromium
 cmake
 debugedit
 discord
+dmidecode
 dos2unix
 dosfstools
 dtc
@@ -51,6 +53,7 @@ linux
 linux-firmware
 linux-lts
 lsof
+ltrace
 lxappearance
 m4
 make
@@ -58,7 +61,6 @@ man-pages
 ncdu
 neofetch
 neovim
-nerd-fonts-jetbrains-mono
 ninja
 noto-fonts-cjk
 noto-fonts-emoji
@@ -96,15 +98,17 @@ ripgrep
 rofi
 sed
 sof-firmware
+sshfs
 sudo
 sxhkd
-terminus-font-ll2-td1
 texinfo
 texlab
 thunar
 tldr
 tmux
 traceroute
+tree
+ttf-jetbrains-mono-nerd
 unzip
 usbutils
 vdpauinfo
