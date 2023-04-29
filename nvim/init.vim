@@ -82,6 +82,21 @@ let mapleader = " "
 " Map Q to something useful
 nnoremap Q <cmd>q<cr>
 
+" Keep selection when shifting
+vnoremap > >gv
+vnoremap < <gv
+
+" Keeping the cursor centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+nnoremap <C-D> <C-D>zz
+nnoremap <C-U> <C-U>zz
+
+" Keep selection when moving lines up and down
+vnoremap <silent> <S-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <S-k> :m '<-2<CR>gv=gv
+
 " Move in long lines
 nnoremap j gj
 nnoremap k gk
