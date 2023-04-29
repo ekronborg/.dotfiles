@@ -46,6 +46,7 @@ set number
 " set number relativenumber
 set signcolumn=number
 set cursorline
+set tags=./tags;/
 
 "------------------------------------------------------------------------------
 " Color settings
