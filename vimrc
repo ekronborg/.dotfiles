@@ -58,7 +58,6 @@ autocmd BufWinLeave * call clearmatches()
 "------------------------------------------------------------------------------
 " Color settings
 "------------------------------------------------------------------------------
-" https://github.com/tmux/tmux/issues/1246
 if has('nvim') || exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -94,6 +93,21 @@ let g:fzf_colors =
 " Map leader
 let mapleader = " "
 nnoremap Q :q<CR>
+
+" Keep selection when shifting
+vnoremap > >gv
+vnoremap < <gv
+
+" Keeping the cursor centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+nnoremap <C-D> <C-D>zz
+nnoremap <C-U> <C-U>zz
+
+" Keep selection when moving lines up and down
+vnoremap <silent> <S-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <S-k> :m '<-2<CR>gv=gv
 
 " Remap ctrl-l like in Neovim
 nnoremap <C-L> <Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>
