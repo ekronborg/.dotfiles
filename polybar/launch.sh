@@ -11,6 +11,6 @@ while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 # Launch Polybar and write to log files
 echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
 polybar primary 2>&1 | tee -a /tmp/polybar1.log & disown
-polybar secondary 2>&1 | tee -a /tmp/polybar2.log & disown
+# polybar secondary 2>&1 | tee -a /tmp/polybar2.log & disown
 
 echo "Polybar launched..."
