@@ -19,6 +19,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'kergoth/vim-bitbake'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 "------------------------------------------------------------------------------
@@ -43,7 +44,6 @@ set updatetime=300
 set noshowmode
 set noruler
 set number
-" set number relativenumber
 set signcolumn=number
 set cursorline
 set tags=./tags;/
@@ -109,7 +109,6 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 " nnoremap <leader>d <cmd>Telescope diagnostics<cr>
 
 " Delete to blackhole register
-nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
 " Terminal stuff
