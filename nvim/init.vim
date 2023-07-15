@@ -21,6 +21,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'kergoth/vim-bitbake'
 Plug 'tpope/vim-fugitive'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 "------------------------------------------------------------------------------
@@ -73,6 +74,19 @@ autocmd BufWinLeave * call clearmatches()
 
 " Visual feedback when yanking (https://neovim.io/doc/user/lua.html#lua-highlight)
 au TextYankPost * silent! lua vim.highlight.on_yank()
+
+"------------------------------------------------------------------------------
+" Vimwiki
+"------------------------------------------------------------------------------
+" - cheatsheet https://gist.github.com/drkarl/4c503bccb62558dc85e8b1bc0f29e9cb
+" - https://github.com/vimwiki/vimwiki#changing-wiki-syntax
+
+let g:vimwiki_list = [{'path': '~/notes/',
+                      \ 'syntax': 'markdown', 'filetype': 'markdown', 'ext': '.md'}]
+
+let g:vimwiki_global_ext = 0
+let g:vimwiki_auto_chdir = 1
+" let g:vimwiki_conceal_pre = 1
 
 "------------------------------------------------------------------------------
 " Remappings
