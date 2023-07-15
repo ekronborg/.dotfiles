@@ -16,9 +16,15 @@ setopt prompt_subst
 setopt auto_resume
 
 # Set up search history
-HISTFILE=~/.cache/zsh/history
-HISTSIZE=50000
-SAVEHIST=10000
+# See https://www.reddit.com/r/zsh/comments/x7uj9e/measuring_the_best_value_of_histsize/
+# See https://zsh.sourceforge.io/FAQ/zshfaq03.html#l39
+# - $HISTFILE tells it where to write the history
+# - $HISTSIZE tells the shell how many lines to keep internally
+# - $SAVEHIST tells it how many to write out
+# The simplest possibility is to set $SAVEHIST =  $HISTSIZE.
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+HISTSIZE=10000000
+SAVEHIST=10000000
 
 # Enable Vi mode
 bindkey -v
