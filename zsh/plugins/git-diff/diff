@@ -1,0 +1,48 @@
+#!/usr/bin/zsh
+
+diff() {
+    # I much prefer using git as diff tool, because that gives
+    # colorized output and all the other diff tweaks I've configured
+    # in git automatically. But primarily, I'm sick and tired of
+    # having to type "diff -u" to get sane output format.
+    #
+    # I sometimes do use plain diff in a way that's not possible with
+    # "git diff --no-index", but 98% of the time, I just invoke diff
+    # on two files (or possibly directories). So let's just do a
+    # minimal argument parsing:
+    #
+    # - If invoked with two arguments which are either both files or
+    #   both directories, use git.
+    #
+    # - If invoked with three arguments, the first of which is -u
+    #   (muscle memory), and the remaining two satisfy the first
+    #   condition, use git.
+    #
+    # - Otherwise, punt to the plain diff command.
+    local use_git f1 f2
+    use_git=true
+
+    if [ $# -eq 2 ] ; then
+        f1="$1"
+        f2="$2"
+    elif [ $# -eq 3 ] && [ "$1" = "-u" ] ; then
+        f1="$2"
+        f2="$3"
+    else
+        use_git=false
+    fi
+    if $use_git ; then
+        if [ -f "$f1" ] && [ -f "$f2" ] ; then
+            :
+        elif [ -d "$f1" ] && [ -d "$f2" ] ; then
+            :
+        else
+            use_git=false
+        fi
+    fi
+    if $use_git ; then
+        git diff --no-index -- "$f1" "$f2"
+    else
+        command diff "$@"
+    fi
+}

@@ -61,6 +61,9 @@ parse_git_branch() {
 # PROMPT='%B%F{#8ec07c}%~%f%F{#83a598}$(parse_git_branch)%f ➜%b '
 PROMPT='%B%F{#ebddb2}%~%f%F{#928374}$(parse_git_branch)%f %F{#8ec07c}➜%f%b '
 
+# Not really a plugin, but I had to put it somewhere
+source $HOME/.config/zsh/plugins/git-diff/diff
+
 # Aliases
 source $HOME/.config/zsh/aliases
 
