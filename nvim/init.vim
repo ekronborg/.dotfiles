@@ -9,6 +9,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -181,6 +182,7 @@ noremap <silent> <leader>e  <cmd>call ToggleNetrw()<CR>
 "------------------------------------------------------------------------------
 lua << EOF
   require('lsp-config')
+  require('null-ls-config')
   require('telescope-config')
   require('lualine-config')
 EOF
