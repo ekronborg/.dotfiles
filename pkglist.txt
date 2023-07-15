@@ -12,6 +12,7 @@ bison
 bspwm
 chromium
 cmake
+ctags
 debugedit
 discord
 dmidecode
@@ -58,6 +59,7 @@ lxappearance
 m4
 make
 man-pages
+marksman
 ncdu
 neofetch
 neovim
@@ -69,6 +71,7 @@ npm
 nvidia
 nvidia-lts
 nvidia-settings
+obsidian
 openssh
 pacman
 pacman-contrib
@@ -89,7 +92,7 @@ podman
 polkit
 polybar
 pop-gtk-theme
-protonmail-bridge
+prettier
 python-pip
 python-rich
 python-virtualenv
