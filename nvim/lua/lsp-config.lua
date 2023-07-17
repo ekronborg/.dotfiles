@@ -96,8 +96,9 @@ cmp.setup {
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.abort(),
-    -- Not sure what the difference between cmp.ConfirmBehavior.Insert and cmp.ConfirmBehavior.Replace is
-    ['<C-Space>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
+    -- cmp.ConfirmBehavior.Replace: replaces adjacent text with the selected item
+    -- cmp.ConfirmBehavior.Insert: inserts the selected item and moves adjacent text to the right (default)
+    ['<C-Space>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
   }),
   formatting = {
     format = function(entry, vim_item)
