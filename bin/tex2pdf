@@ -1,0 +1,59 @@
+#!/bin/bash
+
+IMAGE_URL=docker.io/blang/latex:ctanfull
+ARGS="latexmk -cd -f -interaction=batchmode -pdf"
+
+# Usage
+PROGNAME="$(basename "$0")"
+_print_usage() {
+    echo "Usage: $PROGNAME <file_name.tex> to generate a PDF file"
+    echo "       $PROGNAME clean to clean up"
+}
+
+# Fail if the number of arguments is less than 1
+if [[ "$#" -lt 1 ]]; then
+    _print_usage
+    exit 1
+fi
+
+build() {
+    local latex_file="$1"
+    local dir_path
+
+    # Use readlink to calculate the absolute path
+    latex_file=$(readlink -f "$latex_file")
+    dir_path=$(dirname "$latex_file")
+
+    podman run --rm -i \
+        --volume "$dir_path":/data \
+        --userns=keep-id \
+        ${IMAGE_URL} ${ARGS} "$latex_file"
+}
+
+clean() {
+    # Clean without any additional arguments
+    podman run --rm -i \
+        --volume "$(pwd)":/data \
+        --userns=keep-id \
+        ${IMAGE_URL} latexmk -c
+}
+
+case "$1" in
+    build)
+        if [[ "$#" -eq 2 ]]; then
+            build "$2"
+        else
+            _print_usage
+            exit 1
+        fi
+        ;;
+    clean)
+        clean
+        ;;
+    *)
+        echo "Unknown command: $1"
+        echo ""
+        _print_usage
+        exit 1
+        ;;
+esac
