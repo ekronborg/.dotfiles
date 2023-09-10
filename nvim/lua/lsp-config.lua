@@ -10,7 +10,7 @@ local lspconfig = require('lspconfig')
 -- Global mappings
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
--- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- Use a loop to conveniently call 'setup' on multiple servers and map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'texlab', 'clangd', 'marksman' }
+local servers = { 'pyright', 'texlab', 'marksman', }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -56,7 +56,7 @@ end
 -- Turn off some stuff
 vim.diagnostic.config({
   virtual_text = false,
-  signs = false,
+  signs = true,
   underline = false,
   update_in_insert = false,
   severity_sort = false,
