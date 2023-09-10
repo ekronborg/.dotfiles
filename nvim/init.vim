@@ -126,6 +126,9 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 " Delete to blackhole register
 vnoremap <leader>d "_d
 
+"------------------------------------------------------------------------------
+" Autocommands
+"------------------------------------------------------------------------------
 " Terminal stuff
 tnoremap <Esc> <C-\><C-n>
 augroup neovim_terminal
@@ -139,11 +142,6 @@ augroup neovim_terminal
     " No highlight
     autocmd TermOpen * highlight ExtraWhitespace ctermbg=none guibg=none
 augroup END
-"------------------------------------------------------------------------------
-" Autocommands
-"------------------------------------------------------------------------------
-" autocmd! BufRead,BufNewFile *.h,*.c set ft=c.doxygen
-autocmd! BufRead,BufNewFile *.h,*.c set ft=c
 
 "------------------------------------------------------------------------------
 " Use ripgrep instead of default vimgrep
