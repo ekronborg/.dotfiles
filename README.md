@@ -18,3 +18,8 @@ To update:
 1. `$ cd ~/.dotfiles`
 2. `$ git fetch`
 3. `$ git pull`
+
+## Colors
+- To see all the colors, look at the source code for `onedark.nvim` and `lualine.nvim`
+- To see the exact colors used for _onedark_, see `~/.local/share/nvim/plugged/onedark.nvim/lua/onedark/palette.lua` and
+    `~/.local/share/nvim/plugged/lualine.nvim/lua/lualine/themes/onedark.lua`

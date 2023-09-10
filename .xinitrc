@@ -56,7 +56,7 @@ export SSH_AUTH_SOCK
 xrandr --output DP-2 --primary --mode 2560x1440 --rate 144 --rotate normal
 
 # Set background
-feh --bg-scale --no-fehbg $HOME/Pictures/wallpapers/gruv-material-texture.png
+feh --bg-scale --no-fehbg $HOME/Pictures/wallpapers/4.png
 
 # Remap escape to caps lock
 # setxkbmap -option caps:escape

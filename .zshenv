@@ -12,7 +12,7 @@ export VISUAL="nvim"
 export MANPAGER="nvim +Man! -c 'set laststatus=0 noruler nocursorline'"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
-export BAT_THEME="gruvbox-dark"
+export BAT_THEME="TwoDark"
 
 # Set XDG paths
 export XDG_CONFIG_HOME="$HOME/.config"

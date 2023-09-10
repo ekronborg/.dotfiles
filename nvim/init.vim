@@ -5,7 +5,7 @@ filetype plugin indent on
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'gruvbox-community/gruvbox'
+Plug 'navarasu/onedark.nvim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
@@ -56,15 +56,21 @@ set tags=./tags;/
 " https://github.com/tmux/tmux/issues/1246
 " Neovim does not have 't_xx' options, see ':h t_xx'. Thus, it is only
 " nessescary to set 'termguicolors'
-let g:gruvbox_invert_selection = '0'
-let g:gruvbox_sign_column = 'none'
 set termguicolors
-colorscheme gruvbox
+" let g:onedark_config = {
+"     \ 'style': 'darker',
+" \ }
+" Disable italic comments. For a darker theme, include 'style' from above
+let g:onedark_config = {
+    \ 'code_style': {
+        \ 'comments': 'none',
+    \ }
+\ }
+colorscheme onedark
 
 " Highlight only current line
 hi CursorLine guibg=none
-" hi CursorLineNr guibg=none
-hi CursorLineNr guibg=none guifg=#ebdbb2
+hi CursorLineNr guibg=none guifg=#abb2bf
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
 highlight ExtraWhitespace ctermbg=red guibg=red

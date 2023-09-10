@@ -6,7 +6,7 @@ set viminfo+=n~/.vim/viminfo " Move viminfo from $HOME to $HOME/.vim
 " Plugins
 "------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
-Plug 'gruvbox-community/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
@@ -65,10 +65,10 @@ if has('nvim') || exists('+termguicolors')
 endif
 set background=dark
 let g:gruvbox_invert_selection = '0'
-colorscheme gruvbox
+colorscheme onedark
 
 hi CursorLine guibg=NONE ctermbg=NONE
-hi CursorLineNr guibg=NONE ctermbg=NONE guifg=#ebdbb2
+hi CursorLineNr guibg=NONE ctermbg=NONE guifg=#abb2bf
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options

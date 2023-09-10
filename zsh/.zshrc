@@ -58,8 +58,10 @@ source /usr/share/fzf/completion.zsh
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-# PROMPT='%B%F{#8ec07c}%~%f%F{#83a598}$(parse_git_branch)%f ➜%b '
-PROMPT='%B%F{#ebddb2}%~%f%F{#928374}$(parse_git_branch)%f %F{#8ec07c}➜%f%b '
+
+# PROMPT='%F{#abb2bf}%~%f%F{#5c6370}$(parse_git_branch)%f %F{#d19a66}➜%f '
+# PROMPT='%B[%F{#abb2bf}%~%f%F{#5c6370}$(parse_git_branch)%f] %F{#d19a66}➜%f%b '
+PROMPT='%B%F{#abb3bf}%~%f%F{#5c6370}$(parse_git_branch)%f %F{#d19a66}➜%f%b '
 
 # Not really a plugin, but I had to put it somewhere
 source $HOME/.config/zsh/plugins/git-diff/diff
