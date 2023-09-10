@@ -54,6 +54,8 @@ set tags=./tags;/
 " Color settings
 "------------------------------------------------------------------------------
 " https://github.com/tmux/tmux/issues/1246
+" Neovim does not have 't_xx' options, see ':h t_xx'. Thus, it is only
+" nessescary to set 'termguicolors'
 let g:gruvbox_invert_selection = '0'
 let g:gruvbox_sign_column = 'none'
 set termguicolors
