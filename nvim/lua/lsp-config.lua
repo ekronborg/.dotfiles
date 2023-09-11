@@ -93,6 +93,9 @@ cmp.setup {
     ghost_text = true,
   },
   mapping = cmp.mapping.preset.insert({
+    -- C-n and C-p are taken from Tj DeVries' config. I am unsure it they are needed
+    ['<C-n>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ['<C-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.abort(),
