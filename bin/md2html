@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Usage
+PROGNAME="$(basename "$0")"
+_print_usage() {
+    echo "usage: ./$PROGNAME <file.md>"
+    echo ""
+    echo "you can also put $PROGNAME somewhere in your path to call it from anywhere"
+}
+
+# No arguments
+if [[ $# -ne 1 ]]; then
+    _print_usage
+    exit 1
+fi
+
+# Strip suffix
+FILE=$(basename "$1" .md)
+
+# Convert to PDF
+DIR_PATH=$(dirname "$(readlink -f "$1")")
+IMAGE_URL=docker.io/pandoc/extra:latest
+podman run --rm \
+    --volume "${DIR_PATH}:/data" \
+    --userns=keep-id \
+    ${IMAGE_URL} "$FILE".md -o "$FILE".html
