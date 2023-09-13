@@ -31,13 +31,22 @@ sudo dnf -qy groupinstall "C Development Tools and Libraries" "Development Tools
 echo "------------------------------------------------------------------------------------"
 echo "Installing multimedia codecs..."
 echo "------------------------------------------------------------------------------------"
+# From https://rpmfusion.org/Howto/Multimedia
 sudo dnf -qy install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 \
     gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
 sudo dnf -qy install lame\* --exclude=lame-devel
 sudo dnf -qy group upgrade --with-optional Multimedia
+
+# From https://docs.fedoraproject.org/en-US/quick-docs/openh264/
 sudo dnf -qy config-manager --set-enabled fedora-cisco-openh264
 sudo dnf -qy install gstreamer1-plugin-openh264 mozilla-openh264
-sudo dnf -qy group upgrade --with-optional Multimedia
+
+# From https://docs.fedoraproject.org/en-US/quick-docs/installing-plugins-for-playing-movies-and-music/
+# Note that 'intel-media-driver' assumes that the computer has an intel CPU and no discrete GPU.
+sudo dnf -qy swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf -qy groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf -qy groupupdate sound-and-video
+sudo dnf -qy install intel-media-driver
 
 
 echo "------------------------------------------------------------------------------------"
@@ -109,7 +118,10 @@ esac
 
 echo "----------------------------------------------------------------------------------------"
 echo "* Disable SELinux"
+echo "* Disable firewall"
 echo "* Firefox -> Add-ons -> Plugins -> Enable OpenH264"
 echo "* Enable docker.service if the development environment has not yet moved to Podman"
-echo "* Check https://rpmfusion.org/Howto/Multimedia?highlight=%28%5CbCategoryHowto%5Cb%29 for hardware acceleration"
+echo "* Firefox -> Add-ons -> Plugins -> Enable OpenH264"
+echo "* Check also https://docs.fedoraproject.org/en-US/quick-docs/openh264/#_firefox_config_changes for OpenH264 in Firefox"
+echo "* Check https://rpmfusion.org/Howto/Multimedia for hardware acceleration and to see if anything was missed regarding codecs etc"
 echo "----------------------------------------------------------------------------------------"
