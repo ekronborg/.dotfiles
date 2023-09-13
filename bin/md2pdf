@@ -19,7 +19,7 @@ FILE=$(basename "$1" .md)
 
 # Convert to PDF
 DIR_PATH=$(dirname "$(readlink -f "$1")")
-IMAGE_URL=docker.io/pandoc/latex:latest
+IMAGE_URL=docker.io/pandoc/extra:latest
 podman run --rm \
     --volume "${DIR_PATH}:/data" \
     --userns=keep-id \
