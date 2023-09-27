@@ -69,7 +69,9 @@ parse_git_branch() {
 PS1="${RESET}[\u@\h ${CYAN}\w${BLUE}\$(parse_git_branch)${RESET}]\$ "
 
 # Aliases
-alias ll='exa -al --color=always --group-directories-first'
+alias ls='exa --color=always --group-directories-first'
+alias ll='ls -gl'
+alias la='ls -agl'
 alias lt='exa -al --tree --level=2 --color=always --group-directories-first'
 alias dir='dir --color=always'
 alias vdir='vdir --color=always'
