@@ -29,8 +29,15 @@ export VISUAL=vim
 
 # History settings
 HISTCONTROL=ignoreboth
-HISTSIZE=10000
-HISTFILESIZE=10000
+
+if [[ ! -f $HOME/.cache/bash/history ]]; then
+    mkdir -p "$HOME"/.cache/bash
+    touch "$HOME"/.cache/bash/history
+fi
+
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/bash/history"
+HISTSIZE=10000000
+SAVEHIST=10000000
 
 # Bash shell options
 shopt -s histappend
