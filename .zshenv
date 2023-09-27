@@ -33,6 +33,8 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonrc"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}/java"
 export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
+export ANSIBLE_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/ansible"
+export DOCKER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export LESSHISTFILE="-"
 
 # Fix for using Java applications with WMs
