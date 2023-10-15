@@ -18,6 +18,7 @@ DOTDIRS=(
     "alacritty"
     "bspwm"
     "dunst"
+    "neomutt"
     "nvim"
     "polybar"
     "rofi"

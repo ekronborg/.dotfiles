@@ -1,0 +1,59 @@
+# See https://seniormars.github.io/posts/neomutt/ for some settings
+# See also /etc/neomuttrc for default values
+## General options
+set header_cache = "$XDG_CACHE_HOME/neomutt" # Remember to create the directory
+set message_cachedir = "$XDG_CACHE_HOME/neomutt"
+set imap_check_subscribed
+unset imap_passive
+set mail_check = 60
+set mbox_type = Maildir
+set fast_reply = yes
+set include = yes
+set mailcap_path = "$XDG_CONFIG_HOME/neomutt/mailcap"
+set implicit_auto_view = yes
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set tilde
+set date_format="!%a, %b %d, %Y at %H:%M %Z"
+set menu_scroll
+source $XDG_CONFIG_HOME/neomutt/gruvbox-dark.neomuttrc
+
+## Receive options
+set imap_user = "first.last@email.com"
+set imap_pass = "insert_password"
+set folder ="depends_on_your_email_provider"
+set spoolfile = +INBOX
+set postponed = +Drafts
+set record = +Sent
+
+## Send options
+# smtp_url depends on email provider
+# smtp_url = proto[s]://[username[:password]@]server[:port][/path]
+set smtp_url = "smtps://$imap_user@localhost:1025/"
+set realname = "First Last"
+set from = $imap_user
+
+# Sidebar
+set sidebar_visible
+set sidebar_short_path
+set sidebar_folder_indent
+set mail_check_stats
+set sidebar_format = "%B %* [%?N?%N / ?%S]"
+bind index,pager \CK sidebar-prev
+bind index,pager \CJ sidebar-next
+bind index,pager \CE sidebar-open
+bind index,pager B sidebar-toggle-visible
+
+# Vim-like keybindings
+bind index j next-entry
+bind index k previous-entry
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+bind index / search
