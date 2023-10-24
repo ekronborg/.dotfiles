@@ -19,6 +19,7 @@ DOTDIRS=(
     "bspwm"
     "dunst"
     "neomutt"
+    "newsboat"
     "nvim"
     "polybar"
     "rofi"

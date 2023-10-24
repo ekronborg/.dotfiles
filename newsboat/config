@@ -1,0 +1,18 @@
+include /usr/share/doc/newsboat/contrib/colorschemes/gruvbox
+auto-reload yes
+reload-threads 100
+
+# Vi(m) keybindings
+unbind-key h
+unbind-key j
+unbind-key k
+unbind-key l
+unbind-key g
+unbind-key G
+
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key g home
+bind-key G end
