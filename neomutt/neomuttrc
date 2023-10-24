@@ -57,3 +57,5 @@ bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
 bind index / search
+bind index "^" imap-fetch-mail
+bind index,pager R group-reply
