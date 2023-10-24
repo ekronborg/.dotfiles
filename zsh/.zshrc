@@ -28,6 +28,11 @@ setopt AUTO_RESUME
 # - $HISTSIZE tells the shell how many lines to keep internally
 # - $SAVEHIST tells it how many to write out
 # The simplest possibility is to set $SAVEHIST =  $HISTSIZE.
+if [[ ! -f $HOME/.cache/zsh/history ]]; then
+    mkdir -p "$HOME"/.cache/zsh
+    touch "$HOME"/.cache/zsh/history
+fi
+
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 HISTSIZE=10000000
 SAVEHIST=10000000
