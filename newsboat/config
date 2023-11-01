@@ -1,6 +1,7 @@
 include /usr/share/doc/newsboat/contrib/colorschemes/gruvbox
 auto-reload yes
 reload-threads 100
+max-items 50
 
 # Vi(m) keybindings
 unbind-key h
