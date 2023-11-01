@@ -21,3 +21,4 @@ bspc config active_border_color "#282828"
 bspc config focused_border_color "#a89984"
 
 bspc rule -a Thunar state=floating rectangle=800x800+0+0 center=true
+bspc rule -a Zathura state=tiled

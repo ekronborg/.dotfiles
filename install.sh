@@ -26,6 +26,7 @@ DOTDIRS=(
     "sxhkd"
     "tmux"
     "wget"
+    "zathura"
     "zsh"
 )
 
