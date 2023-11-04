@@ -9,12 +9,12 @@ cd "$DIR"
 # Dotfiles located in $HOME
 DOTFILES=(
     ".bashrc"
-    ".xinitrc"
     ".zshenv"
 )
 
 # Directories located in $HOME/.config/
 DOTDIRS=(
+    "X11"
     "alacritty"
     "bspwm"
     "dunst"
