@@ -36,6 +36,7 @@ export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
 export ANSIBLE_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/ansible"
 export DOCKER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc"
+export XAUTHORITY="${XDG_RUNTIME_DIR:-/run/user/$UID}/Xauthority"
 export LESSHISTFILE="-"
 
 # Fix for using Java applications with WMs
