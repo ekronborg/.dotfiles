@@ -3,6 +3,7 @@
 ## General options
 set header_cache = "$XDG_CACHE_HOME/neomutt" # Remember to create the directory
 set message_cachedir = "$XDG_CACHE_HOME/neomutt"
+set certificate_file = "$XDG_CACHE_HOME/neomutt/certificates"
 set imap_check_subscribed
 unset imap_passive
 set mail_check = 60
