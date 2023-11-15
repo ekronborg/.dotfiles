@@ -51,8 +51,7 @@ intel-ucode
 iptables-nft
 lesspipe
 libtool
-libva-utils
-libva-vdpau-driver
+libva-nvidia-driver
 linux
 linux-firmware
 linux-lts
@@ -68,6 +67,7 @@ ncdu
 neofetch
 neomutt
 neovim
+newsboat
 ninja
 nmap
 noto-fonts-cjk
@@ -77,6 +77,7 @@ npm
 nvidia
 nvidia-lts
 nvidia-settings
+nvidia-utils
 obsidian
 openssh
 pacgraph
@@ -104,6 +105,7 @@ pop-gtk-theme
 prettier
 protonmail-bridge-bin
 python-black
+python-gobject
 python-pip
 python-rich
 python-virtualenv
@@ -125,7 +127,7 @@ texinfo
 texlab
 thunar
 thunderbird
-tk
+tig
 tldr
 tmux
 traceroute
@@ -189,6 +191,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xterm
+zathura-pdf-poppler
 zip
 zsh
 zsh-completions
