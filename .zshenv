@@ -41,8 +41,13 @@ export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc"
 export XAUTHORITY="${XDG_RUNTIME_DIR:-/run/user/$UID}/Xauthority"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}/java"
-
 export LESSHISTFILE="-"
 
 # Fix for using Java applications with WMs
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Nvidia hardware acceleration
+# See https://github.com/elFarto/nvidia-vaapi-driver/ for details
+export MOZ_DISABLE_RDD_SANDBOX=1
+export LIBVA_DRIVER_NAME=nvidia
+export NVD_BACKEND=direct
