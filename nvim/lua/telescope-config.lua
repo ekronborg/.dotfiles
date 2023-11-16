@@ -1,6 +1,4 @@
 require("telescope").setup {
-  defaults = { file_ignore_patterns = { ".obsidian" }
-  },
   pickers = {
     find_files = {
       find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden", "--follow", "--exclude", ".git" }
@@ -8,6 +6,7 @@ require("telescope").setup {
   }
 }
 require('telescope').load_extension('fzf')
+
 
 -- Falling back to find_files if git_files can't find a .git directory
 local M = {}
