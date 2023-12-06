@@ -1,14 +1,14 @@
 [user]
-	name = <name>
-	email = <email>
+    name = <name>
+    email = <email>
 [credential]
-	helper = store
+    helper = store
 [core]
+    abbrev = 12
     pager = less -FRX
 [color]
-	ui = auto
+    ui = auto
 [alias]
-    ; git lg -p to show changes
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     br = branch
     ci = commit
@@ -19,11 +19,16 @@
     rb = rebase
     st = status
     last = log -1 HEAD --stat
+    cdiff = "!f() { git range-diff ${1}~1..${1} ${2}~1..${2}; }; f"
+    ref = log -n 1 --no-walk --pretty=ref
 [diff]
-	tool = nvimdiff
+    tool = nvimdiff
 [difftool]
-	prompt = false
+    prompt = false
 [pager]
     log = /usr/share/git/diff-highlight/diff-highlight | less
     show = /usr/share/git/diff-highlight/diff-highlight | less
     diff = /usr/share/git/diff-highlight/diff-highlight | less
+[pretty]
+    fixes = Fixes: %h (\"%s\")
+    ref = %h (\"%s\")
