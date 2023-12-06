@@ -22,9 +22,11 @@ echo "--------------------------------------------------------------------------
 echo "Installing packages..."
 echo "------------------------------------------------------------------------------------"
 sudo dnf -qy install alacritty curl dnf-plugins-core fd-find flatpak fzf gnome-tweaks htop \
-    neofetch neovim ripgrep tmux gvim wget zsh python3-pip shellcheck bmap-tools meld tio \
-    sphinx python3-sphinx_rtd_theme exa bat moby-engine sshd automake autoconf dtc \
-    uboot-tools cmake ninja-build vlc
+    neofetch neovim ripgrep tmux gvim wget zsh python3-pip shellcheck bmap-tools tig tio \
+    exa bat moby-engine sshd dtc uboot-tools cmake ninja-build vlc cross-binutils-common \
+    cross-gcc-common kernel-cross-headers binutils-aarch64-linux-gnu gcc-aarch64-linux-gnu \
+    gcc-c++-aarch64-linux-gnu binutils-arm-linux-gnu gcc-arm-linux-gnu gcc-c++-arm-linux-gnu \
+    arm-none-eabi-binutils-cs arm-none-eabi-gcc-cs arm-none-eabi-gcc-cs-c++ arm-none-eabi-newlib
 
 sudo dnf -qy groupinstall "C Development Tools and Libraries" "Development Tools"
 
@@ -54,17 +56,6 @@ echo "Enabling the Flathub repository..."
 echo "------------------------------------------------------------------------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-# Yocto dependencies (https://docs.yoctoproject.org/ref-manual/system-requirements.html#fedora-packages)
-echo "------------------------------------------------------------------------------------"
-echo "Installing Yocto dependencies..."
-echo "------------------------------------------------------------------------------------"
-sudo dnf -qy install gawk make wget tar bzip2 gzip python3 unzip perl patch diffutils \
-    diffstat git cpp gcc gcc-c++ glibc-devel texinfo chrpath ccache perl-Data-Dumper \
-    perl-Text-ParseWords perl-Thread-Queue perl-bignum socat python3-pexpect findutils which \
-    file cpio python python3-pip xz python3-GitPython python3-jinja2 SDL-devel rpcgen \
-    mesa-libGL-devel perl-FindBin perl-File-Compare perl-File-Copy perl-locale zstd lz4 \
-    hostname glibc-langpack-en
-
 if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
     echo "------------------------------------------------------------------------------------"
     echo "Installing vim-plug for Vim..."
@@ -87,7 +78,7 @@ echo "--------------------------------------------------------------------------
 echo "Installing Ubuntu Mono Nerd font..."
 echo "----------------------------------------------------------------------------------------"
 pushd "$HOME"/Downloads
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/UbuntuMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/UbuntuMono.zip
 unzip -d ubuntu-mono-nerd UbuntuMono.zip
 cd ubuntu-mono-nerd
 find . -iname "*windows*" -exec rm {} \;
@@ -119,7 +110,7 @@ esac
 echo "----------------------------------------------------------------------------------------"
 echo "* Disable SELinux"
 echo "* Disable firewall"
-echo "* Firefox -> Add-ons -> Plugins -> Enable OpenH264"
+echo "* Disable kernel audit framework. See ArchWiki and Fedora docs"
 echo "* Enable docker.service if the development environment has not yet moved to Podman"
 echo "* Firefox -> Add-ons -> Plugins -> Enable OpenH264"
 echo "* Check also https://docs.fedoraproject.org/en-US/quick-docs/openh264/#_firefox_config_changes for OpenH264 in Firefox"
