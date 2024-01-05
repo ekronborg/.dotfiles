@@ -3,7 +3,6 @@ export PATH=$HOME/.local/bin:$PATH
 
 # System settings
 export COLORTERM="truecolor"
-# Prior to fd v0.8.3 `--strip-cwd-prefix` does not exist and should therefore not be included!
 export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --follow --exclude .git"
 
 # Default programs
@@ -38,10 +37,14 @@ export ANSIBLE_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/ansible"
 export DOCKER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/nv"
 export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
-export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc"
-export XAUTHORITY="${XDG_RUNTIME_DIR:-/run/user/$UID}/Xauthority"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME:-$HOME/.config}/java"
 export LESSHISTFILE="-"
+
+# Check if running under X11
+if [[ -z "$WAYLAND_DISPLAY" ]]; then
+    export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc"
+    export XAUTHORITY="${XDG_RUNTIME_DIR:-/run/user/$UID}/Xauthority"
+fi
 
 # Fix for using Java applications with WMs
 export _JAVA_AWT_WM_NONREPARENTING=1
