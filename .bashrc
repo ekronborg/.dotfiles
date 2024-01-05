@@ -19,13 +19,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Add stuff to path
-export PATH="$HOME/.local/bin:$PATH"
-
 # Environment variables
-export TERM=xterm-256color
-export EDITOR=vim
-export VISUAL=vim
+source $HOME/.config/shell/env
 
 # History settings
 HISTCONTROL=ignoreboth:erasedups

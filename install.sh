@@ -23,6 +23,7 @@ DOTDIRS=(
     "nvim"
     "polybar"
     "rofi"
+    "shell"
     "sxhkd"
     "tmux"
     "wget"
