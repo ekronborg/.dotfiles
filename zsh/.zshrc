@@ -76,7 +76,7 @@ PROMPT='%B%F{#ebddb2}%~%f%F{#928374}$(parse_git_branch)%f %F{#8ec07c}➜%f%b '
 source $HOME/.config/zsh/plugins/git-diff/diff
 
 # Aliases
-source $HOME/.config/zsh/aliases
+source $HOME/.config/shell/aliases
 
 # Source plugins (remember to update the repositories once in a while)
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

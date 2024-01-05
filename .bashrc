@@ -42,6 +42,7 @@ shopt -s globstar
 shopt -s dotglob
 shopt -s extglob
 set -o vi
+bind -m vi-insert "\C-l":clear-screen
 
 # Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -64,18 +65,4 @@ parse_git_branch() {
 PS1="${RESET}[\u@\h ${CYAN}\w${BLUE}\$(parse_git_branch)${RESET}]\$ "
 
 # Aliases
-alias ls='exa --color=always --group-directories-first'
-alias ll='ls -gl'
-alias la='ls -agl'
-alias lt='exa -al --tree --level=2 --color=always --group-directories-first'
-alias dir='dir --color=always'
-alias vdir='vdir --color=always'
-alias grep='grep --color=always'
-alias fgrep='fgrep --color=always'
-alias egrep='egrep --color=always'
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -Iv'
-alias mkdir='mkdir -pv'
-alias ip='ip --color=always'
-bind -m vi-insert "\C-l":clear-screen
+source $HOME/.config/shell/aliases
