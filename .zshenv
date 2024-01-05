@@ -54,3 +54,23 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export MOZ_DISABLE_RDD_SANDBOX=1
 export LIBVA_DRIVER_NAME=nvidia
 export NVD_BACKEND=direct
+
+# Yocto stuff
+export BB_ENV_PASSTHROUGH_ADDITIONS="\
+    BB_NUMBER_THREADS \
+    PARALLEL_MAKE \
+    ACCEPT_FSL_EULA \
+    DL_DIR \
+    BB_GENERATE_MIRROR_TARBALLS \
+    SSTATE_DIR \
+    SSTATE_MIRRORS \
+    PERSISTENT_DIR \
+"
+export BB_NUMBER_THREADS="$(($(nproc) - 1))"
+export PARALLEL_MAKE="-j $(($(nproc) - 1 ))"
+export ACCEPT_FSL_EULA="1"
+export DL_DIR="${HOME}/yocto/downloads"
+export BB_GENERATE_MIRROR_TARBALLS="1"
+export SSTATE_DIR="${HOME}/yocto/sstate-cache"
+# export SSTATE_MIRRORS="<insert sstate mirror here>"
+export PERSISTENT_DIR="${HOME}/yocto/persistent"
