@@ -118,6 +118,10 @@ vnoremap <silent> <S-k> :m '<-2<CR>gv=gv
 nnoremap j gj
 nnoremap k gk
 
+" Navitgate the quickfix list
+nnoremap <C-k> <cmd>cnext<cr>zz
+nnoremap <C-j> <cmd>cprev<cr>zz
+
 " Fuzzy find (Telescope). TIP: C-q will populate the quickfix list with the current contents
 " nnoremap <C-p> <CMD>lua require'telescope-config'.project_files()<CR>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
