@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/bash
 
 diff() {
     # I much prefer using git as diff tool, because that gives

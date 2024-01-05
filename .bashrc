@@ -64,5 +64,8 @@ parse_git_branch() {
 # Set PS1 prompt (https://unix.stackexchange.com/questions/140610/using-variables-to-store-terminal-color-codes-for-ps1)
 PS1="${RESET}[\u@\h ${CYAN}\w${BLUE}\$(parse_git_branch)${RESET}]\$ "
 
+# Always use git diff
+source $HOME/.config/shell/functions/diff
+
 # Aliases
 source $HOME/.config/shell/aliases
