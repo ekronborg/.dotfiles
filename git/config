@@ -6,6 +6,7 @@
 [core]
     abbrev = 12
     pager = less -FRX
+    commitGraph = true
 [color]
     ui = auto
 [alias]
@@ -32,3 +33,7 @@
 [pretty]
     fixes = Fixes: %h (\"%s\")
     ref = %h (\"%s\")
+[gc]
+    writeCommitGraph = true
+[fetch]
+    writeCommitGraph = true
