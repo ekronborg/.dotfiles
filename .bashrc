@@ -28,7 +28,7 @@ export EDITOR=vim
 export VISUAL=vim
 
 # History settings
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth:erasedups
 
 if [[ ! -f $HOME/.cache/bash/history ]]; then
     mkdir -p "$HOME"/.cache/bash
