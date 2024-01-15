@@ -11,6 +11,7 @@ bind
 binutils
 bison
 bspwm
+calibre
 chromium
 clang
 cmake
@@ -47,6 +48,7 @@ gst-plugins-ugly
 gvim
 gzip
 htop
+inetutils
 intel-ucode
 iptables-nft
 lesspipe
@@ -113,9 +115,6 @@ redshift
 reflector
 ripgrep
 rofi
-rust
-rust-analyzer
-rust-src
 sed
 shellcheck
 sof-firmware
