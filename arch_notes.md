@@ -22,7 +22,7 @@ IMPORTANT: `systemd-boot` does not accept tabs for indentation, use spaces inste
   root partition (`/`)
 
 ```sh
-$ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sdaX) rw" >> /boot/loader/entries/arch.conf
+$ echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sdaX) rw audit=0 nvidia-drm.modeset=1" >> /boot/loader/entries/arch.conf
 ```
 
 ## Hostname
