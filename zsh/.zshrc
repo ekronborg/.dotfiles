@@ -5,6 +5,12 @@
 #     . /etc/zsh/zshrc
 # fi
 
+# https://zsh.sourceforge.io/Guide/zshguide02.html#l24
+# https://wiki.archlinux.org/title/Zsh#Configuring_$PATH
+typeset -U path PATH
+path=($HOME/.local/bin $path)
+export PATH
+
 # Set options (https://zsh.sourceforge.io/Doc/Release/Options.html)
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.

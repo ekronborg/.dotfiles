@@ -19,6 +19,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Add to path
+export PATH=$HOME/.local/bin:$PATH
+
 # Environment variables
 source $HOME/.config/shell/env
 
