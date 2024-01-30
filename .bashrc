@@ -19,6 +19,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Check if running under X11
+if [[ -z "$WAYLAND_DISPLAY" ]]; then
+    export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc"
+    export XAUTHORITY="${XDG_RUNTIME_DIR:-/run/user/$UID}/Xauthority"
+fi
+
 # Add to path
 export PATH=$HOME/.local/bin:$PATH
 

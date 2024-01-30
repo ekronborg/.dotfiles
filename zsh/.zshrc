@@ -11,6 +11,12 @@ typeset -U path PATH
 path=($HOME/.local/bin $path)
 export PATH
 
+# Check if running under X11
+if [[ -z "$WAYLAND_DISPLAY" ]]; then
+    export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/X11/xinitrc"
+    export XAUTHORITY="${XDG_RUNTIME_DIR:-/run/user/$UID}/Xauthority"
+fi
+
 # Set options (https://zsh.sourceforge.io/Doc/Release/Options.html)
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
