@@ -78,3 +78,6 @@ source $HOME/.config/shell/functions/diff
 
 # Aliases
 source $HOME/.config/shell/aliases
+alias ls='ls --color=always --group-directories-first --sort=version'
+alias ll='ls -lh'
+alias la='ls -lAh'
