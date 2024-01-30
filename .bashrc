@@ -32,7 +32,7 @@ export PATH=$HOME/.local/bin:$PATH
 source $HOME/.config/shell/env
 
 # History settings
-HISTCONTROL=ignoreboth:erasedups
+export HISTCONTROL="erasedups:ignorespace"
 
 if [[ ! -f $HOME/.cache/bash/history ]]; then
     mkdir -p "$HOME"/.cache/bash
