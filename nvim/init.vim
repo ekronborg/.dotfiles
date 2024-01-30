@@ -132,6 +132,9 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 " Delete to blackhole register
 vnoremap <leader>d "_d
 
+" Open tag in new tab
+nnoremap <silent> <leader>t :tab tag <c-r><c-w><cr>
+
 "------------------------------------------------------------------------------
 " Autocommands
 "------------------------------------------------------------------------------
