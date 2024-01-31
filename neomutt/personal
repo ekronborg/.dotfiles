@@ -11,7 +11,7 @@ set smtp_url=smtps://user:****@smtp.gmail.com
 set realname='User X'
 set from=$imap_user
 set hostname="gmail.com"
-set signature="John Doe"
+set signature="~/.config/neomutt/signature"
 
 ## Hook -- IMPORTANT!
 account-hook $folder "set imap_user=user@gmail.com imap_pass=****"
