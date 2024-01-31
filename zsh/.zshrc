@@ -31,7 +31,6 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt EXTENDED_GLOB             # Treat the '#', '~' and '^' characters as active globbing pattern characters.
 setopt PROMPT_SUBST              # Needed to for Git branch in prompt.
-setopt AUTO_RESUME
 
 # Set up search history
 # See https://www.reddit.com/r/zsh/comments/x7uj9e/measuring_the_best_value_of_histsize/
@@ -49,19 +48,9 @@ HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 HISTSIZE=10000000
 SAVEHIST=10000000
 
-# Enable Vi mode
-bindkey -v
-export KEYTIMEOUT=1
-bindkey '^R' history-incremental-pattern-search-backward
-bindkey -a "^[[3~" delete-char
-bindkey -v "^[[3~" delete-char
-bindkey -v '^?' backward-delete-char
-
 # Colors
-if [[ -x /usr/bin/dircolors ]]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-fi
-autoload -U colors && colors
+autoload -Uz colors && colors
+[[ "$COLORTERM" == (24bit|truecolor) || "${terminfo[colors]}" -eq '16777216' ]] || zmodload zsh/nearcolor
 
 # Completion menu
 autoload -Uz compinit
@@ -72,24 +61,26 @@ zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 _comp_options+=(globdots)
 
-# FZF
+# # Generate prompt (https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Visual-effects)
+# # TIP: for colors in Vim, check `:hi comment`, for example
+# parse_git_branch() {
+#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+# }
+# # PROMPT='%B%F{#8ec07c}%~%f%F{#83a598}$(parse_git_branch)%f ➜%b '
+# PROMPT='%B%F{#ebddb2}%~%f%F{#928374}$(parse_git_branch)%f %F{#8ec07c}➜%f%b '
+
+# TODO: is this builtin feature alright?
+# https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
+autoload -Uz vcs_info
+precmd () { vcs_info }
+zstyle ':vcs_info:*' formats " (%b)"
+PROMPT='%B%F{#ebddb2}%~%f%F{#928374}${vcs_info_msg_0_}%f %F{#8ec07c}➜%f%b '
+
+# zsh-syntax-highlighting must be sourced last
+source $HOME/.config/zsh/vim-mode.zsh
+source $HOME/.config/shell/functions/diff
+source $HOME/.config/shell/aliases
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-
-# Generate prompt (https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Visual-effects)
-# TIP: for colors in Vim, check `:hi comment`, for example
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-# PROMPT='%B%F{#8ec07c}%~%f%F{#83a598}$(parse_git_branch)%f ➜%b '
-PROMPT='%B%F{#ebddb2}%~%f%F{#928374}$(parse_git_branch)%f %F{#8ec07c}➜%f%b '
-
-# Always use git diff
-source $HOME/.config/shell/functions/diff
-
-# Aliases
-source $HOME/.config/shell/aliases
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^ ' autosuggest-accept
