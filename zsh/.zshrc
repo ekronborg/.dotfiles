@@ -1,9 +1,9 @@
 # Source global definitions (if any)
-# if [[ -f /etc/zshrc ]]; then
-#     . /etc/zshrc
-# elif [[ -f /etc/zsh/zshrc ]]; then
-#     . /etc/zsh/zshrc
-# fi
+if [[ -f /etc/zshrc ]]; then
+    . /etc/zshrc
+elif [[ -f /etc/zsh/zshrc ]]; then
+    . /etc/zsh/zshrc
+fi
 
 # https://zsh.sourceforge.io/Guide/zshguide02.html#l24
 # https://wiki.archlinux.org/title/Zsh#Configuring_$PATH
