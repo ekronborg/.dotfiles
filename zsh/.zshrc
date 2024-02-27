@@ -49,6 +49,10 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 
 # Colors
+if [[ -x /usr/bin/dircolors ]]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+autoload -U colors && colors
 autoload -Uz colors && colors
 [[ "$COLORTERM" == (24bit|truecolor) || "${terminfo[colors]}" -eq '16777216' ]] || zmodload zsh/nearcolor
 
