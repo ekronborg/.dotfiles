@@ -132,8 +132,13 @@ tmux
 traceroute
 tree
 ttf-font-awesome
+ttf-hack-nerd
 ttf-jetbrains-mono-nerd
+ttf-nerd-fonts-symbols
+ttf-nerd-fonts-symbols-mono
+ttf-ubuntu-mono-nerd
 unzip
+urlscan
 usbutils
 vdpauinfo
 wget
@@ -189,6 +194,7 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xsel
 xterm
 zathura-pdf-poppler
 zip
