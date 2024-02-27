@@ -21,6 +21,8 @@ set menu_scroll
 set sort = threads
 set sort_aux = reverse-last-date-received
 source $XDG_CONFIG_HOME/neomutt/gruvbox-dark.neomuttrc
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
 ## Sidebar
 set sidebar_visible
