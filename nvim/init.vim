@@ -206,4 +206,5 @@ lua << EOF
   require('null-ls-config')
   require('telescope-config')
   require('lualine-config')
+  require('lastplace')
 EOF
