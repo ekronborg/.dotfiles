@@ -57,6 +57,9 @@ bind -m vi-insert "\C-l":clear-screen
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Colors (00 means normal, 01 means bold)
+if [[ -x /usr/bin/dircolors ]]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
 RESET="\[\e[00m\]"
 RED="\[\e[00;31m\]"
 GREEN="\[\e[00;32m\]"
