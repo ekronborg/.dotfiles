@@ -54,6 +54,8 @@ key[Control-Right]="${terminfo[kRIT5]}"
 [[ -n "${key[Shift-Tab]}"     ]] && bindkey_vim "${key[Shift-Tab]}"     reverse-menu-complete
 [[ -n "${key[PageUp]}"        ]] && bindkey_vim "${key[PageUp]}"        up-line-or-history
 [[ -n "${key[PageDown]}"      ]] && bindkey_vim "${key[PageDown]}"      down-line-or-history
+[[ -n "${key[Up]}"            ]] && bindkey_vim "${key[Up]}"      up-line-or-beginning-search
+[[ -n "${key[Down]}"          ]] && bindkey_vim "${key[Down]}"      down-line-or-beginning-search
 # [[ -n "${key[PageUp]}"        ]] && bindkey_vim "${key[PageUp]}"        beginning-of-buffer-or-history
 # [[ -n "${key[PageDown]}"      ]] && bindkey_vim "${key[PageDown]}"      end-of-buffer-or-history
 
@@ -67,6 +69,8 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey -a "j" down-line-or-beginning-search
 bindkey -a "k" up-line-or-beginning-search
+bindkey_vim "^N" down-line-or-beginning-search
+bindkey_vim "^P" up-line-or-beginning-search
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
