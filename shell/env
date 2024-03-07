@@ -6,7 +6,7 @@ export FZF_DEFAULT_OPTS="--color=bg+:#3c3836,bg:#282828,spinner:#fb4934,hl:#9283
 # Default programs
 export EDITOR="nvim"
 export VISUAL="nvim"
-export MANPAGER="nvim +Man! -c 'set laststatus=0 noruler nocursorline'"
+export MANPAGER='nvim +Man!'
 export TERMINAL="alacritty"
 export BROWSER="firefox"
 export BAT_THEME="gruvbox-dark"
@@ -59,7 +59,7 @@ export BB_ENV_PASSTHROUGH_ADDITIONS="\
     PERSISTENT_DIR \
 "
 export BB_NUMBER_THREADS="$(($(nproc) - 1))"
-export PARALLEL_MAKE="-j $(($(nproc) - 1 ))"
+export PARALLEL_MAKE="-j $(($(nproc) - 1))"
 export ACCEPT_FSL_EULA="1"
 export DL_DIR="${HOME}/yocto/downloads"
 export BB_GENERATE_MIRROR_TARBALLS="1"
