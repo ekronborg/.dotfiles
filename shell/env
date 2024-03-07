@@ -6,7 +6,7 @@ export FZF_DEFAULT_OPTS="--color=bg+:#3c3836,bg:#282828,spinner:#fb4934,hl:#9283
 # Default programs
 export EDITOR="nvim"
 export VISUAL="nvim"
-export MANPAGER="nvim +Man! -c 'set laststatus=0 noruler nocursorline'"
+export MANPAGER="nvim +Man! -c 'set laststatus=0'"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
 export BAT_THEME="gruvbox-dark"
