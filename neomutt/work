@@ -1,6 +1,7 @@
 ## Receive options
+source "gpg -dq ~/.config/neomutt/work_pass.gpg |"
 set imap_user=user@gmail.com
-set imap_pass=****
+set imap_pass=$my_work_pass
 set folder = imaps://user@imap.gmail.com/
 set spoolfile = +INBOX
 set postponed = +Drafts
@@ -14,4 +15,4 @@ set hostname="gmail.com"
 set signature="~/.config/neomutt/signature"
 
 ## Hook -- IMPORTANT!
-account-hook $folder "set imap_user=user@gmail.com imap_pass=****"
+account-hook $folder "set imap_user=user@gmail.com imap_pass=$my_work_pass"
