@@ -51,6 +51,7 @@ bind index "^" imap-fetch-mail
 bind index,pager R group-reply
 
 ## ACCOUNT1
+# https://wiki.archlinux.org/title/Mutt#Passwords_management
 source "~/.config/neomutt/personal"
 # Here we use the $folder variable that has just been set in the sourced file.
 # We must set it right now otherwise the 'folder' variable will change in the next sourced file.
