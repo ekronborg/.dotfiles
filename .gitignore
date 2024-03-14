@@ -1,1 +1,5 @@
 .zcompdump
+nvim/lazy-lock.json
+nvim/spell
+neomutt/personal_pass.gpg
+neomutt/work_pass.gpg
