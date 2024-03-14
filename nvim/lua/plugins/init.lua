@@ -1,0 +1,8 @@
+require("plugins.lazy")
+require("plugins.telescope")
+require("plugins.conform")
+require("plugins.lint")
+require("plugins.lsp")
+require("plugins.cmp")
+require("plugins.lualine")
+require("plugins.minitrailspace")
