@@ -1,7 +1,7 @@
 # TIP: Use TAB to show TOC
 
 # Settings
-set font "UbuntuMono Nerd Font 13"
+set font "Mononoki Nerd Font 12"
 set selection-clipboard clipboard
 set window-title-home-tilde true
 set statusbar-home-tilde true

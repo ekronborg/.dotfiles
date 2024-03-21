@@ -115,6 +115,7 @@ tree
 ttf-font-awesome
 ttf-hack-nerd
 ttf-jetbrains-mono-nerd
+ttf-mononoki-nerd
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
 ttf-ubuntu-mono-nerd
