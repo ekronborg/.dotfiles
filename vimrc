@@ -46,6 +46,7 @@ set clipboard=unnamedplus            " Use system clipboard
 set shortmess-=S                     " Show [x/y] for searches
 set cursorline
 set number
+set mouse=a
 
 " Highlight trailing whitespace (https://vim.fandom.com/wiki/Highlight_unwanted_spaces)
 highlight ExtraWhitespace ctermbg=red guibg=red
