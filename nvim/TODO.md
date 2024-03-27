@@ -1,9 +1,5 @@
 ## TODO
 
-- Make a nice tabline. Possible without plugins?
-- Use `vim.tbl_deep_extend` in `lsp` setup? See `kickstart.nvim`
-- Integrate `dependencies` in `lazy`?
-- Make `trim_trailing_whitespace()` local and call it by namespace? `require("whitespace")...`
 - Test `tree-sitter` and its BitBake integration: https://github.com/tree-sitter-grammars/tree-sitter-bitbake
 - BitBake LSP? See vscode marketplace
 
