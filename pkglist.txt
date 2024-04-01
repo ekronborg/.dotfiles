@@ -50,12 +50,12 @@ linux
 linux-firmware
 linux-lts
 lsof
+luarocks
 lxappearance
 lynx
 m4
 make
 man-pages
-marksman
 neofetch
 neomutt
 neovim
@@ -63,6 +63,7 @@ newsboat
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+npm
 nvidia
 nvidia-lts
 nvidia-settings
@@ -90,13 +91,12 @@ podman
 polkit
 polybar
 pop-gtk-theme
-prettier
 protonmail-bridge-bin
-pyright
 redshift
 reflector
 ripgrep
 rofi
+rustup
 sed
 shellcheck
 sof-firmware
@@ -104,7 +104,6 @@ strace
 sudo
 sxhkd
 texinfo
-texlab
 thunar
 thunderbird
 tig
@@ -112,6 +111,7 @@ tldr
 tmux
 traceroute
 tree
+tree-sitter-cli
 ttf-font-awesome
 ttf-hack-nerd
 ttf-jetbrains-mono-nerd
