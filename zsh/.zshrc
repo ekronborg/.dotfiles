@@ -8,7 +8,11 @@ fi
 # https://zsh.sourceforge.io/Guide/zshguide02.html#l24
 # https://wiki.archlinux.org/title/Zsh#Configuring_$PATH
 typeset -U path PATH
-path=($HOME/.local/bin $path)
+path=(
+    $HOME/.local/bin
+    $HOME/.local/share/cargo/bin
+    $path
+)
 export PATH
 
 # Check if running under X11

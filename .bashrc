@@ -26,7 +26,7 @@ if [[ -z "$WAYLAND_DISPLAY" ]]; then
 fi
 
 # Add to path
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.local/share/cargo/bin:$PATH
 
 # Environment variables
 source $HOME/.config/shell/env
