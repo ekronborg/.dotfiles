@@ -8,12 +8,7 @@ return {
         "MasonUninstallAll",
         "MasonLog",
     },
-    dependencies = {
-        "williamboman/mason-lspconfig.nvim",
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
-    },
     config = function()
-        -- Mason itself
         require("mason").setup({
             ui = {
                 -- border = "rounded",
@@ -25,36 +20,38 @@ return {
             },
         })
 
-        -- Install LSP servers
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "bashls",
-                "clangd",
-                "lua_ls",
-                "pyright", -- ruff_lsp also exists
-                "rust_analyzer",
-                -- "ansiblels",
-                -- "dockerls",
-                -- "marksman",
-                -- "texlab",
-                -- "vimls",
-                -- "yamlls",
-            },
-        })
+        -- Since mason-lspconfig cannot install linters and formatters, mason-tool-installer can be used instead.
+        -- However, it does not work with lazy loading. Therefore, this hack can be used to install LSP servers,
+        -- linters and formatters with mason-lspconfig instead by using the Mason registry. This comes with the
+        -- side effect of increasing the loading time significantly. The implementation is based on
+        -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39#issuecomment-1985022867
+        -- and the one in LazyVim, but mine is simplified
+        local ensure_installed = {
+            "ansible-language-server",
+            "bash-language-server",
+            "black",
+            "clangd",
+            "flake8",
+            "isort",
+            "jsonlint",
+            "lua-language-server",
+            "prettier",
+            "pyright", -- ruff_lsp also exists
+            "rust-analyzer",
+            "shfmt",
+            "stylua",
+            "vint",
+            "yamllint",
+        }
 
-        -- Install linters and formatters
-        require("mason-tool-installer").setup({
-            ensure_installed = {
-                "black",
-                "flake8",
-                "vint",
-                "isort",
-                "jsonlint",
-                "prettier",
-                "shfmt",
-                "stylua",
-                "yamllint",
-            },
-        })
+        -- Ensure tools are installed
+        local registry = require("mason-registry")
+        for _, tool in ipairs(ensure_installed) do
+            local package = registry.get_package(tool)
+            if not package:is_installed() then
+                package:install()
+                -- vim.notify(string.format("Installing %s...", package.name))
+            end
+        end
     end,
 }
