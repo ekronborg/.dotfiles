@@ -9,9 +9,8 @@ cd "$DIR"
 echo "------------------------------------------------------------------------------------"
 echo "Enabling the RPM Fusion repositories..."
 echo "------------------------------------------------------------------------------------"
-sudo dnf -qy install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf -qy install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf -qy group update core
+sudo dnf -qy install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -qy install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 echo "------------------------------------------------------------------------------------"
 echo "Updating the system..."
@@ -33,23 +32,19 @@ sudo dnf -qy groupinstall "C Development Tools and Libraries" "Development Tools
 echo "------------------------------------------------------------------------------------"
 echo "Installing multimedia codecs..."
 echo "------------------------------------------------------------------------------------"
-# From https://rpmfusion.org/Howto/Multimedia
-sudo dnf -qy install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 \
-    gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
-sudo dnf -qy install lame\* --exclude=lame-devel
-sudo dnf -qy group upgrade --with-optional Multimedia
+# From https://docs.fedoraproject.org/en-US/quick-docs/installing-plugins-for-playing-movies-and-music/
+# See also https://pagure.io/fedora-docs/quick-docs/issue/678 from the file history of the above link
+sudo dnf -qy group install Multimedia
 
 # From https://docs.fedoraproject.org/en-US/quick-docs/openh264/
-sudo dnf -qy config-manager --set-enabled fedora-cisco-openh264
 sudo dnf -qy install gstreamer1-plugin-openh264 mozilla-openh264
 
-# From https://docs.fedoraproject.org/en-US/quick-docs/installing-plugins-for-playing-movies-and-music/
+# From https://rpmfusion.org/Howto/Multimedia
 # Note that 'intel-media-driver' assumes that the computer has an intel CPU and no discrete GPU.
 sudo dnf -qy swap ffmpeg-free ffmpeg --allowerasing
-sudo dnf -qy groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf -qy groupupdate multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 sudo dnf -qy groupupdate sound-and-video
 sudo dnf -qy install intel-media-driver
-
 
 echo "------------------------------------------------------------------------------------"
 echo "Enabling the Flathub repository..."
