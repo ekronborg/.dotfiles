@@ -1,14 +1,10 @@
 [user]
     name = <name>
     email = <email>
-[credential]
-    helper = store
 [core]
     abbrev = 12
     pager = less -FRX
     commitGraph = true
-[color]
-    ui = auto
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     br = branch
@@ -37,3 +33,9 @@
     writeCommitGraph = true
 [fetch]
     writeCommitGraph = true
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
+    keepBackup = false
