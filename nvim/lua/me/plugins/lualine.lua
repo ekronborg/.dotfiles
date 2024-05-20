@@ -6,7 +6,7 @@ return {
         local function lsp_clients()
             local bufnr = vim.api.nvim_get_current_buf()
 
-            local clients = vim.lsp.buf_get_clients(bufnr)
+            local clients = vim.lsp.get_clients({ buffer = bufnr })
             if next(clients) == nil then
                 return ""
             end

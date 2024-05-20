@@ -13,7 +13,7 @@ return {
                 folds = false,
             },
             overrides = {
-                -- disable background color of signcolumn signs
+                -- Disable background color of signcolumn signs
                 GruvboxRedSign = { bg = "none" },
                 GruvboxGreenSign = { bg = "none" },
                 GruvboxYellowSign = { bg = "none" },
@@ -23,6 +23,7 @@ return {
                 GruvboxOrangeSign = { bg = "none" },
                 CursorLine = { bg = "none" },
                 CursorLineNr = { fg = "#ebdbb2", bg = "none" },
+                FloatBorder = { bg = "none" },
 
                 -- Disable background color of diffs
                 diffAdded = { link = "GruvboxGreen" },
@@ -34,9 +35,9 @@ return {
                 -- but /usr/share/nvim/runtime/syntax/markdown.vim seems to re-enable it.
                 markdownError = { link = "lsp_markdown1" }, -- probably also works with link = "none"
                 luaParenError = { link = "luaParen" }, -- probably also works with link = "none"
+                luaError = { link = "lua3" }, -- probably also works with link = "none"
 
-                -- TODO: test this more
-                -- Removes annoying long strings, line-broken strings in bitbake files.
+                -- Removes annoying long, line-broken strings in bitbake files.
                 bbUnmatched = { link = "none" },
             },
         })
