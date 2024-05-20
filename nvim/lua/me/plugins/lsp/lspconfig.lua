@@ -62,6 +62,21 @@ return {
             },
         })
 
+        -- NOTE: ansiblels requires ft=yaml.ansible
+        lspconfig["ansiblels"].setup({
+            capabilities = capabilities,
+            settings = { -- https://ansible.readthedocs.io/projects/vscode-ansible/#configuration
+                ansible = {
+                    ansible = {
+                        useFullyQualifiedCollectionNames = false,
+                    },
+                },
+                redhat = {
+                    telemetry = { enabled = false },
+                },
+            },
+        })
+
         -- Turn off some stuff
         vim.diagnostic.config({
             virtual_text = false,
