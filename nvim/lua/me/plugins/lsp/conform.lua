@@ -26,7 +26,13 @@ return {
 
             formatters = {
                 shfmt = {
-                    prepend_args = { "-i", "4" }, -- use spaces instead of tabs
+                    prepend_args = { "--indent", "4" }, -- use spaces instead of tabs
+                },
+                stylua = {
+                    prepend_args = { "--indent-type", "Spaces" },
+                },
+                prettier = {
+                    prepend_args = { "--print-width", "120", "--prose-wrap", "always" },
                 },
             },
         })
