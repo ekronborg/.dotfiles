@@ -28,6 +28,7 @@ return {
         -- and the one in LazyVim, but mine is simplified
         local ensure_installed = {
             "ansible-language-server",
+            "ansible-lint",
             "bash-language-server",
             "black",
             "clangd",
@@ -35,8 +36,10 @@ return {
             "isort",
             "jsonlint",
             "lua-language-server",
+            "oelint-adv",
             "prettier",
             "pyright", -- ruff_lsp also exists
+            "rstcheck",
             "rust-analyzer",
             "shfmt",
             "stylua",
