@@ -5,16 +5,12 @@ return {
         local lint = require("lint")
 
         lint.linters_by_ft = {
-            python = { "flake8" }, -- ruff, mypy, pylint also exist
-            yaml = { "yamllint" },
+            bitbake = { "oelint-adv" },
             json = { "jsonlint" },
+            python = { "flake8" }, -- ruff, mypy, pylint also exist
+            rst = { "rstcheck" },
             vim = { "vint" },
-            -- sh = {"shellcheck"}, -- part of bashls LSP
-            -- lua = {"luacheck"}, -- shows same information as lua_ls
-            -- markdown = {"markdownlint"}, -- useless for my use case
-            -- vimwiki = {"markdownlint"},
-            -- markdown = {"vale"}, -- vale requires global a configuration to be available
-            -- vimwiki = {"vale"},
+            yaml = { "yamllint" },
         }
 
         local flake8 = require("lint").linters.flake8
