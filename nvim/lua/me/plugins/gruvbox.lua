@@ -39,6 +39,10 @@ return {
 
                 -- Removes annoying long, line-broken strings in bitbake files.
                 bbUnmatched = { link = "none" },
+
+                -- Match tabline to statusline and Tmux line
+                TabLineFill = { bg = "#3c3836", bold = true },
+                TabLineSel = { fg = "#282828", bg = "#a89984", bold = true },
             },
         })
         vim.opt.termguicolors = true
