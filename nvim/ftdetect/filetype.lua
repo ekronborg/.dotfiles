@@ -2,12 +2,13 @@
 
 vim.filetype.add({
     extension = {
-        config = "conf", -- *.config files used for genimage should be detected as conf
-        service = "systemd", -- *.service files in Yocto repo is not detected as systemd
+        -- Example of a global filetype mapping
+        -- service = "systemd", -- *.service files in Yocto repo is not detected as systemd
     },
     pattern = { -- https://neovim.io/doc/user/luaref.html#lua-patterns
-        [".*/conf/.*%.conf"] = "bitbake",
+        [".*/meta%-.*/.*%.service"] = "systemd",
         [".*/meta%-.*/.*%.inc"] = "bitbake",
+        [".*/conf/.*%.conf"] = "bitbake",
         [".*/meta%-.*/documentation/.*%.inc"] = "rst",
         [".*/recipes%-images/.*%.config"] = "conf",
     },
