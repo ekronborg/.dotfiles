@@ -77,16 +77,16 @@ return {
             },
         })
 
-        -- Turn off some stuff
+        -- General settings
         vim.diagnostic.config({
             virtual_text = false,
             signs = true,
             underline = false,
             update_in_insert = false,
             severity_sort = false,
-            -- float = {
-            --     border = "rounded",
-            -- },
+            float = {
+                border = "rounded",
+            },
         })
 
         -- Show icons in the gutter instead of letters
@@ -97,12 +97,12 @@ return {
         end
 
         -- Configure rounded borders
-        -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        --     border = "rounded",
-        -- })
-        -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        --     border = "rounded",
-        -- })
-        -- require("lspconfig.ui.windows").default_options.border = "rounded" -- LspInfo UI is special
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = "rounded",
+        })
+        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+            border = "rounded",
+        })
+        require("lspconfig.ui.windows").default_options.border = "rounded" -- LspInfo UI is special
     end,
 }

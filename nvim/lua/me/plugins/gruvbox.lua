@@ -23,7 +23,7 @@ return {
                 GruvboxOrangeSign = { bg = "none" },
                 CursorLine = { bg = "none" },
                 CursorLineNr = { fg = "#ebdbb2", bg = "none" },
-                FloatBorder = { bg = "none" },
+                NormalFloat = { bg = "none" },
 
                 -- Disable background color of diffs
                 diffAdded = { link = "GruvboxGreen" },
