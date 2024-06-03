@@ -92,6 +92,7 @@ polkit
 polybar
 pop-gtk-theme
 protonmail-bridge-bin
+python-gobject
 redshift
 reflector
 ripgrep
