@@ -124,15 +124,16 @@ color compose security_none     color208 color235
 # Specifically needed for neomutt. Unsure why
 color sidebar_unread     color108 color234
 
+# NOTE: instead of [[:space:]], you can also use [[: :]]
 # Syntax highlighting for diff
 color   normal  white           default
 color   body    brightwhite     default         "^diff \-.*"
 color   body    brightwhite     default         "^index [a-f0-9].*"
 color   body    brightwhite     default         "^[\+|\-]{3}.*"
 color   body    white           default         "^[\-]{3}$"
-color   body    green           default         "^[\+][^\+]+.*"
+color   body    green           default         "^[[:space:]]*[\+][^\+]+.*"
 color   body    green           default         "^[\+]$"
-color   body    red             default         "^\-[^\-]+.*"
+color   body    red             default         "^[[:space:]]*[\-][^\-]+.*"
 color   body    red             default         "^[\-]$"
 color   body    brightblue      default         "^@@.*"
 # color   body    color108        default         "^@@.*@@\s*"
