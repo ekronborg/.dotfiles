@@ -6,7 +6,10 @@
     pager = less -FRX
     commitGraph = true
 [alias]
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    ; Accepted colors can be given as names, numbers between 0 and 255 or 24-bit RGB valuas as hex, e.g., #8ec07c, if your
+    ; terminal supports it. See the 'color' seciton in man git-config for more information.
+    lg = log --graph --pretty=format:'%C(red)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit
+    ; lg = log --graph --pretty=format:'%C(bold red)%h%Creset -%C(auto)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     br = branch
     ci = commit
     cp = cherry-pick
