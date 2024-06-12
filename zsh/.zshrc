@@ -69,18 +69,10 @@ zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 _comp_options+=(globdots)
 
-# # Generate prompt (https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Visual-effects)
-# # TIP: for colors in Vim, check `:hi comment`, for example
-# parse_git_branch() {
-#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-# }
-# # PROMPT='%B%F{#8ec07c}%~%f%F{#83a598}$(parse_git_branch)%f ➜%b '
-# PROMPT='%B%F{#ebddb2}%~%f%F{#928374}$(parse_git_branch)%f %F{#8ec07c}➜%f%b '
-
-# TODO: is this builtin feature alright?
 # https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
+# https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples
 autoload -Uz vcs_info
-precmd () { vcs_info }
+precmd() { vcs_info }
 zstyle ':vcs_info:*' formats " (%b)"
 PROMPT='%B%F{#ebddb2}%~%f%F{#928374}${vcs_info_msg_0_}%f %F{#8ec07c}➜%f%b '
 
