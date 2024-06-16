@@ -45,7 +45,6 @@ return {
         },
     },
     cmd = { "Telescope" },
-    branch = "0.1.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -56,6 +55,10 @@ return {
         local telescope = require("telescope")
 
         telescope.setup({
+            defaults = {
+                -- requires commit a4432dfb9b0b ("feat(entry_maker): add 'filename_first' option for path_display (#3010)")
+                path_display = { "filename_first" },
+            },
             pickers = {
                 find_files = {
                     find_command = {
