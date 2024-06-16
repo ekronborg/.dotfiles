@@ -22,6 +22,7 @@ return {
 
         require("lualine").setup({
             options = {
+                theme = "gruvbox",
                 -- component_separators = "",
                 -- section_separators = { left = "", right = "" },
                 component_separators = { left = "|", right = "|" },
@@ -32,7 +33,24 @@ return {
                 },
             },
             sections = {
-                lualine_b = { "branch", "diff", lsp_clients, "diagnostics" },
+                lualine_b = {
+                    "branch",
+                    {
+                        "diff",
+                        symbols = { added = " ", modified = " ", removed = " " },
+                    },
+                    lsp_clients,
+                    {
+                        "diagnostics",
+                        symbols = { error = " ", warn = " ", hint = " ", info = " " },
+                    },
+                },
+                lualine_c = {
+                    {
+                        "filename",
+                        symbols = { readonly = "󰌾" },
+                    },
+                },
             },
         })
     end,

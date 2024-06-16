@@ -3,9 +3,16 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
-        -- Useful status updates for LSP.
-        -- NOTE: `opts = {}` is the same as calling `require("fidget").setup({})`
-        { "j-hui/fidget.nvim", opts = {} },
+        {
+            "j-hui/fidget.nvim",
+            opts = {
+                notification = {
+                    window = {
+                        winblend = 0,
+                    },
+                },
+            },
+        },
         "williamboman/mason.nvim",
     },
     config = function()
@@ -102,7 +109,7 @@ return {
         })
 
         -- Show icons in the gutter instead of letters
-        local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+        local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
