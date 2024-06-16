@@ -97,7 +97,8 @@ redshift
 reflector
 ripgrep
 rofi
-rustup
+rust
+rust-src
 sed
 shellcheck
 sof-firmware
