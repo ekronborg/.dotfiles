@@ -48,6 +48,7 @@ return {
         -- Use a loop to conveniently call "setup" on multiple servers
         local servers = {
             "bashls",
+            "bitbake_ls",
             "clangd",
             "pyright", -- ruff_lsp also exists
             "rust_analyzer",
@@ -68,6 +69,14 @@ return {
                 capabilities = capabilities,
             })
         end
+
+        -- TODO: test this more
+        lspconfig["bitbake_ls"].setup({
+            on_attach = function(client)
+                -- https://github.com/NvChad/NvChad/issues/1907
+                client.server_capabilities.semanticTokensProvider = vim.NIL
+            end,
+        })
 
         lspconfig["lua_ls"].setup({
             capabilities = capabilities,
