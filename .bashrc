@@ -34,12 +34,12 @@ source $HOME/.config/shell/env
 # History settings
 export HISTCONTROL="erasedups:ignorespace"
 
-if [[ ! -f $HOME/.cache/bash/history ]]; then
-    mkdir -p "$HOME"/.cache/bash
-    touch "$HOME"/.cache/bash/history
+if [[ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}/bash/history" ]]; then
+    mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/bash"
+    touch "${XDG_DATA_HOME:-$HOME/.local/share}/bash/history"
 fi
 
-HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/bash/history"
+HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash/history"
 HISTSIZE=10000000
 SAVEHIST=10000000
 
