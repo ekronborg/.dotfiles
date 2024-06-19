@@ -76,5 +76,9 @@ return {
 
     config = function(_, opts)
         require("nvim-treesitter.configs").setup(opts)
+        -- See https://github.com/NvChad/NvChad/issues/1907 and ':h vim.highlight.priorities'.
+        -- Treesitter highlighting has priority 100, so this effectively disables LSP syntax highlighting
+        -- if treesitter highlighting is active.
+        -- vim.highlight.priorities.semantic_tokens = 95
     end,
 }
