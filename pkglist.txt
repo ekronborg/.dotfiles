@@ -91,7 +91,7 @@ podman
 polkit
 polybar
 pop-gtk-theme
-protonmail-bridge-bin
+protonmail-bridge
 python-gobject
 redshift
 reflector
