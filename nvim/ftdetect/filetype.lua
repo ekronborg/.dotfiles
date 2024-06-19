@@ -8,6 +8,7 @@ vim.filetype.add({
     pattern = { -- https://neovim.io/doc/user/luaref.html#lua-patterns
         [".*/meta%-.*/.*%.service"] = "systemd",
         [".*/meta%-.*/.*%.inc"] = "bitbake",
+        [".*/recipes%-.*/.*%.inc"] = "bitbake",
         [".*/conf/.*%.conf"] = "bitbake",
         [".*/meta%-.*/documentation/.*%.inc"] = "rst",
         [".*/recipes%-images/.*%.config"] = "conf",
