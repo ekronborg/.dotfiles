@@ -74,7 +74,11 @@ _comp_options+=(globdots)
 autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:*' formats " (%b)"
-PROMPT='%B%F{#ebddb2}%~%f%F{#928374}${vcs_info_msg_0_}%f %F{#8ec07c}➜%f%b '
+
+_is_sdk() {
+    [[ -n "${OECORE_SDK_VERSION}" ]] && echo "[SDK] "
+}
+PROMPT='%B%F{#fb4934}$(_is_sdk)%f%F{#ebddb2}%~%f%F{#928374}${vcs_info_msg_0_}%f %F{#8ec07c}➜%f%b '
 
 # zsh-syntax-highlighting must be sourced last
 source $HOME/.config/zsh/vim-mode.zsh
