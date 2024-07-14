@@ -57,7 +57,6 @@ export BB_ENV_PASSTHROUGH_ADDITIONS="\
     PARALLEL_MAKE \
     ACCEPT_FSL_EULA \
     DL_DIR \
-    BB_GENERATE_MIRROR_TARBALLS \
     SSTATE_DIR \
     SSTATE_MIRRORS \
     PERSISTENT_DIR \
@@ -66,7 +65,6 @@ export BB_NUMBER_THREADS="$(($(nproc) - 1))"
 export PARALLEL_MAKE="-j $(($(nproc) - 1))"
 export ACCEPT_FSL_EULA="1"
 export DL_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/yocto/downloads"
-export BB_GENERATE_MIRROR_TARBALLS="1"
 export SSTATE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/yocto/sstate"
 # export SSTATE_MIRRORS="<insert sstate mirror here>"
 export PERSISTENT_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/yocto/persistent"
