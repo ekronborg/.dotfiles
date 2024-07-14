@@ -11,6 +11,7 @@ return {
             rst = { "rstcheck" },
             vim = { "vint" },
             yaml = { "yamllint" },
+            bash = { "shellcheck" },
         }
 
         local flake8 = require("lint").linters.flake8

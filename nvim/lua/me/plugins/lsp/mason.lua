@@ -41,6 +41,7 @@ return {
             "pyright", -- ruff_lsp also exists
             "rstcheck",
             "rust-analyzer",
+            "shellcheck",
             "shfmt",
             "stylua",
             "vint",
