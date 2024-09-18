@@ -26,6 +26,11 @@ return {
             experimental = {
                 ghost_text = true,
             },
+            -- TODO: can you feel a difference?
+            performance = {
+                debounce = 0,
+                throttle = 0,
+            },
             mapping = cmp.mapping.preset.insert({
                 -- ConfirmBehavior.Replace: replaces adjacent text with the selected item
                 -- ConfirmBehavior.Insert: inserts the selected item and moves adjacent text to the right (default)
