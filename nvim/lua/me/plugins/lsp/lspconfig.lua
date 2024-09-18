@@ -48,7 +48,6 @@ return {
         -- Use a loop to conveniently call "setup" on multiple servers
         local servers = {
             "bashls",
-            "bitbake_ls",
             "clangd",
             "pyright", -- ruff_lsp also exists
             "rust_analyzer",
@@ -70,7 +69,7 @@ return {
             })
         end
 
-        -- TODO: test this more
+        -- Prefer Tree-sitter syntax highlighting instead of LSP semantic highlighting
         lspconfig["bitbake_ls"].setup({
             on_attach = function(client)
                 -- https://github.com/NvChad/NvChad/issues/1907
