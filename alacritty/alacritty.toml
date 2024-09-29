@@ -159,7 +159,7 @@ TERM = "alacritty"
 
 [font]
 builtin_box_drawing = true
-size = 10.0
+size = 11.0
 
 [font.bold]
 family = "Mononoki Nerd Font"

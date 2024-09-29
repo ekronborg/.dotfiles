@@ -1,0 +1,7 @@
+daemonize
+image=~/.config/swaylock/rickandmorty.png
+# The last two characters control transparency, where '00' is transparent and 'ff' is opaque.
+color=000000ff
+scaling=center
+indicator-caps-lock
+font=mononoki
