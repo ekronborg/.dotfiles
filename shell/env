@@ -51,6 +51,13 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 export LIBVA_DRIVER_NAME=nvidia
 export NVD_BACKEND=direct
 
+# Nvidia Wayland
+export GBM_BACKEND="nvidia-drm"
+export __GLX_VENDOR_LIBRARY_NAME="nvidia"
+# export WLR_NO_HARDWARE_CURSORS="1"
+# export WLR_RENDERER="vulkan"
+# export MOZ_ENABLE_WAYLAND="1"
+
 # Yocto stuff
 export BB_ENV_PASSTHROUGH_ADDITIONS="\
     BB_NUMBER_THREADS \
