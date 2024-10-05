@@ -31,8 +31,11 @@ super + shift + x
     $HOME/.dotfiles/i3/lock.sh
 
 # close
-super + shift + c
+super + shift + q
     bspc node -c
+
+super + shift + c
+    notify-send "Use super + shift + q instead"
 
 # alternate between the tiled and monocle layout
 super + m
