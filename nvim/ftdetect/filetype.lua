@@ -12,5 +12,6 @@ vim.filetype.add({
         [".*/conf/.*%.conf"] = "bitbake",
         [".*/meta%-.*/documentation/.*%.inc"] = "rst",
         [".*/recipes%-images/.*%.config"] = "conf",
+        [".*/waybar/config"] = "jsonc",
     },
 })
