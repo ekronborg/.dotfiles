@@ -1,3 +1,4 @@
+// TIP: use rofi -dump-theme to see the actual values being used
 configuration {
     font:               "Mononoki Nerd Font 11";
     show-icons:          true;
@@ -42,6 +43,7 @@ element {
 element-text {
     background-color: inherit;
     text-color:       inherit;
+    highlight: #fb4934;
 }
 element.normal.normal {
     background-color: @bg;
@@ -115,9 +117,9 @@ textbox-prompt-colon {
 }
 message {
     border:       2px 0px 0px ;
-    border-color: @red;
+    border-color: @red-bright;
     padding:      1px ;
 }
 textbox {
-    text-color: @red;
+    text-color: @red-bright;
 }
