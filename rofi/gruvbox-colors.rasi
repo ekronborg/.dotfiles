@@ -1,20 +1,19 @@
 * {
-     bg:       #282828;
-     fg:       #ebdbb2;
-     gray:     #a89984;
-     gray2:    #928374;
-     red:      #cc241d;
-     red2:     #fb4934;
-     green:    #98971a;
-     green2:   #b8bb26;
-     yellow:   #d79921;
-     yellow2:  #fabd2f;
-     blue:     #458588;
-     blue2:    #83a598;
-     purple:   #b16286;
-     purple2:  #d3869b;
-     aqua:     #689d68;
-     aqua2:    #8ec07c;
-     orange:   #d65d02;
-     orange2:  #fe8019;
+     bg:              #282828;
+     fg:              #ebdbb2;
+     gray:            #a89984;
+     red-normal:      #cc241d;
+     green-normal:    #98971a;
+     yellow-normal:   #d79921;
+     blue-normal:     #458588;
+     purple-normal:   #b16286;
+     aqua-normal:     #689d68;
+     orange-normal:   #d65d02;
+     red-bright:      #fb4934;
+     green-bright:    #b8bb26;
+     yellow-bright:   #fabd2f;
+     blue-bright:     #83a598;
+     purple-bright:   #d3869b;
+     aqua-bright:     #8ec07c;
+     orange-bright:   #fe8019;
 }
