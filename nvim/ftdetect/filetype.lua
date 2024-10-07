@@ -13,5 +13,6 @@ vim.filetype.add({
         [".*/meta%-.*/documentation/.*%.inc"] = "rst",
         [".*/recipes%-images/.*%.config"] = "conf",
         [".*/waybar/config"] = "jsonc",
+        [".*/.gitlab%-ci%.ya?ml"] = "yaml.gitlab",
     },
 })
