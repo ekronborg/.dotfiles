@@ -57,7 +57,12 @@ return {
             },
         },
 
-        indent = { enable = true },
+        indent = {
+            enable = true,
+            disable = {
+                "yaml.gitlab",
+            },
+        },
 
         textobjects = {
             select = {
