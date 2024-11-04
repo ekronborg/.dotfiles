@@ -3,6 +3,7 @@ alsa-plugins
 arc-icon-theme
 autoconf
 automake
+autotiling
 base
 base-devel
 bat
@@ -16,6 +17,7 @@ cpio
 ctags
 debugedit
 discord
+dnsmasq
 dosfstools
 dunst
 element-desktop
@@ -30,6 +32,7 @@ firefox
 flex
 fzf
 gamemode
+gammastep
 gawk
 gcc
 gdb
@@ -37,6 +40,7 @@ gettext
 git
 gnome-keyring
 grep
+grim
 groff
 gst-plugin-pipewire
 gst-plugins-ugly
@@ -45,6 +49,7 @@ gzip
 htop
 intel-ucode
 iptables-nft
+kanshi
 lesspipe
 lib32-alsa-lib
 lib32-alsa-plugins
@@ -76,7 +81,9 @@ libtool
 libva-nvidia-driver
 linux
 linux-firmware
+linux-headers
 linux-lts
+linux-lts-headers
 lsof
 luarocks
 lutris
@@ -93,8 +100,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 npm
-nvidia
-nvidia-lts
+nvidia-open-dkms
 nvidia-settings
 nvidia-utils
 obsidian
@@ -105,6 +111,7 @@ pacman
 pacman-contrib
 papirus-icon-theme
 paru
+paru-debug
 patch
 pavucontrol
 perl-authen-sasl
@@ -123,16 +130,24 @@ polybar
 pop-gtk-theme
 protonmail-bridge
 python-gobject
+python-pip
 redshift
 reflector
 ripgrep
-rofi
+rofi-wayland
 rust
 rust-src
 sed
+slurp
 sof-firmware
 strace
+stremio
 sudo
+swappy
+sway
+swaybg
+swayidle
+swaylock
 sxhkd
 texinfo
 thunar
@@ -152,9 +167,11 @@ ttf-nerd-fonts-symbols-mono
 ttf-ubuntu-mono-nerd
 unzip
 urlscan
+waybar
 wget
 which
 wine-staging
+wl-clipboard
 xdg-utils
 xf86-video-vesa
 xorg-bdftopcf
