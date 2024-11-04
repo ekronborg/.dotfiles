@@ -61,5 +61,5 @@ feh --bg-scale --no-fehbg $HOME/Pictures/wallpapers/wall.png
 setxkbmap -option grp:win_space_toggle us,dk
 
 # Start programs
-redshift-gtk -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}') &
+redshift-gtk -l 56.18:10.20 &
 exec bspwm
