@@ -19,14 +19,14 @@ return {
         {
             "<leader>wp",
             function()
-                require("telescope.builtin").find_files({ cwd = "~/notes", prompt_title = "Search notes" })
+                require("telescope.builtin").find_files({ cwd = "~/notes", prompt_title = "Find notes" })
             end,
         },
 
         {
             "<leader>wf",
             function()
-                require("telescope.builtin").live_grep({ cwd = "~/notes", prompt_title = "Search notes" })
+                require("telescope.builtin").live_grep({ cwd = "~/notes", prompt_title = "Grep notes" })
             end,
         },
 
