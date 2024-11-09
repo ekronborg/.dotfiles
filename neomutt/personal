@@ -1,6 +1,8 @@
 ## Receive options
 source "gpg -dq ~/.config/neomutt/personal_pass.gpg |"
 set imap_user=user@gmail.com
+# Might be needed with Proton Mail Bridge, see https://git-send-email.io/
+set ssl_verify_host = no
 set imap_pass=$my_personal_pass
 set folder = imaps://user@imap.gmail.com/
 set spoolfile = +INBOX
