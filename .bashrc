@@ -73,8 +73,17 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+# Check if running in a container
+check_container_env() {
+    if [[ -f /.dockerenv ]]; then
+        echo "(DOCKER) "
+    elif [[ -f /run/.containerenv ]]; then
+        echo "(PODMAN) "
+    fi
+}
+
 # Set PS1 prompt (https://unix.stackexchange.com/questions/140610/using-variables-to-store-terminal-color-codes-for-ps1)
-PS1="${RESET}[\u@\h ${CYAN}\w${BLUE}\$(parse_git_branch)${RESET}]\$ "
+PS1="[${RED}$(check_container_env)${RESET}\u@\h ${CYAN}\w${BLUE}\$(parse_git_branch)${RESET}]\$ "
 
 # Always use git diff
 source $HOME/.config/shell/functions/diff
