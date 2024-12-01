@@ -41,3 +41,7 @@
 [mergetool]
     prompt = false
     keepBackup = false
+[tag]
+    sort = version:refname
+[versionsort]
+    suffix = -rc
