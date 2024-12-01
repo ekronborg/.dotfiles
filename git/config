@@ -45,3 +45,5 @@
     sort = version:refname
 [versionsort]
     suffix = -rc
+[sendemail]
+    confirm = always
