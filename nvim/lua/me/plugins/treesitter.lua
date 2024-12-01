@@ -26,6 +26,7 @@ return {
             "perl",
             "python",
             "query",
+            "rasi",
             "regex",
             "rst",
             "rust",
