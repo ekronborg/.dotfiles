@@ -31,25 +31,50 @@ set sidebar_short_path
 set sidebar_folder_indent
 set mail_check_stats
 set sidebar_format = "%B %* [%?N?%N / ?%S]"
-bind index,pager \CK sidebar-prev
-bind index,pager \CJ sidebar-next
-bind index,pager \CE sidebar-open
-bind index,pager B sidebar-toggle-visible
 
-## Vim-like keybindings
+## keybindings
+# See the "PATTERNS" section in 'man neomuttrc'.
+# macro index A "<tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
+
+bind index "^" imap-fetch-mail
+bind index,pager \Ce sidebar-open
+bind index,pager B sidebar-toggle-visible
+bind index,pager R group-reply
+# "$" = save changes to mailbox
+
+## Vi(m) keybindings, see also /usr/share/neomutt/vim-keys/vim-keys.rc
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+
 bind index j next-entry
 bind index k previous-entry
+
 bind pager j next-line
 bind pager k previous-line
-bind attach,index,pager \CD next-page
-bind attach,index,pager \CU previous-page
-bind pager g top
+
+bind attach,index,pager \Cd half-down
+bind attach,index,pager \Cu half-up
+
+bind pager g noop
+bind pager gg top
 bind pager G bottom
-bind attach,index g first-entry
+
+bind attach,index g noop
+bind attach,index gg first-entry
 bind attach,index G last-entry
+
 bind index / search
-bind index "^" imap-fetch-mail
-bind index,pager R group-reply
+# To clear the current limit, see limit to "all"
+bind index \Cf limit
+
+bind index,pager d noop
+bind index,pager dd delete-message
+
+bind browser,pager,index N search-opposite
+
+bind index za collapse-thread
+bind index zA collapse-all # Missing :folddisable/foldenable
 
 ## Multiple accounts
 # - https://wiki.archlinux.org/title/Mutt#Passwords_management
