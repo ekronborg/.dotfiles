@@ -3,7 +3,6 @@
     email = <email>
 [core]
     abbrev = 12
-    pager = less -FRX
     commitGraph = true
 [alias]
     ; Accepted colors can be given as names, numbers between 0 and 255 or 24-bit RGB valuas as hex, e.g., #8ec07c, if your
