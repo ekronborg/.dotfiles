@@ -9,6 +9,8 @@
     ; terminal supports it. See the 'color' seciton in man git-config for more information.
     lg = log --graph --pretty=format:'%C(red)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit
     ; lg = log --graph --pretty=format:'%C(bold red)%h%Creset -%C(auto)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lgf = log --follow --pretty=format:'%C(red)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit
+    lgt = log --no-walk --tags --pretty=format:'%C(red)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(blue)<%an>%Creset'
     br = branch
     ci = commit
     cp = cherry-pick
