@@ -23,5 +23,4 @@ vim.opt.ruler = false
 vim.opt.number = true
 vim.opt.signcolumn = "number"
 vim.opt.cursorline = true
-vim.opt.grepprg = "rg --vimgrep"
 -- vim.opt.tags = "./tags;" -- Neovim sets "./tags;,tags" by default
