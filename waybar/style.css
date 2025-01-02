@@ -1,0 +1,99 @@
+@import "gruvbox.css";
+
+/* Use the 'Propo' font variant to ensure that icons are scaled equally */
+/* https://github.com/ryanoasis/nerd-fonts/discussions/1103 */
+* {
+    border: none;
+    /* border-radius: 0; */
+    font-family: Mononoki Nerd Font Propo;
+    font-size: 14px;
+    min-height: 0;
+}
+
+tooltip {
+    background-color: @bg;
+    border: 2px solid @blue;
+}
+
+tooltip label {
+    color: @fg;
+}
+
+window#waybar {
+    background-color: @bg;
+    color: @fg;
+    /* border-bottom: 2px solid @fg; */
+    /* border-bottom: 2px solid @gray; */
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: @bg;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#workspaces button {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 6px;
+    /* border-bottom: 2px solid @fg; */
+    /* border-bottom: 2px solid @gray; */
+}
+
+#workspaces button.focused {
+    background-color: @fg;
+    color: @bg;
+}
+
+#mode {
+    background-color: @orange;
+    color: @fg;
+}
+
+#mode,
+#custom-arch-updates,
+#network,
+#pulseaudio,
+#wireplumber,
+#bluetooth,
+#disk,
+#memory,
+#cpu,
+#custom-temperature,
+#battery,
+#language,
+#clock,
+#tray {
+    padding: 4px 6px;
+    /* border-right: 1px solid @bg4; */
+    /* border: 1px solid @fg; */
+    /* margin: 0px 10px 0px 0px; */
+    /* border-radius: 3; */
+}
+
+#mpris {
+    /* border: none; */
+    margin: 0px 0px 0px 10px;
+}
+
+
+#battery.warning {
+    color: @orange;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#battery.good {
+    color: @green;
+}
+
+/* #clock { */
+/*     margin: 0px 0px 0px 0px; */
+/* } */

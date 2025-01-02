@@ -1,0 +1,186 @@
+{
+    "layer": "top",
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "mpris"
+    ],
+
+    "modules-center": ["sway/window"],
+
+    "modules-right": [
+        "custom/arch-updates",
+        "network",
+        "pulseaudio#microphone",
+        "wireplumber",
+        "bluetooth",
+        "disk",
+        "memory",
+        "cpu",
+        "custom/temperature",
+        "battery",
+        "sway/language",
+        "clock",
+        "tray"
+    ],
+
+    // TODO: can max-length be dynamic based on monitor size?
+    "sway/window": {
+        "max-length": 70
+    },
+
+    // left click   = play/pause
+    // right click  = next track
+    // middle click = previous track
+    "mpris": {
+        //"interval": 1,
+        //"tooltip": false,
+        "max-length": 70,
+        "format": "{player_icon} <b>{player}:</b> {artist} - {title}",
+        "format-paused": "{status_icon} <b>{player}:</b> {artist} - {title}",
+        "player-icons": {
+            "default": "",
+            "mpv": " ",
+            "spotify": " ",
+        },
+        "status-icons": {
+            "paused": ""
+        }
+        // "ignored-players": ["firefox"]
+    },
+
+    "custom/arch-updates": {
+        "interval": 900,
+        "tooltip": false,
+        "exec-on-event": false,
+        "exec": "~/.config/waybar/updates-pacman-aurhelper.sh --check",
+        "on-click": "~/.config/waybar/updates-pacman-aurhelper.sh --notify",
+        "format": " {}"
+        //"format": " {}"
+        //"format": " {}"
+    },
+
+    "network": {
+        "interval": 1,
+        "format-wifi": " {ifname}",
+        "format-ethernet": "󰈀 {ifname}",
+        "tooltip-format-wifi": "SSID:\t{essid}\nIP:\t{ipaddr}/{cidr}\nGW:\t{gwaddr}\nSignal:\t{signalStrength}%\nFreq:\t{frequency} GHz\nUp:\t{bandwidthUpBits}\nDown:\t{bandwidthDownBits}",
+        "tooltip-format-ethernet": "IP:\t{ipaddr}/{cidr}\nGW:\t{gwaddr}\nUp:\t{bandwidthUpBits}\nDown:\t{bandwidthDownBits}"
+    },
+
+    // The wireplumber module does not support audio input, that is, source or microphone.
+    // See  https://github.com/Alexays/Waybar/issues/3092
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source-muted": "",
+        "format-source": " {volume}%",
+        "scroll-step": 3,
+        "on-click-right": "pavucontrol",
+        "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 3%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 3%-"
+    },
+
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "scroll-step": 3,
+        "on-click-right": "pavucontrol",
+        "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+        "format-icons": ["", "", ""]
+    },
+
+    "bluetooth": {
+        "interval": 5,
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "tooltip-format": "Controller: {controller_alias} ({controller_address})\n{num_connections} devices connected",
+        "tooltip-format-connected": "Controller: {controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "bluetoothctl power on",
+        "on-click-right": "bluetoothctl power off"
+    },
+
+    "disk": {
+        "interval": 30,
+        "unit": "GiB",
+        "path": "/",
+        "tooltip-format": "{specific_used:0.0f}/{specific_total:0.0f} GiB used",
+        "format": "󰋊 {percentage_used}%"
+    },
+
+    "memory": {
+        "interval": 1,
+        "format": " {percentage}%",
+        "tooltip-format": "{used:0.1f}/{total:0.1f} GiB used\n{swapPercentage}% swap used"
+        //"tooltip-format": "{used:0.1f}/{total:0.1f} GiB used\n{swapUsed:0.1f}/{swapTotal:0.1f} GiB ({swapPercentage}%) swap used"
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%"
+    },
+
+    "custom/temperature": {
+        "interval": 1,
+        "tooltip": false,
+        "exec": "sensors -u coretemp-isa-0000 | grep -A 4 'Package id 0' | grep 'temp1_input' | awk '{print $2}' | cut -d. -f1",
+        "format-icons": "°C",
+        "format": " {}{icon}"
+    },
+
+    "battery": {
+        "interval": 30,
+        "states": {
+            //"good": 95,
+            "warning": 20,
+            "critical": 10
+        },
+        // Possible formats are: Unknown, Charging, Discharging, Not Charging and Full
+        // See drivers/power/supply/power_supply_sysfs.c in Linux.
+        "tooltip-format": "Power draw: {power:0.1f} W\n{timeTo}",
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+
+    "sway/language": {
+        "format": " {short}",
+        "tooltip": false,
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": " {:%H.%M, %a %b %d}",
+        "format-alt": " {:%H.%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "locale": "en_DK.UTF-8",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#83a598'><b>{}</b></span>",
+                "days": "<span color='#ebdbb2'><b>{}</b></span>",
+                "weeks": "<span color='#8ec07c'><b>W{}</b></span>",
+                "weekdays": "<span color='#fabd2f'><b>{}</b></span>",
+                "today": "<span color='#fb4934'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    }
+
+}
