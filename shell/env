@@ -51,6 +51,10 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 export LIBVA_DRIVER_NAME=nvidia
 export NVD_BACKEND=direct
 
+# Nvidia Wayland, see https://wiki.archlinux.org/title/Wayland#Requirements
+export GBM_BACKEND="nvidia-drm"
+export __GLX_VENDOR_LIBRARY_NAME="nvidia"
+
 # Yocto stuff
 export BB_ENV_PASSTHROUGH_ADDITIONS="\
     BB_NUMBER_THREADS \
