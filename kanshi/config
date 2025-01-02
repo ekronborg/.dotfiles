@@ -1,0 +1,19 @@
+profile laptop {
+    output "Chimei Innolux Corporation 0x14E7 Unknown" enable mode 1920x1080 position 0,0
+}
+
+profile work {
+    output "Dell Inc. DELL U2722DE G896GH3" mode 2560x1440 position 0,0
+    output "Chimei Innolux Corporation 0x14E7 Unknown" disable
+    exec swaymsg workspace 1, move workspace to output '"Dell Inc. DELL U2722DE G896GH3"'
+}
+
+profile home {
+    output "LG Electronics 27GL850 909NTRLF6430" mode 2560x1440 position 0,0
+    output "Chimei Innolux Corporation 0x14E7 Unknown" disable
+    exec swaymsg workspace 1, move workspace to output '"LG Electronics 27GL850 909NTRLF6430"'
+}
+
+profile desktop {
+    output "LG Electronics 27GL850 909NTRLF6430" mode 2560x1440 position 0,0
+}
