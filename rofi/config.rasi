@@ -30,7 +30,7 @@ listview {
     columns: 1;
     fixed-height:     0;
     border:           8px 0px 0px;
-    border-color:     @bg;
+    border-color:     transparent;
     background-color: @bg;
     spacing:          8px;
     scrollbar:        false;
