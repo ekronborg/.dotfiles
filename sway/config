@@ -9,8 +9,8 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
-# set $menu fuzzel | xargs swaymsg exec --
-set $menu rofi -modi drun -show drun -config ~/.config/rofi/config.rasi | xargs swaymsg exec --
+set $menu fuzzel | xargs swaymsg exec --
+# set $menu rofi -modi drun -show drun -config ~/.config/rofi/config.rasi | xargs swaymsg exec --
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Output configuration
