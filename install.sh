@@ -24,6 +24,7 @@ DOTDIRS=(
     "newsboat"
     "nvim"
     "polybar"
+    "ripgrep"
     "rofi"
     "shell"
     "swappy"
