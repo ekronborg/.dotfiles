@@ -35,6 +35,7 @@ return {
             "flake8",
             "isort",
             "jsonlint",
+            "language-server-bitbake",
             "lua-language-server",
             "oelint-adv",
             "prettier",
