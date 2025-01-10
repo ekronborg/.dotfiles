@@ -30,6 +30,7 @@ file
 findutils
 firefox
 flex
+fuzzel
 fzf
 gamemode
 gammastep
@@ -222,7 +223,6 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
-xsel
 xterm
 zathura-pdf-poppler
 zip
