@@ -22,6 +22,140 @@ magenta = "#b16286"
 cyan    = "#689d6a"
 white   = "#a89984"
 
+# blue
+[[colors.indexed_colors]]
+color = "#458588"
+index = 66
+
+# aqua
+[[colors.indexed_colors]]
+color = "#689d6a"
+index = 72
+
+# green
+[[colors.indexed_colors]]
+color = "#98971a"
+index = 106
+
+# bright aqua
+[[colors.indexed_colors]]
+color = "#8ec07c"
+index = 108
+
+# bright blue
+[[colors.indexed_colors]]
+color = "#83a598"
+index = 109
+
+# red
+[[colors.indexed_colors]]
+color = "#cc241d"
+index = 124
+
+# purple
+[[colors.indexed_colors]]
+color = "#b16286"
+index = 132
+
+# bright green
+[[colors.indexed_colors]]
+color = "#b8bb26"
+index = 142
+
+# orange
+[[colors.indexed_colors]]
+color = "#d65d0e"
+index = 166
+
+# bright red
+[[colors.indexed_colors]]
+color = "#fb4934"
+index = 167
+
+# yellow
+[[colors.indexed_colors]]
+color = "#d79921"
+index = 172
+
+# bright purple
+[[colors.indexed_colors]]
+color = "#d3869b"
+index = 175
+
+# bright orange
+[[colors.indexed_colors]]
+color = "#fe8019"
+index = 208
+
+# bright yellow
+[[colors.indexed_colors]]
+color = "#fabd2f"
+index = 214
+
+# fg1
+[[colors.indexed_colors]]
+color = "#ebdbb2"
+index = 223
+
+# fg0
+[[colors.indexed_colors]]
+color = "#fbf1c7"
+index = 229
+
+# bg0
+[[colors.indexed_colors]]
+color = "#282828"
+index = 234
+
+# bg
+[[colors.indexed_colors]]
+color = "#282828"
+index = 235
+
+# bg0_s
+[[colors.indexed_colors]]
+color = "#32302f"
+index = 236
+
+# bg1
+[[colors.indexed_colors]]
+color = "#3c3836"
+index = 237
+
+# bg2
+[[colors.indexed_colors]]
+color = "#504945"
+index = 239
+
+# bg3
+[[colors.indexed_colors]]
+color = "#665c54"
+index = 241
+
+[[colors.indexed_colors]]
+color = "#7c6f64"
+index = 243
+
+# gray
+[[colors.indexed_colors]]
+color = "#928374"
+index = 245
+
+# fg4
+[[colors.indexed_colors]]
+color = "#a89984"
+index = 246
+
+# fg3
+[[colors.indexed_colors]]
+color = "#bdae93"
+index = 248
+
+# fg2
+[[colors.indexed_colors]]
+color = "#d5c4a1"
+index = 250
+
 [font]
 builtin_box_drawing = true
 size = 11.0
