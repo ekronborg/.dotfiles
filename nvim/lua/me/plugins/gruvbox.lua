@@ -47,7 +47,12 @@ return {
 
                 -- This makes diff code blocks in Markdown look like they are supposed to, i.e., like they do in a plain
                 -- *.diff file. Specifically, unchanged text is not highlighted in aqua.
-                ["@markup.raw.block.markdown"] = { link = "@markup" },
+                ["@markup.raw.block.markdown"] = { link = "GruvboxFg1" },
+
+                -- If using code blocks inside quotes, the following text is for some reason highlighted
+                -- using markdownCode, which links to GruvboxAqua by default. Linking markdownCode to
+                -- GruvboxFg1 instead fixes this issue and it doesn't seem to introduce any new issues.
+                markdownCode = { link = "GruvboxFg1" },
             },
         })
         vim.opt.termguicolors = true
