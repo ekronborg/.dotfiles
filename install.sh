@@ -19,6 +19,7 @@ DOTDIRS=(
     "bspwm"
     "dunst"
     "fuzzel"
+    "ghostty"
     "kanshi"
     "neomutt"
     "newsboat"

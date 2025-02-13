@@ -1,0 +1,65 @@
+# https://ghostty.org/docs
+# Reload configuration with ctrl+shift+,
+
+font-family = Mononoki Nerd Font
+font-size = 11
+theme = GruvboxDark
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+window-decoration = false
+app-notifications = no-clipboard-copy
+resize-overlay = never
+
+# Fix slow startup, https://ghostty.org/docs/help/gtk-single-instance
+gtk-single-instance = true
+
+# Gruvbox colors with normal and bright colors swapped except for 0 (black)
+# and 8 (gray). If 0 and 8 are also swapped the symlink arrow (->) and other
+# things disappear. Using the bright colors as normal colors ensures consistency
+# with Neovim and other applications.
+palette = 0=#282828
+palette = 1=#fb4934
+palette = 2=#b8bb26
+palette = 3=#fabd2f
+palette = 4=#83a598
+palette = 5=#d3869b
+palette = 6=#8ec07c
+palette = 7=#ebdbb2
+palette = 8=#928374
+palette = 9=#cc241d
+palette = 10=#98971a
+palette = 11=#d79921
+palette = 12=#458588
+palette = 13=#b16286
+palette = 14=#689d6a
+palette = 15=#a89984
+
+# TODO: NeoMutt depends on these. Look into switching to Aerc instead.
+palette = 66=#458588
+palette = 72=#689d6a
+palette = 106=#98971a
+palette = 108=#8ec07c
+palette = 109=#83a598
+palette = 124=#cc241d
+palette = 132=#b16286
+palette = 142=#b8bb26
+palette = 166=#d65d0e
+palette = 167=#fb4934
+palette = 172=#d79921
+palette = 175=#d3869b
+palette = 208=#fe8019
+palette = 214=#fabd2f
+palette = 223=#ebdbb2
+palette = 229=#fbf1c7
+palette = 234=#282828
+palette = 235=#282828
+palette = 236=#32302f
+palette = 237=#3c3836
+palette = 239=#504945
+palette = 241=#665c54
+palette = 243=#7c6f64
+palette = 245=#928374
+palette = 246=#a89984
+palette = 248=#bdae93
+palette = 250=#d5c4a1
