@@ -20,7 +20,10 @@ require("lazy").setup({
         { import = "me.plugins" },
         { import = "me.plugins.lsp" },
     },
-    ui = { border = "rounded" },
+    ui = {
+        border = "rounded",
+        backdrop = 100,
+    },
     change_detection = { notify = false },
     performance = {
         rtp = {
