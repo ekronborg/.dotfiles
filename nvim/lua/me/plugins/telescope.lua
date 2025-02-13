@@ -1,5 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
+    enabled = false,
     keys = {
         -- General
         { "<C-p>", "<cmd>Telescope find_files<cr>", mode = "n" },
