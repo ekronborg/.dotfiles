@@ -17,11 +17,11 @@ err() {
 }
 
 check_updates() {
-    if ! updates_arch=$(checkupdates 2> /dev/null | wc -l); then
+    if ! updates_arch=$(checkupdates 2>/dev/null | wc -l); then
         updates_arch=0
     fi
 
-    if ! updates_aur=$(paru -Qum 2> /dev/null | wc -l); then
+    if ! updates_aur=$(paru -Qum 2>/dev/null | wc -l); then
         updates_aur=0
     fi
 
@@ -31,33 +31,27 @@ check_updates() {
 }
 
 send_notification() {
-    # # Seperate Official and AUR packages in the notification
-    # updates_arch=$(checkupdates 2>/dev/null)
-    # updates_aur=$(pacman -Qm 2>/dev/null)
-    # notify-send "$(echo -e "Official:\n$updates_arch\n\nAUR:\n$updates_aur")"
-
-    # if [ -z "$updates_list" ]; then
     if [ "$(check_updates)" -eq 0 ]; then
-        notify-send --icon=/usr/share/icons/Papirus/32x32/apps/pacman.svg "System is up to date"
+        notify-send --icon=/dev/null "System is up to date"
     else
         updates_list=""
         updates_list+=$(checkupdates 2>/dev/null)'\n'
-        updates_list+=$(paru -Qum 2> /dev/null)
-        notify-send --icon=/usr/share/icons/Papirus/32x32/apps/pacman.svg "$(echo -e "$updates_list")"
+        updates_list+=$(paru -Qum 2>/dev/null)
+        notify-send --icon=/dev/null "$(echo -e "$updates_list")"
     fi
 }
 
 case "$1" in
-    -h|--help)
-        echo "$_usage"
-        ;;
-    -c|--check)
-        check_updates
-        ;;
-    -n|--notify)
-        send_notification
-        ;;
-    *)
-        err "Invalid or missing option: try '$0 --help for more information'"
-        ;;
+-h | --help)
+    echo "$_usage"
+    ;;
+-c | --check)
+    check_updates
+    ;;
+-n | --notify)
+    send_notification
+    ;;
+*)
+    err "Invalid or missing option: try '$0 --help for more information'"
+    ;;
 esac
