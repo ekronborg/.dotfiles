@@ -9,7 +9,7 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/ripgreprc"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export MANPAGER='nvim +Man!'
-export TERMINAL="alacritty"
+export TERMINAL="ghostty"
 export BROWSER="firefox"
 export BAT_THEME="gruvbox-dark"
 
