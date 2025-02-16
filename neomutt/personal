@@ -2,11 +2,9 @@
 # Receive options
 # -------------------------------------------------------------------------------------------------
 source "gpg -dq ~/.config/neomutt/personal_pass.gpg |"
-set imap_user="user@gmail.com"
-# INFO: Might be needed with Proton Mail Bridge, see https://git-send-email.io/
-set ssl_verify_host=no
+set imap_user="emil.kronborg@protonmail.com"
 set imap_pass=$my_personal_pass
-set folder="imaps://user@imap.gmail.com/"
+set folder="imap://localhost:1143/"
 set spool_file=+INBOX
 set postponed=+Drafts
 set record=+Sent
@@ -15,10 +13,9 @@ set trash=+Trash
 # -------------------------------------------------------------------------------------------------
 # Send options
 # -------------------------------------------------------------------------------------------------
-set smtp_url="smtps://user:****@smtp.gmail.com"
-set real_name="User X"
+set smtp_url="smtp://$imap_user:$imap_pass@localhost:1025/"
+set real_name="Emil Kronborg"
 set from=$imap_user
-set hostname="gmail.com"
 set signature="~/.config/neomutt/signature"
 
 # -------------------------------------------------------------------------------------------------
