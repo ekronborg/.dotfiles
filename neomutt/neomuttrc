@@ -1,49 +1,55 @@
-# See https://seniormars.github.io/posts/neomutt/ for some settings
-# See also /etc/neomuttrc for default values
-## General options
-set header_cache = "$XDG_CACHE_HOME/neomutt"
-set message_cachedir = "$XDG_CACHE_HOME/neomutt"
-set certificate_file = "$XDG_CACHE_HOME/neomutt/certificates"
+# -------------------------------------------------------------------------------------------------
+# General options
+# -------------------------------------------------------------------------------------------------
+# NOTE: see https://seniormars.com/posts/neomutt/ for inspiration
+# NOTE: see /etc/neomuttrc for default values
+set header_cache="$XDG_CACHE_HOME/neomutt"
+set message_cachedir="$XDG_CACHE_HOME/neomutt"
+set certificate_file="$XDG_CACHE_HOME/neomutt/certificates"
 set imap_check_subscribed
 unset imap_passive
-set mail_check = 60
-set mbox_type = Maildir
-set fast_reply = yes
-set include = yes
-set mailcap_path = "$XDG_CONFIG_HOME/neomutt/mailcap"
-set implicit_auto_view = yes
-set pager_index_lines = 10
-set pager_context = 3
+set mail_check=60
+set mbox_type=Maildir
+set fast_reply=yes
+set include=yes
+set mailcap_path="$XDG_CONFIG_HOME/neomutt/mailcap"
+set implicit_auto_view=yes
+set pager_index_lines=10
+set pager_context=3
 set pager_stop
 set tilde
 set date_format="!%a, %b %d, %Y at %H:%M %Z"
 set menu_scroll
-set sort = threads
-set sort_aux = reverse-last-date-received
+set sort=threads
+set sort_aux=reverse-last-date-received
 # unignore Message-ID:
 source $XDG_CONFIG_HOME/neomutt/gruvbox-dark.neomuttrc
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
-## Sidebar
+# -------------------------------------------------------------------------------------------------
+# Sidebar
+# -------------------------------------------------------------------------------------------------
 # set sidebar_visible
 set sidebar_short_path
 set sidebar_folder_indent
 set mail_check_stats
-set sidebar_format = "%B %* [%?N?%N / ?%S]"
+set sidebar_format="%B %* [%?N?%N / ?%S]"
 
-## keybindings
-# See the "PATTERNS" section in 'man neomuttrc'.
+# -------------------------------------------------------------------------------------------------
+# Key bindings
+# -------------------------------------------------------------------------------------------------
+# NOTE: see the "PATTERNS" section in 'man neomuttrc'
+# NOTE: press '$' to save changes to mailbox
 # macro index A "<tag-pattern>~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
-
 bind index "^" imap-fetch-mail
 bind index,pager \Ce sidebar-open
 bind index,pager B sidebar-toggle-visible
 bind index,pager R group-reply
-# "$" = save changes to mailbox
 
-## Vi(m) keybindings, see also /usr/share/neomutt/vim-keys/vim-keys.rc
+# NOTE: /usr/share/neomutt/vim-keys/vim-keys.rc
+# NOTE: https://wiki.archlinux.org/title/Mutt#Key_bindings
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 
@@ -65,7 +71,7 @@ bind attach,index gg first-entry
 bind attach,index G last-entry
 
 bind index / search
-# To clear the current limit, see limit to "all"
+# NOTE: to clear the current limit, set limit to "all"
 bind index \Cf limit
 
 bind index,pager d noop
@@ -76,9 +82,11 @@ bind browser,pager,index N search-opposite
 bind index za collapse-thread
 bind index zA collapse-all # Missing :folddisable/foldenable
 
-## Multiple accounts
-# - https://wiki.archlinux.org/title/Mutt#Passwords_management
-# - https://wiki.archlinux.org/title/Mutt#Multiple_accounts
+# -------------------------------------------------------------------------------------------------
+# Multiple accounts
+# -------------------------------------------------------------------------------------------------
+# INFO: https://wiki.archlinux.org/title/Mutt#Passwords_management
+# INFO: https://wiki.archlinux.org/title/Mutt#Multiple_accounts
 source "~/.config/neomutt/personal"
 folder-hook $folder "source ~/.config/neomutt/personal"
 

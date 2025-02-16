@@ -1,21 +1,27 @@
-## Receive options
+# -------------------------------------------------------------------------------------------------
+# Receive options
+# -------------------------------------------------------------------------------------------------
 source "gpg -dq ~/.config/neomutt/personal_pass.gpg |"
-set imap_user=user@gmail.com
-# Might be needed with Proton Mail Bridge, see https://git-send-email.io/
-set ssl_verify_host = no
+set imap_user="user@gmail.com"
+# INFO: Might be needed with Proton Mail Bridge, see https://git-send-email.io/
+set ssl_verify_host=no
 set imap_pass=$my_personal_pass
-set folder = imaps://user@imap.gmail.com/
-set spoolfile = +INBOX
-set postponed = +Drafts
-set record = +Sent
-set trash = +Trash
+set folder="imaps://user@imap.gmail.com/"
+set spool_file=+INBOX
+set postponed=+Drafts
+set record=+Sent
+set trash=+Trash
 
-## Send options
-set smtp_url=smtps://user:****@smtp.gmail.com
-set realname='User X'
+# -------------------------------------------------------------------------------------------------
+# Send options
+# -------------------------------------------------------------------------------------------------
+set smtp_url="smtps://user:****@smtp.gmail.com"
+set real_name="User X"
 set from=$imap_user
 set hostname="gmail.com"
 set signature="~/.config/neomutt/signature"
 
-## Hook -- IMPORTANT!
+# -------------------------------------------------------------------------------------------------
+# Hook -- IMPORTANT!
+# -------------------------------------------------------------------------------------------------
 account-hook $folder "set imap_user=$imap_user imap_pass=$my_personal_pass"
