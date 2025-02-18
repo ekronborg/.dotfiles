@@ -12,6 +12,7 @@ return {
         require("mason").setup({
             ui = {
                 border = "rounded",
+                backdrop = 100,
                 icons = {
                     package_installed = "✓",
                     package_pending = "➜",
