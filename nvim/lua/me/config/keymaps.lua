@@ -33,8 +33,6 @@ vim.keymap.set("n", "]l", "<cmd>lnext<cr>zz")
 -- TODO: explain these
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Make esc work in the integrated terminal emulator
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
