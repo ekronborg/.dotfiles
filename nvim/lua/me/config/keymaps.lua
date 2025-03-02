@@ -30,7 +30,7 @@ vim.keymap.set("n", "]b", "<cmd>bnext<cr>zz")
 vim.keymap.set("n", "[l", "<cmd>lprev<cr>zz")
 vim.keymap.set("n", "]l", "<cmd>lnext<cr>zz")
 
--- TODO: explain these
+-- Delete and paste without affection default registers, see ':h registers'
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
