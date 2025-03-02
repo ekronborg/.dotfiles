@@ -88,7 +88,7 @@ bindsym $mod+Shift+q kill
 
 # Start your launcher
 bindsym $mod+d exec $menu
-bindsym $mod+Tab exec rofi -show window -config ~/.config/rofi/config.rasi
+bindsym $mod+Tab exec ~/.config/sway/show-window.sh
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

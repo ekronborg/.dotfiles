@@ -46,6 +46,7 @@ htop
 imagemagick
 intel-ucode
 iptables-nft
+jq
 kanshi
 lesspipe
 lib32-alsa-lib
@@ -122,12 +123,11 @@ pkgconf
 podman
 polkit
 pop-gtk-theme
-protonmail-bridge
+protonmail-bridge-core
 python-gobject
 python-pip
 reflector
 ripgrep
-rofi-wayland
 rust
 rust-src
 sed
