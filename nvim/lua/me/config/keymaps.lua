@@ -17,8 +17,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Move in long lines
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
+vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
 -- Credits to https://github.com/tpope/vim-unimpaired
 vim.keymap.set("n", "[q", "<cmd>cprev<cr>zz")
