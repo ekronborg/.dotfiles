@@ -23,3 +23,5 @@ set signature="~/.config/neomutt/signature"
 # Hook -- IMPORTANT!
 # -------------------------------------------------------------------------------------------------
 account-hook $folder "set imap_user=$imap_user imap_pass=$my_work_pass"
+
+# vim: filetype=neomuttrc
