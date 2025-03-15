@@ -26,7 +26,7 @@ return {
 
             formatters = {
                 shfmt = {
-                    prepend_args = { "--indent", "4" }, -- use spaces instead of tabs
+                    prepend_args = { "--indent", "4", "--case-indent", "-keep-padding" },
                 },
                 stylua = {
                     prepend_args = { "--indent-type", "Spaces" },
