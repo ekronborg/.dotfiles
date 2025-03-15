@@ -271,6 +271,7 @@ exec gammastep -l 56.18:10.20
 # https://wiki.archlinux.org/title/Sway#Floating_windows
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [app_id="thunar"] floating enable
+for_window [app_id="thunderbird" title="Reminder"] floating enable, move position 75ppt 10ppt
 
 # DO NOT REMOVE THIS
 include /etc/sway/config.d/*
