@@ -20,6 +20,7 @@ set pager_context=3
 set pager_stop
 set tilde
 set date_format="!%a, %b %d, %Y at %H:%M %Z"
+set forward_format="Fwd: %s"
 set menu_scroll
 set sort=threads
 set sort_aux=reverse-last-date-received
