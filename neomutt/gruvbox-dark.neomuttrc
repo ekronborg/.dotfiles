@@ -106,7 +106,7 @@ color   body    green           default         "^[\+]$"
 color   body    red             default         "^[[:space:]]*[\-][^\-]+.*"
 color   body    red             default         "^[\>]*[[:space:]]*[\-][^\-]+.*"
 color   body    red             default         "^[\-]$"
-color   body    brightblue      default         "^@@.*"
-# color   body    color108        default         "^@@.*@@\s*"
+# color   body    brightblue      default         "^@@.*"
+color   body    color108        default         "^@@.*@@\s*"
 
 # vim: filetype=neomuttrc
