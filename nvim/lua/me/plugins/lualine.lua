@@ -3,23 +3,6 @@ return {
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        local function lsp_clients()
-            local bufnr = vim.api.nvim_get_current_buf()
-
-            local clients = vim.lsp.get_clients({ buffer = bufnr })
-            if next(clients) == nil then
-                return ""
-            end
-
-            local tbl = {}
-            for _, client in ipairs(clients) do
-                table.insert(tbl, client.name)
-            end
-
-            -- return " " .. table.concat(tbl, ",")
-            return " " .. table.concat(tbl, ",")
-        end
-
         require("lualine").setup({
             options = {
                 theme = "gruvbox",
@@ -39,7 +22,7 @@ return {
                         "diff",
                         symbols = { added = " ", modified = " ", removed = " " },
                     },
-                    lsp_clients,
+                    "lsp_status",
                     {
                         "diagnostics",
                         symbols = { error = " ", warn = " ", hint = " ", info = " " },
