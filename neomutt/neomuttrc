@@ -14,6 +14,7 @@ set fast_reply=yes
 set include=yes
 set mailcap_path="$XDG_CONFIG_HOME/neomutt/mailcap"
 set implicit_auto_view=yes
+alternative_order text/plain text/html
 set pager_index_lines=10
 set pager_context=3
 set pager_stop
