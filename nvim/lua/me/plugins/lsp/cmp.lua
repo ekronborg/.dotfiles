@@ -8,12 +8,11 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
     },
-
-    config = function()
+    opts = function()
         -- vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-        local luasnip = require("luasnip")
         local cmp = require("cmp")
-        cmp.setup({
+        local luasnip = require("luasnip")
+        return {
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
@@ -39,7 +38,9 @@ return {
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<C-e>"] = cmp.mapping.abort(),
+                -- stylua: ignore start
                 ["<C-Space>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+                -- stylua: ignore end
             }),
             formatting = {
                 format = function(entry, vim_item)
@@ -61,6 +62,6 @@ return {
             }, {
                 { name = "buffer" },
             }),
-        })
+        }
     end,
 }
