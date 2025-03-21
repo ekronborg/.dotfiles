@@ -34,6 +34,7 @@ return {
             "black",
             "clangd",
             "flake8",
+            "gitlab-ci-ls",
             "isort",
             "jsonlint",
             "language-server-bitbake",

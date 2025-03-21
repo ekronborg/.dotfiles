@@ -48,6 +48,7 @@ return {
         local servers = {
             "bashls",
             "clangd",
+            "gitlab_ci_ls",
             "pyright", -- ruff_lsp also exists
             "rust_analyzer",
             -- "dockerls",
