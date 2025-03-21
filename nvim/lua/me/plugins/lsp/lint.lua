@@ -14,11 +14,6 @@ return {
             bash = { "shellcheck" },
         }
 
-        local flake8 = require("lint").linters.flake8
-        flake8.args = {
-            "--line-length 120",
-        }
-
         vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
             callback = function()
                 lint.try_lint()
