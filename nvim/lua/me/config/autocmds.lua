@@ -5,6 +5,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+vim.api.nvim_create_augroup("GitlabYaml", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.gitlab-ci*.{yml,yaml}",
+    callback = function()
+        vim.bo.filetype = "yaml.gitlab"
+    end,
+})
+
 -- -- Built-in terminal emulator. The Git vim-fugitive plugin is messed up with these settings
 -- local group = vim.api.nvim_create_augroup("neovim_terminal", { clear = true })
 -- vim.api.nvim_create_autocmd("TermOpen", {
