@@ -3,16 +3,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
-        {
-            "j-hui/fidget.nvim",
-            opts = {
-                notification = {
-                    window = {
-                        winblend = 0,
-                    },
-                },
-            },
-        },
         "williamboman/mason.nvim",
     },
     config = function()
