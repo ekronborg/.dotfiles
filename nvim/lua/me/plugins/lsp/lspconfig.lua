@@ -51,6 +51,7 @@ return {
             "gitlab_ci_ls",
             "pyright", -- ruff_lsp also exists
             "rust_analyzer",
+            "systemd_ls",
             -- "dockerls",
             -- "marksman",
             -- "texlab",
