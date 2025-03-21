@@ -11,30 +11,28 @@ return {
             mode = { "n", "v" },
         },
     },
-    config = function()
-        require("conform").setup({
-            formatters_by_ft = {
-                markdown = { "prettier" },
-                vimwiki = { "prettier" },
-                json = { "prettier" },
-                yaml = { "prettier" },
-                lua = { "stylua" },
-                sh = { "shfmt" },
-                python = { "isort", "black" }, -- run isort first and then black
-                ["_"] = { "trim_whitespace", "trim_newlines" }, -- fallback if filttype has no formatter
-            },
+    opts = {
+        formatters_by_ft = {
+            markdown = { "prettier" },
+            vimwiki = { "prettier" },
+            json = { "prettier" },
+            yaml = { "prettier" },
+            lua = { "stylua" },
+            sh = { "shfmt" },
+            python = { "isort", "black" }, -- run isort first and then black
+            ["_"] = { "trim_whitespace", "trim_newlines" }, -- fallback if filttype has no formatter
+        },
 
-            formatters = {
-                shfmt = {
-                    prepend_args = { "--indent", "4", "--case-indent", "-keep-padding" },
-                },
-                stylua = {
-                    prepend_args = { "--indent-type", "Spaces" },
-                },
-                prettier = {
-                    prepend_args = { "--print-width", "120", "--prose-wrap", "always" },
-                },
+        formatters = {
+            shfmt = {
+                prepend_args = { "--indent", "4", "--case-indent", "-keep-padding" },
             },
-        })
-    end,
+            stylua = {
+                prepend_args = { "--indent-type", "Spaces" },
+            },
+            prettier = {
+                prepend_args = { "--print-width", "120", "--prose-wrap", "always" },
+            },
+        },
+    },
 }
