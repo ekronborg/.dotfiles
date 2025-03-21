@@ -1,7 +1,15 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = {
+        {
+            "echasnovski/mini.icons",
+            -- https://github.com/nvim-lualine/lualine.nvim/issues/1378
+            init = function()
+                require("mini.icons").mock_nvim_web_devicons()
+            end,
+        },
+    },
     config = function()
         require("lualine").setup({
             options = {
