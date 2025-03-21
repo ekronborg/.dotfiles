@@ -10,8 +10,12 @@ return {
             end,
         },
     },
-    config = function()
-        require("lualine").setup({
+    opts = function()
+        -- See LazyVim commit 13dbe4ad55a4 ("perf(lualine): get rid of lualine's weird lualine_require")
+        local lualine_require = require("lualine_require")
+        lualine_require.require = require
+
+        local opts = {
             options = {
                 theme = "gruvbox",
                 -- component_separators = "",
@@ -43,6 +47,7 @@ return {
                     },
                 },
             },
-        })
+        }
+        return opts
     end,
 }
