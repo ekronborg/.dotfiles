@@ -8,26 +8,17 @@ return {
         "MasonUninstallAll",
         "MasonLog",
     },
-    config = function()
-        require("mason").setup({
-            ui = {
-                border = "rounded",
-                backdrop = 100,
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗",
-                },
+    opts = {
+        ui = {
+            border = "rounded",
+            backdrop = 100,
+            icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗",
             },
-        })
-
-        -- Since mason-lspconfig cannot install linters and formatters, mason-tool-installer can be used instead.
-        -- However, it does not work with lazy loading. Therefore, this hack can be used to install LSP servers,
-        -- linters and formatters with mason-lspconfig instead by using the Mason registry. This comes with the
-        -- side effect of increasing the loading time significantly. The implementation is based on
-        -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39#issuecomment-1985022867
-        -- and the one in LazyVim, but mine is simplified
-        local ensure_installed = {
+        },
+        ensure_installed = {
             "ansible-language-server",
             "ansible-lint",
             "bash-language-server",
@@ -50,11 +41,18 @@ return {
             "systemd-language-server",
             "vint",
             "yamllint",
-        }
-
-        -- Ensure tools are installed
+        },
+    },
+    config = function(_, opts)
+        require("mason").setup(opts)
+        -- Since mason-lspconfig cannot install linters and formatters, mason-tool-installer can be used instead.
+        -- However, it does not work with lazy loading. Therefore, this hack can be used to install LSP servers,
+        -- linters and formatters with mason-lspconfig instead by using the Mason registry. This comes with the
+        -- side effect of increasing the loading time significantly. The implementation is based on
+        -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39#issuecomment-1985022867
+        -- and the one in LazyVim, but mine is simplified
         local registry = require("mason-registry")
-        for _, tool in ipairs(ensure_installed) do
+        for _, tool in ipairs(opts.ensure_installed) do
             local package = registry.get_package(tool)
             if not package:is_installed() then
                 package:install()
