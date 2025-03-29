@@ -20,16 +20,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
--- Credits to https://github.com/tpope/vim-unimpaired
-vim.keymap.set("n", "[q", "<cmd>cprev<cr>zz")
-vim.keymap.set("n", "]q", "<cmd>cnext<cr>zz")
-
-vim.keymap.set("n", "[b", "<cmd>bprev<cr>zz")
-vim.keymap.set("n", "]b", "<cmd>bnext<cr>zz")
-
-vim.keymap.set("n", "[l", "<cmd>lprev<cr>zz")
-vim.keymap.set("n", "]l", "<cmd>lnext<cr>zz")
-
 -- Delete and paste without affection default registers, see ':h registers'
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
