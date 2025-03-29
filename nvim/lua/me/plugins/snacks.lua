@@ -3,6 +3,7 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
+        bigfile = { enabled = true },
         image = { enabled = true },
         notifier = { enabled = true },
         picker = {
