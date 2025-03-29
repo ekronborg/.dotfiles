@@ -6,19 +6,6 @@ return {
         "williamboman/mason.nvim",
     },
     config = function()
-        -- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-
-        -- vim.keymap.set("n", "[d", function()
-        --     vim.diagnostic.goto_prev()
-        --     vim.cmd("normal! zz")
-        -- end)
-        --
-        -- vim.keymap.set("n", "]d", function()
-        --     vim.diagnostic.goto_next()
-        --     vim.cmd("normal! zz")
-        -- end)
         -- Use LspAttach autocommand to only map the following keys
         -- after the language server attaches to the current buffer
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -101,7 +88,8 @@ return {
 
         -- General settings
         vim.diagnostic.config({
-            virtual_text = false,
+            underline = false,
+            virtual_text = { current_line = true },
             signs = {
                 text = {
                     [vim.diagnostic.severity.ERROR] = " ",
@@ -110,9 +98,9 @@ return {
                     [vim.diagnostic.severity.INFO] = " ",
                 },
             },
-            underline = false,
-            update_in_insert = false,
-            severity_sort = false,
+            jump = {
+                float = true,
+            },
         })
     end,
 }
