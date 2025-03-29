@@ -34,6 +34,7 @@ return {
         code = {
             disable_background = {},
             width = "block",
+            border = "thick",
             sign = false,
             -- left_pad = 1,
             right_pad = 1,
