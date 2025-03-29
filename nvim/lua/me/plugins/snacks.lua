@@ -4,6 +4,7 @@ return {
     lazy = false,
     opts = {
         bigfile = { enabled = true },
+        explorer = { enabled = true },
         image = { enabled = true },
         notifier = { enabled = true },
         picker = {
@@ -23,8 +24,10 @@ return {
         },
         -- Some highlight groups are links to 'GruvboxBg2', which is difficult to read.
         -- https://github.com/folke/snacks.nvim?tab=readme-ov-file#-highlight-groups
+        -- https://github.com/ellisonleao/gruvbox.nvim/issues/383
         vim.api.nvim_set_hl(0, "SnacksPickerDir", { link = "Comment" }),
         vim.api.nvim_set_hl(0, "SnacksPickerTotals", { link = "Comment" }),
+        vim.api.nvim_set_hl(0, "SnacksPickerGitStatusUntracked", { link = "Comment" }),
     },
     keys = {
         -- stylua: ignore start
@@ -33,6 +36,8 @@ return {
         { "<C-f>", function() Snacks.picker.grep() end },
         { "<leader>b", function() Snacks.picker.buffers() end },
         { "<leader>sm", function() Snacks.picker.man() end },
+        { "<leader>su", function() Snacks.picker.undo() end },
+        { "<leader>e", function() Snacks.explorer() end },
 
         -- LSP
         { "<leader>d", function() Snacks.picker.diagnostics() end },
