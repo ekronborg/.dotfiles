@@ -20,7 +20,6 @@ return {
             GruvboxPurpleSign = { bg = "none" },
             GruvboxAquaSign = { bg = "none" },
             GruvboxOrangeSign = { bg = "none" },
-            CursorLine = { bg = "none" },
             CursorLineNr = { fg = "#ebdbb2", bg = "none" },
             NormalFloat = { bg = "none" },
 
