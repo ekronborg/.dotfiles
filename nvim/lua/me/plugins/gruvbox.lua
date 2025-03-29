@@ -13,6 +13,7 @@ return {
         },
         overrides = {
             -- Disable background color of signcolumn signs
+            SignColumn = { bg = "none" },
             GruvboxRedSign = { bg = "none" },
             GruvboxGreenSign = { bg = "none" },
             GruvboxYellowSign = { bg = "none" },
