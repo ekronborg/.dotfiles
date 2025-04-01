@@ -62,6 +62,9 @@ return {
             RenderMarkdownH5Bg = { fg = "#1d2021", bg = "#b8bb26", bold = true },
             RenderMarkdownH6Bg = { fg = "#1d2021", bg = "#fb4934", bold = true },
             _InlineCode = { fg = "#b8bb26", bg = "#1d2021" },
+
+            -- Make ghost text stand more out
+            BlinkCmpGhostText = { link = "Comment" },
         },
     },
     config = function(_, opts)
