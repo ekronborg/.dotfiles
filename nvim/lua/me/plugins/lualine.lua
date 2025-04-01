@@ -17,7 +17,6 @@ return {
 
         local opts = {
             options = {
-                theme = "gruvbox",
                 -- component_separators = "",
                 -- section_separators = { left = "", right = "" },
                 component_separators = { left = "|", right = "|" },
