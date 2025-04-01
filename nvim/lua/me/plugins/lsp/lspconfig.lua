@@ -2,7 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     event = "LazyFile",
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
+        "saghen/blink.cmp",
         "williamboman/mason.nvim",
     },
     config = function()
@@ -36,14 +36,12 @@ return {
             -- "yamlls",
         }
 
-        local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            require("cmp_nvim_lsp").default_capabilities()
-        )
-        local lspconfig = require("lspconfig")
+        -- TODO: Can be dropped when migrated to the LSP setup introduced in 0.11 with
+        -- vim.lsp.config(), vim.lsp.enable() and server configurations in ~/.config/nvim/lsp/.
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 
+        local lspconfig = require("lspconfig")
         for _, lsp in ipairs(servers) do
             lspconfig[lsp].setup({
                 -- on_attach = my_custom_on_attach,
