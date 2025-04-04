@@ -13,6 +13,21 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     end,
 })
 
+vim.api.nvim_create_augroup("MarkdownSettings", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+    group = "MarkdownSettings",
+    pattern = "markdown",
+    callback = function()
+        local buftype = vim.api.nvim_get_option_value("buftype", { buf = 0 })
+        if buftype ~= "nofile" then
+            vim.opt_local.spell = true
+            vim.opt_local.spelllang = "en_us"
+            vim.opt_local.textwidth = 120
+            vim.opt_local.colorcolumn = "+1"
+        end
+    end,
+})
+
 -- https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md#-examples
 ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
 local progress = vim.defaulttable()
