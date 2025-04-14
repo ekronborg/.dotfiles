@@ -2,7 +2,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     version = false,
     dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
-    event = { "LazyFile", "VeryLazy" },
+    event = { "VeryLazy", "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
     lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
     init = function(plugin)

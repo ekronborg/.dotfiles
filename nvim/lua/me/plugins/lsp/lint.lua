@@ -1,6 +1,6 @@
 return {
     "mfussenegger/nvim-lint",
-    event = "LazyFile",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
         linters_by_ft = {
             bitbake = { "oelint-adv" },

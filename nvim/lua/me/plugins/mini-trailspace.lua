@@ -5,7 +5,7 @@
 return {
     "echasnovski/mini.trailspace",
     version = false,
-    event = "LazyFile",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         require("mini.trailspace").setup()
         vim.cmd("command! Trim :lua MiniTrailspace.trim()<cr>")
