@@ -4,7 +4,7 @@
 # NOTE: see https://seniormars.com/posts/neomutt/ for inspiration
 # NOTE: see /etc/neomuttrc for default values
 set header_cache="$XDG_CACHE_HOME/neomutt"
-set message_cachedir="$XDG_CACHE_HOME/neomutt"
+set message_cache_dir="$XDG_CACHE_HOME/neomutt"
 set certificate_file="$XDG_CACHE_HOME/neomutt/certificates"
 set imap_check_subscribed
 unset imap_passive
