@@ -13,9 +13,11 @@ return {
                 explorer = { hidden = true },
                 grep = { hidden = true },
             },
-            layout = {
-                layout = {
-                    backdrop = false,
+            layouts = {
+                default = {
+                    layout = {
+                        backdrop = false,
+                    },
                 },
             },
             win = {
