@@ -5,6 +5,7 @@ vim.filetype.add({
         -- Example of a global filetype mapping
         -- service = "systemd", -- *.service files in Yocto repo is not detected as systemd
         rasi = "rasi", -- configuration files for Rofi
+        j2 = "jinja",
     },
     pattern = { -- https://neovim.io/doc/user/luaref.html#lua-patterns
         [".*/meta%-.*/.*%.service"] = "systemd",
