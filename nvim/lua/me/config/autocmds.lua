@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_augroup("GitlabYaml", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    group = "GitlabYaml",
     pattern = "*.gitlab-ci*.{yml,yaml}",
     callback = function()
         vim.bo.filetype = "yaml.gitlab"
