@@ -66,6 +66,7 @@ return {
             additional_vim_regex_highlighting = {
                 "markdown",
                 "bitbake",
+                "vimdoc",
             },
         },
 
