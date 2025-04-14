@@ -25,6 +25,8 @@ return {
             "devicetree",
             "diff",
             "go",
+            "jinja",
+            "jinja_inline",
             "json",
             "jsonc",
             "kconfig",
