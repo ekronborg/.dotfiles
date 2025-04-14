@@ -1,7 +1,7 @@
 return {
     "echasnovski/mini.surround",
     version = false,
-    event = "LazyFile",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
         -- Default 's<suffix>' mappings clashes with 's'.
         mappings = {
