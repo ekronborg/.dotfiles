@@ -9,6 +9,10 @@ return {
         notifier = { enabled = true },
         picker = {
             enabled = true,
+            sources = {
+                explorer = { hidden = true },
+                grep = { hidden = true },
+            },
             layout = {
                 layout = {
                     backdrop = false,
@@ -28,6 +32,7 @@ return {
         vim.api.nvim_set_hl(0, "SnacksPickerDir", { link = "Comment" }),
         vim.api.nvim_set_hl(0, "SnacksPickerTotals", { link = "Comment" }),
         vim.api.nvim_set_hl(0, "SnacksPickerGitStatusUntracked", { link = "Comment" }),
+        vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { link = "None" }),
     },
     keys = {
         -- stylua: ignore start
