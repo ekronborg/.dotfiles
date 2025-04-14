@@ -40,5 +40,6 @@ return {
                 },
             },
         },
+        cmdline = { enabled = false },
     },
 }
