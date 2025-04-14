@@ -2,7 +2,6 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "saghen/blink.cmp",
         "williamboman/mason.nvim",
     },
     config = function()
@@ -21,47 +20,20 @@ return {
             end,
         })
 
-        -- Use a loop to conveniently call "setup" on multiple servers
         local servers = {
+            "ansiblels",
             "bashls",
             "clangd",
             "gitlab_ci_ls",
+            "lua_ls",
             "pyright", -- ruff_lsp also exists
             "rust_analyzer",
             "systemd_ls",
-            -- "dockerls",
-            -- "marksman",
-            -- "texlab",
-            -- "vimls",
-            -- "yamlls",
         }
 
-        -- TODO: Can be dropped when migrated to the LSP setup introduced in 0.11 with
-        -- vim.lsp.config(), vim.lsp.enable() and server configurations in ~/.config/nvim/lsp/.
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
-
-        local lspconfig = require("lspconfig")
-        for _, lsp in ipairs(servers) do
-            lspconfig[lsp].setup({
-                -- on_attach = my_custom_on_attach,
-                capabilities = capabilities,
-            })
-        end
-
-        -- Prefer Tree-sitter syntax highlighting instead of LSP semantic highlighting
-        lspconfig["bitbake_ls"].setup({
-            on_attach = function(client)
-                -- https://github.com/NvChad/NvChad/issues/1907
-                client.server_capabilities.semanticTokensProvider = vim.NIL
-            end,
-        })
-
-        lspconfig["lua_ls"].setup({
-            capabilities = capabilities,
+        vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
-                    -- Turn off "Undefied global `vim`" noise
                     diagnostics = {
                         globals = { "vim", "none" },
                     },
@@ -69,9 +41,7 @@ return {
             },
         })
 
-        -- NOTE: ansiblels requires ft=yaml.ansible
-        lspconfig["ansiblels"].setup({
-            capabilities = capabilities,
+        vim.lsp.config("ansiblels", {
             settings = { -- https://ansible.readthedocs.io/projects/vscode-ansible/#configuration
                 ansible = {
                     ansible = {
@@ -83,6 +53,8 @@ return {
                 },
             },
         })
+
+        vim.lsp.enable(servers)
 
         -- General settings
         vim.diagnostic.config({
@@ -100,5 +72,16 @@ return {
                 float = true,
             },
         })
+
+        -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+        -- capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
+        -- -- Prefer Tree-sitter syntax highlighting instead of LSP semantic highlighting
+        -- local lspconfig = require("lspconfig")
+        -- lspconfig["bitbake_ls"].setup({
+        --     on_attach = function(client)
+        --         -- https://github.com/NvChad/NvChad/issues/1907
+        --         client.server_capabilities.semanticTokensProvider = vim.NIL
+        --     end,
+        -- })
     end,
 }
