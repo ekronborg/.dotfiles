@@ -1,9 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-        "williamboman/mason.nvim",
-    },
     config = function()
         -- Use LspAttach autocommand to only map the following keys
         -- after the language server attaches to the current buffer
@@ -30,6 +27,9 @@ return {
             "rust_analyzer",
             "systemd_ls",
         }
+
+        -- Prepend tools installed by Mason to Neovims $PATH
+        vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
 
         vim.lsp.config("lua_ls", {
             settings = {
