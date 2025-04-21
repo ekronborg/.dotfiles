@@ -2,21 +2,6 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-        -- Use LspAttach autocommand to only map the following keys
-        -- after the language server attaches to the current buffer
-        vim.api.nvim_create_autocmd("LspAttach", {
-            group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-            callback = function(ev)
-                -- Buffer local mappings.
-                -- See `:help vim.lsp.*` for documentation on any of the below functions
-                local opts = { buffer = ev.buf }
-
-                vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-                vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-                vim.keymap.set("n", "<leader>h", vim.lsp.buf.signature_help, opts)
-            end,
-        })
-
         local servers = {
             "ansiblels",
             "bashls",

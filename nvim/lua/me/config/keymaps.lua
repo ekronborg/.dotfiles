@@ -24,6 +24,11 @@ vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+-- LSP (TODO: consider using built-in mappings)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>h", vim.lsp.buf.signature_help)
+
 -- Make esc work in the integrated terminal emulator
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
