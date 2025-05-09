@@ -11,6 +11,6 @@ return {
     end,
 
     keys = {
-        { "<leader>u", "<cmd>UndotreeToggle<cr>", mode = { "n", "v" } },
+        { "<leader>u", "<cmd>UndotreeToggle<cr>" },
     },
 }
