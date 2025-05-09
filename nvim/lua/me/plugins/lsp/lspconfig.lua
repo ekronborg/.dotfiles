@@ -16,29 +16,6 @@ return {
         -- Prepend tools installed by Mason to Neovims $PATH
         vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
 
-        vim.lsp.config("lua_ls", {
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { "vim", "none" },
-                    },
-                },
-            },
-        })
-
-        vim.lsp.config("ansiblels", {
-            settings = { -- https://ansible.readthedocs.io/projects/vscode-ansible/#configuration
-                ansible = {
-                    ansible = {
-                        useFullyQualifiedCollectionNames = false,
-                    },
-                },
-                redhat = {
-                    telemetry = { enabled = false },
-                },
-            },
-        })
-
         vim.lsp.enable(servers)
 
         -- General settings
