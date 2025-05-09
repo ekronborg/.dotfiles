@@ -49,3 +49,5 @@
     suffix = -rc
 [sendemail]
     confirm = always
+[grep]
+    lineNumber = true
