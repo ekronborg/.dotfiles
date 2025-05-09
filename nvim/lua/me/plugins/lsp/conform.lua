@@ -8,7 +8,6 @@ return {
             function()
                 require("conform").format()
             end,
-            mode = { "n", "v" },
         },
     },
     opts = {
@@ -17,6 +16,7 @@ return {
             vimwiki = { "prettier" },
             json = { "prettier" },
             yaml = { "prettier" },
+            ["yaml.ansible"] = { "ansible-lint", timeout_ms = 10000 },
             lua = { "stylua" },
             sh = { "shfmt" },
             python = { "isort", "black" }, -- run isort first and then black
