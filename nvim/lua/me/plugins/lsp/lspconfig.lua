@@ -1,8 +1,8 @@
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
-        local servers = {
+    opts = {
+        servers = {
             "ansiblels",
             "bashls",
             "clangd",
@@ -11,12 +11,13 @@ return {
             "pyright", -- ruff_lsp also exists
             "rust_analyzer",
             "systemd_ls",
-        }
-
+        },
+    },
+    config = function(_, opts)
         -- Prepend tools installed by Mason to Neovims $PATH
         vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
 
-        vim.lsp.enable(servers)
+        vim.lsp.enable(opts.servers)
 
         -- General settings
         vim.diagnostic.config({
