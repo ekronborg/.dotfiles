@@ -71,6 +71,6 @@ return {
         require("gruvbox").setup(opts)
         vim.cmd.colorscheme("gruvbox")
         vim.opt.termguicolors = true
-        -- vim.api.nvim_set_hl(0, "NormalFlot", { guibg = none } )
+        -- vim.api.nvim_set_hl(0, "NormalFloat", { guibg = none } )
     end,
 }
