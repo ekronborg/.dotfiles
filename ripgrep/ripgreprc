@@ -10,7 +10,3 @@
 
 # Because who cares about case!?
 --smart-case
-
-# Search in hidden files and ignore .gitignore, .ignore, ...
---unrestricted
---unrestricted
