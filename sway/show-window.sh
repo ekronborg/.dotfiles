@@ -1,5 +1,13 @@
 #!/bin/bash
 
+err() {
+    # Since this is called from Sway, I want the help text to be displayed where I notice it
+    notify-send --icon com.mitchellh.ghostty "$@"
+    exit 1
+}
+
+command -v jq &>/dev/null || err "Error: jq is required to run ${BASH_SOURCE[0]}"
+
 ICON_THEME="Papirus-Dark"
 ICON_SIZE="32x32"
 
