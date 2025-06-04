@@ -21,6 +21,7 @@ return {
                 -- section_separators = { left = "", right = "" },
                 component_separators = { left = "|", right = "|" },
                 section_separators = { left = "", right = "" },
+                -- always_show_tabline = false,
                 globalstatus = true,
                 disabled_filetypes = { "man" },
                 ignore_focus = { "snacks_picker_input", "snacks_picker_list", "fugitiveblame", "mason", "lazy" },
@@ -44,6 +45,24 @@ return {
                     { "location", padding = { left = 0, right = 1 } },
                 },
             },
+            -- tabline = {
+            --     lualine_a = {
+            --         {
+            --             "buffers",
+            --             mode = 2,
+            --             filetype_names = {
+            --                 snacks_picker_list = "🍿 Explorer",
+            --             },
+            --             buffers_color = {
+            --                 active = { fg = "#282828", bg = "#a89984", gui = "bold" }, -- Customize the colors for the active buffer
+            --                 inactive = { fg = "#a89984", bg = "#3c3836" }, -- Customize the colors for inactive buffers
+            --             },
+            --             symbols = {
+            --                 alternate_file = "", -- Text to show to identify the alternate file
+            --             },
+            --         },
+            --     },
+            -- },
         }
         return opts
     end,
