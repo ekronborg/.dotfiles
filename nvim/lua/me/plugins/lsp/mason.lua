@@ -55,7 +55,7 @@ return {
             local package = registry.get_package(tool)
             if not package:is_installed() then
                 package:install()
-                -- vim.notify(string.format("Installing %s...", package.name))
+                vim.notify(string.format("Installing %s...", package.name))
             end
         end
     end,
