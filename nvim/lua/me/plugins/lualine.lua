@@ -23,6 +23,7 @@ return {
                 section_separators = { left = "", right = "" },
                 globalstatus = true,
                 disabled_filetypes = { "man" },
+                ignore_focus = { "snacks_picker_input", "snacks_picker_list", "fugitiveblame", "mason", "lazy" },
             },
             sections = {
                 lualine_b = {
