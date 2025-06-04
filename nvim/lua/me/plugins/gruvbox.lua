@@ -40,10 +40,6 @@ return {
             bbUnmatched = { link = "none" },
             ["@keyword.operator.bitbake"] = { link = "bbShFuncRegion" },
 
-            -- Match tabline to statusline and Tmux line
-            TabLineFill = { bg = "#3c3836", bold = true },
-            TabLineSel = { fg = "#282828", bg = "#a89984", bold = true },
-
             -- This makes diff code blocks in Markdown look like they are supposed to, i.e., like they do in a plain
             -- *.diff file. Specifically, unchanged text is not highlighted in aqua.
             ["@markup.raw.block.markdown"] = { link = "GruvboxFg1" },
