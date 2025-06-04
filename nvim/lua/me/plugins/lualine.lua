@@ -17,8 +17,6 @@ return {
 
         local opts = {
             options = {
-                -- component_separators = "",
-                -- section_separators = { left = "", right = "" },
                 component_separators = { left = "|", right = "|" },
                 section_separators = { left = "", right = "" },
                 -- always_show_tabline = false,
