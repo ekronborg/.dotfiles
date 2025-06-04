@@ -35,6 +35,7 @@ return {
                 lualine_c = {
                     { "filename", symbols = { readonly = "󰌾" } },
                 },
+                lualine_x = {},
             },
         }
         return opts
