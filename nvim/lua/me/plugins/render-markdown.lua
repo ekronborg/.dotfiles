@@ -47,6 +47,8 @@ return {
             highlight_inline = "_InlineCode",
         },
 
+        completions = { blink = { enabled = true } },
+
         pipe_table = {
             head = "RenderMarkdownTableRow",
         },
