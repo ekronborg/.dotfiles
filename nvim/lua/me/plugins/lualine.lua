@@ -33,7 +33,8 @@ return {
                     { "diagnostics", symbols = { error = " ", warn = " ", hint = " ", info = " " } },
                 },
                 lualine_c = {
-                    { "filename", symbols = { readonly = "󰌾" } },
+                    { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+                    { "filename", path = 1, symbols = { readonly = "󰌾" }, padding = { left = 0, right = 0 } },
                 },
                 lualine_x = {},
             },
