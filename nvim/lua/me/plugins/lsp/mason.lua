@@ -10,7 +10,6 @@ return {
     },
     opts = {
         ui = {
-            border = "rounded",
             backdrop = 100,
             icons = {
                 package_installed = "✓",
