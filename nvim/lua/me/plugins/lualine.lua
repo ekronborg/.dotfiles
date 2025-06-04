@@ -37,6 +37,10 @@ return {
                     { "filename", path = 1, symbols = { readonly = "󰌾" }, padding = { left = 0, right = 0 } },
                 },
                 lualine_x = {},
+                lualine_z = {
+                    { "progress", separator = " ", padding = { left = 1, right = 0 } },
+                    { "location", padding = { left = 0, right = 1 } },
+                },
             },
         }
         return opts
