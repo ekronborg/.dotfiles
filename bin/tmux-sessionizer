@@ -6,7 +6,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$( (echo "$HOME"; find ~/ ~/git ~/customers -mindepth 1 -maxdepth 1 -type d) | fzf --tmux 25%,50%)
+    selected=$( (echo "$HOME"; find ~/ ~/git -mindepth 1 -maxdepth 1 -type d) | fzf --tmux 25%,50%)
 fi
 
 if [[ -z $selected ]]; then
