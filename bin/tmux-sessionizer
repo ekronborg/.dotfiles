@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Taken from https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
+# https://wiki.archlinux.org/title/Tmux#Template_script_to_run_program_in_new_session_or_attach_to_existing_one
 
 if [[ $# -eq 1 ]]; then
     selected=$1
