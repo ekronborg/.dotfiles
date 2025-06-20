@@ -80,6 +80,12 @@ _is_sdk() {
 }
 PROMPT='%B%F{#fb4934}$(_is_sdk)%f%F{#ebddb2}%~%f%F{#928374}${vcs_info_msg_0_}%f %F{#8ec07c}➜%f%b '
 
+# Yocto mega manual shortcut
+function ymm () {
+    typeset -u term="$1"
+    xdg-open "https://docs.yoctoproject.org/singleindex.html#term-${term}"
+}
+
 # zsh-syntax-highlighting must be sourced last
 source $HOME/.config/zsh/vim-mode.zsh
 source $HOME/.config/shell/functions/diff
