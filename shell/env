@@ -67,7 +67,7 @@ export BB_ENV_PASSTHROUGH_ADDITIONS="\
     PERSISTENT_DIR \
 "
 export BB_NUMBER_THREADS="4"
-export BB_LOADFACTOR_MAX="1.5"
+export BB_LOADFACTOR_MAX="1.2"
 export ACCEPT_FSL_EULA="1"
 export DL_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/yocto/downloads"
 export SSTATE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/yocto/sstate"
