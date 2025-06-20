@@ -5,6 +5,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- resize splits if window got resized
+vim.api.nvim_create_augroup("resize_splits", { clear = true })
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+    group = "resize_splits",
+    callback = function()
+        local current_tab = vim.fn.tabpagenr()
+        vim.cmd("tabdo wincmd =")
+        vim.cmd("tabnext " .. current_tab)
+    end,
+})
+
 vim.api.nvim_create_augroup("GitlabYaml", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     group = "GitlabYaml",
