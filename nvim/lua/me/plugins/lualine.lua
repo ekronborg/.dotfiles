@@ -25,9 +25,10 @@ return {
                 ignore_focus = { "snacks_picker_input", "snacks_picker_list", "fugitiveblame", "mason", "lazy" },
             },
             sections = {
+                -- stylua: ignore start
                 lualine_b = {
                     { "branch", separator = "" },
-                    { "diff", symbols = { added = " ", modified = " ", removed = " " } },
+                    { "diff", padding = { left = 0, right = 1 }, symbols = { added = " ", modified = " ", removed = " " } },
                 },
                 lualine_c = {
                     { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
@@ -36,12 +37,13 @@ return {
                 lualine_x = {},
                 lualine_y = {
                     { "lsp_status", separator = "" },
-                    { "diagnostics", symbols = { error = " ", warn = " ", hint = " ", info = " " } },
+                    { "diagnostics", padding = { left = 0, right = 1 }, symbols = { error = " ", warn = " ", hint = " ", info = " " } },
                 },
                 lualine_z = {
                     { "progress", separator = " ", padding = { left = 1, right = 0 } },
                     { "location", padding = { left = 0, right = 1 } },
                 },
+                -- stylua: ignore end
             },
             -- tabline = {
             --     lualine_a = {
