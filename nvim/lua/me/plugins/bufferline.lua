@@ -5,10 +5,6 @@ return {
         options = {
             mode = "tabs",
             numbers = "ordinal",
-            -- stylua: ignore start
-            close_command = function(n) Snacks.bufdelete(n) end,
-            right_mouse_command = function(n) Snacks.bufdelete(n) end,
-            -- stylua: ignore end
             diagnostics = "nvim_lsp",
             diagnostics_indicator = function(_, _, diag)
                 local ret = (diag.error and " " .. diag.error .. " " or "")
