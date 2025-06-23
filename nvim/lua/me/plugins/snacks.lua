@@ -10,7 +10,16 @@ return {
         picker = {
             enabled = true,
             sources = {
-                explorer = { hidden = true },
+                explorer = {
+                    hidden = true,
+                    win = {
+                        list = {
+                            keys = {
+                                ["<C-t>"] = { "edit_tab", mode = { "n", "i" } },
+                            },
+                        },
+                    },
+                },
                 grep = { hidden = true },
             },
             layouts = {
