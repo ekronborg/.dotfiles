@@ -10,7 +10,7 @@ cursor-style-blink = false
 window-decoration = false
 app-notifications = no-clipboard-copy
 resize-overlay = never
-mouse-scroll-multiplier = 0
+mouse-scroll-multiplier = 1
 
 # Fix slow startup, https://ghostty.org/docs/help/gtk-single-instance
 gtk-single-instance = true
