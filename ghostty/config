@@ -3,7 +3,7 @@
 
 font-family = Mononoki Nerd Font
 font-size = 11
-theme = GruvboxDark
+theme = Gruvbox Dark
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = false
