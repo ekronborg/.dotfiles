@@ -268,6 +268,9 @@ exec autotiling
 # Adjust color temperature, see Google Maps for coordinates
 exec gammastep -l 56.18:10.20
 
+# Notification Daemon
+exec swaync
+
 # https://wiki.archlinux.org/title/Sway#Floating_windows
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [app_id="thunar"] floating enable
