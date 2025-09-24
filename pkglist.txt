@@ -9,16 +9,20 @@ bat
 bc
 binutils
 bison
+blueman
+bluez
+bluez-utils
+bolt-launcher
 calibre
 chromium
 debugedit
 discord
 dosfstools
-dunst
 element-desktop
 evince
 eza
 fakeroot
+fastfetch
 fd
 file
 findutils
@@ -44,6 +48,7 @@ imagemagick
 intel-ucode
 iptables-nft
 jq
+jre-openjdk
 kanshi
 lesspipe
 libtool
@@ -60,7 +65,6 @@ m4
 make
 man-db
 man-pages
-neofetch
 neomutt
 neovim
 newsboat
@@ -112,6 +116,7 @@ sway
 swaybg
 swayidle
 swaylock
+swaync
 texinfo
 thunar
 thunderbird
@@ -120,7 +125,6 @@ tldr
 tmux
 tree
 tree-sitter-cli
-ttf-font-awesome
 ttf-mononoki-nerd
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
@@ -130,6 +134,7 @@ waybar
 wget
 which
 wl-clipboard
+woff2-font-awesome
 xdg-utils
 xorg-fonts-encodings
 xorg-server-common
