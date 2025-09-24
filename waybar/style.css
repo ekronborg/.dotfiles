@@ -68,6 +68,7 @@ button:hover {
 #battery,
 #language,
 #clock,
+#custom-notification,
 #tray {
     padding: 4px 6px;
     /* border-right: 1px solid @bg4; */
