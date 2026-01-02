@@ -37,7 +37,7 @@ return {
             "shellcheck",
             "shfmt",
             "stylua",
-            "systemd-language-server",
+            "systemd-lsp",
             "vint",
             "yamllint",
         },

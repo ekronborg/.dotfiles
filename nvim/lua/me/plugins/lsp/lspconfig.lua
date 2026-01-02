@@ -10,7 +10,7 @@ return {
             "lua_ls",
             "pyright", -- ruff_lsp also exists
             "rust_analyzer",
-            "systemd_ls",
+            "systemd_lsp",
         },
     },
     config = function(_, opts)
