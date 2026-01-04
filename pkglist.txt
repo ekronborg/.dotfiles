@@ -135,6 +135,7 @@ wget
 which
 wl-clipboard
 woff2-font-awesome
+xdg-desktop-portal-wlr
 xdg-utils
 xorg-fonts-encodings
 xorg-server-common
