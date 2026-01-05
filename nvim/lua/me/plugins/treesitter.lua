@@ -1,24 +1,16 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    version = false,
-    dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
-    event = { "BufReadPost", "BufNewFile" },
+    -- enabled = false,
+    lazy = false,
     build = ":TSUpdate",
-    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
-    init = function(plugin)
-        -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
-        -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
-        -- no longer trigger the **nvim-treesitter** module to be loaded in time.
-        -- Luckily, the only things that those plugins need are the custom queries, which we make available
-        -- during startup.
-        require("lazy.core.loader").add_to_rtp(plugin)
-        require("nvim-treesitter.query_predicates")
-    end,
+    -- version = false,
+    -- event = { "BufReadPost", "BufNewFile" },
     opts = {
         -- See https://github.com/nvim-treesitter/nvim-treesitter/issues/236 for "comment"
         ensure_installed = {
             "bash",
             "bitbake",
+            "c",
             "comment",
             "cpp",
             "devicetree",
@@ -27,17 +19,22 @@ return {
             "jinja",
             "jinja_inline",
             "json",
-            "jsonc",
             "kconfig",
+            "lua",
             "luadoc",
+            "markdown",
+            "markdown_inline",
             "perl",
             "python",
+            "query",
             "rasi",
             "regex",
             "rst",
             "rust",
             "sql",
             "toml",
+            "vim",
+            "vimdoc",
             "yaml",
             -- "cmake",
             -- "disassembly",
@@ -45,11 +42,6 @@ return {
             -- "meson",
             -- "objdump",
         },
-
-        -- Automatically install missing parsers when entering buffer. Requires tree-sitter CLI to be installed.
-        -- For example, when opening tmux.conf, the tmux module is installed because ft=tmux and tmux is not
-        -- part of ensure_installed.
-        auto_install = false,
 
         -- This basically does ':set syntax=markdown'. Using treesitter, some highlighting is missing, for example,
         -- strike through, bold, and italic.  Without treesitter or polyglot, strike trough links to 'htmlStrike',
@@ -69,46 +61,57 @@ return {
                 "yaml.gitlab",
             },
         },
-
-        textobjects = {
-            select = {
-                enable = true,
-                lookahead = true,
-                keymaps = {
-                    ["af"] = "@function.outer",
-                    ["if"] = "@function.inner",
-                    ["ac"] = "@class.outer",
-                    ["ic"] = "@class.inner",
-                },
-                include_surrounding_whitespace = true,
-            },
-            move = {
-                enable = true,
-                goto_next_start = {
-                    ["]f"] = "@function.outer",
-                    ["]c"] = "@class.outer",
-                },
-                goto_next_end = {
-                    ["]F"] = "@function.outer",
-                    ["]C"] = "@class.outer",
-                },
-                goto_previous_start = {
-                    ["[f"] = "@function.outer",
-                    ["[c"] = "@class.outer",
-                },
-                goto_previous_end = {
-                    ["[F"] = "@function.outer",
-                    ["[C"] = "@class.outer",
-                },
-            },
-        },
     },
 
     config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
-        -- See https://github.com/NvChad/NvChad/issues/1907 and ':h vim.highlight.priorities'.
-        -- Treesitter highlighting has priority 100, so this effectively disables LSP syntax highlighting
-        -- if treesitter highlighting is active.
-        -- vim.highlight.priorities.semantic_tokens = 95
+        require("nvim-treesitter").install(opts.ensure_installed)
+
+        -- https://github.com/MeanderingProgrammer/treesitter-modules.nvim#implementing-yourself
+        vim.api.nvim_create_autocmd("FileType", {
+            callback = function(ev)
+                local buf = ev.buf
+                local filetype = ev.match
+
+                local lang = vim.treesitter.language.get_lang(filetype) or filetype
+                if not vim.treesitter.language.add(lang) then
+                    return
+                end
+
+                pcall(vim.treesitter.start, buf, lang)
+
+                vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+                -- See :h vim.treesitter.start() for syntax aka "additional_vim_regex_highlighting".
+                -- vim.bo[buf].syntax = 'on'
+            end,
+
+            -- config = function(_, opts)
+            --     require("nvim-treesitter").install(opts.ensure_installed)
+            --
+            --     vim.api.nvim_create_autocmd("FileType", {
+            --         callback = function(ev)
+            --             local buf = ev.buf
+            --             local filetype = ev.match
+            --
+            --             if not vim.tbl_contains(opts.ensure_installed, filetype) then
+            --                 return
+            --             end
+            --
+            --             local lang = vim.treesitter.language.get_lang(filetype) or filetype
+            --             pcall(vim.treesitter.start, buf, lang)
+            --
+            --             vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            --         end,
+        })
+
+        -- require("nvim-treesitter").setup(opts)
     end,
+
+    -- config = function(_, opts)
+    --     require("nvim-treesitter.configs").setup(opts)
+    --     -- See https://github.com/NvChad/NvChad/issues/1907 and ':h vim.highlight.priorities'.
+    --     -- Treesitter highlighting has priority 100, so this effectively disables LSP syntax highlighting
+    --     -- if treesitter highlighting is active.
+    --     -- vim.highlight.priorities.semantic_tokens = 95
+    -- end,
 }
